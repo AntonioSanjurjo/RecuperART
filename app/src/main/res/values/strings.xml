@@ -19,4 +19,6 @@
     <string name="instruction_assosiates">Concentra’t en l’objecte i escriu el títol de les cançons o la música que hi connectaries. Si vols tataraleja-les.</string>
     <string name="associate">Associa</string>
     <string name="textHint">Escriu aquí</string>
+    <string name="proveURL">Introdueix URL</string>
+    <string name="httpResponse"> </string>
 </resources>
