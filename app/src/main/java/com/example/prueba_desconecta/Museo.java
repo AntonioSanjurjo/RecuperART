@@ -6,26 +6,26 @@ import javax.xml.namespace.QName;
 
 public class Museo {
 
-    private String nombre
-    private ArrayList<Obra> obras
+    //private String nombre
+    //private ArrayList<Obra> obras
 
 
-    public Museo(String name, ArrayList<Obra> work ){
-        nombre = name
-        obras = work
-    }
+    //public Museo(String name, ArrayList<Obra> work ){
+    //    nombre = name
+    //    obras = work
+    //}
 
-    public ArrayList<Obra> getobralist(){
-        return obras;
+    //public ArrayList<Obra> getobralist(){
+    //    return obras;
 
-    }
+    //}
 
-    public Obra getObra(int i){
-        return Obra[i]
-    }
+    //public Obra getObra(int i){
+      //  return Obra[i]
+    //}
 
-    public String getNombre(){
-        return nombre
-    }
+    //public String getNombre(){
+    //    return nombre
+    //}
 
 }
