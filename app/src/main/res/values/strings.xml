@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Recuperart</string>
+    <string name="app_name">RecuperArt</string>
     <string name="welcome">Benvinguts a</string>
     <string name="colab">Amb la col·laboració de:</string>
     <string name="next">Següent</string>
@@ -21,4 +21,5 @@
     <string name="textHint">Escriu aquí</string>
     <string name="proveURL">Introdueix URL</string>
     <string name="httpResponse"> </string>
+    <string name="scan">Escaneja el codi QR</string>
 </resources>

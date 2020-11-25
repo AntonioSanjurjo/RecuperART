@@ -13,7 +13,7 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="92dp"
         android:text="@string/welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="@color/colorBlack"
@@ -56,6 +56,17 @@
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
+        android:id="@+id/btn_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scan"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entities"
+        app:layout_constraintVertical_bias="0.193" />
+
+    <Button
         android:id="@+id/buttonMain"
         android:layout_width="193dp"
         android:layout_height="66dp"
@@ -67,6 +78,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Resultat"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_scan" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarmain"

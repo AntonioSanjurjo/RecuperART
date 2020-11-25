@@ -23,27 +23,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ScanCodeActivity"></activity>
-        <activity android:name=".QRScanner">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity android:name=".QRScanner"/>
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/network_security_config" />
 
         <activity android:name=".Asocia" />
         <activity android:name=".Concentra" />
-        <activity android:name=".Revisita"></activity>
+        <activity android:name=".Revisita"/>
         <activity android:name=".Escribe" />
         <activity android:name=".Desconecta" />
         <activity android:name=".Crea" />
         <activity android:name=".Descubre" />
         <activity android:name=".Dibuja" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
