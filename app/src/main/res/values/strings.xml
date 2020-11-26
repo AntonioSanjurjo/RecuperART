@@ -22,4 +22,7 @@
     <string name="proveURL">Introdueix URL</string>
     <string name="httpResponse"> </string>
     <string name="scan">Escaneja el codi QR</string>
+    <string name="mood">Choose Your Mood</string>
+    <string name="mood_description">Theme is still able to be change \nunder in the settings</string>
+    <string name="save">Save Now</string>
 </resources>

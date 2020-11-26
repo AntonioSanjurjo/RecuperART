@@ -7,25 +7,29 @@
     tools:context=".Descubre">
 
     <Button
-        android:id="@+id/buttonDiscover"
+        android:id="@+id/buttonDescubreix"
         android:layout_width="193dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="56dp"
-        android:backgroundTint="@color/colorSecundary"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#779BBC"
+        android:fontFamily="@font/mm"
         android:text="@string/next"
+        android:textColor="#FFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbardraw"
+        android:id="@+id/toolbardescubre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#89ACC8"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:fontFamily="@font/mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,22 +52,24 @@
         android:id="@+id/dicover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/discover"
-        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/mm"
+        android:textColor="#779BBC"
+        android:text="DESCOBREIX"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbardescubre" />
 
     <TextView
         android:id="@+id/discoverDesciption"
-        android:layout_width="293dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="371dp"
+        android:layout_height="62dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/ml"
         android:text="@string/discover_description"
-        android:textColor="@color/colorBlack"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dicover" />
 
@@ -71,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:cardBackgroundColor="@color/colorSecundaryDark"
+        app:cardBackgroundColor="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,25 +85,29 @@
 
         <TextView
             android:id="@+id/testdescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/mr"
+            android:padding="5dp"
             android:text="Flat Genesis, 1999"
+            android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorBlack"
-            android:textColorHint="@color/colorBlack"
-            android:textSize="36sp" />
+            android:textColor="#FFFFFF"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="28sp" />
 
     </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/chosen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_width="348dp"
+        android:layout_height="28dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/mm"
         android:text="@string/chosen"
-        android:textColor="@color/colorBlack"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/testmap" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
@@ -13,7 +14,8 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="190dp"
+        android:fontFamily="@font/mm"
         android:text="@string/welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="@color/colorBlack"
@@ -24,9 +26,9 @@
 
     <ImageView
         android:id="@+id/entities"
-        android:layout_width="352dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="260dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +39,7 @@
         android:id="@+id/title"
         android:layout_width="384dp"
         android:layout_height="64dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome"
@@ -45,60 +47,41 @@
 
     <TextView
         android:id="@+id/colab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="347dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="180dp"
+        android:fontFamily="@font/ml"
         android:text="@string/colab"
-        android:textColor="@color/colorBlack"
+        android:textColor="#ACAAAA"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
-    <Button
-        android:id="@+id/btn_scan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/scan"
-        app:layout_constraintBottom_toTopOf="@+id/buttonMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entities"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMain" />
 
     <Button
         android:id="@+id/buttonMain"
-        android:layout_width="193dp"
+        android:layout_width="237dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="56dp"
-        android:backgroundTint="@color/colorSecundary"
-        android:text="@string/next"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#779BBC"
+        android:fontFamily="@font/mm"
+        android:text="COMENCEM!"
+        android:textColor="#FFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/result_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Resultat"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_scan" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarmain"
+        android:id="@+id/toolbarMain"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#779BBC"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:fontFamily="@font/mm"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_baseline_drag_handle_24" />

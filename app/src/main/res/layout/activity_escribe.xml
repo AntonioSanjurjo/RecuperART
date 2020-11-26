@@ -7,24 +7,29 @@
     tools:context=".Escribe">
 
     <Button
-        android:id="@+id/buttonEscribe"
+        android:id="@+id/buttonEscriu"
         android:layout_width="193dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="48dp"
-        android:backgroundTint="@color/colorSecundary"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#779BBC"
+        android:fontFamily="@font/mm"
         android:text="@string/next"
+        android:textColor="#FFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbardescubre"
+        android:id="@+id/toolbarEscriu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#779BBC"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:fontFamily="@font/mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,37 +40,41 @@
         android:id="@+id/write"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="@string/write"
-        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/mm"
+        android:text="ESCRIU"
+        android:textColor="#779BBC"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarEscriu" />
 
     <TextView
         android:id="@+id/writeDescription"
-        android:layout_width="263dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="371dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/ml"
         android:text="@string/write_description"
-        android:textColor="@color/colorBlack"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/write" />
 
     <EditText
         android:id="@+id/writeUser"
-        android:layout_width="266dp"
-        android:layout_height="374dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="324dp"
+        android:layout_height="373dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/textview_border"
-        android:hint="@string/textHint"
+        android:fontFamily="@font/mm"
+        android:hint="Escriu aqui ..."
         android:inputType="textMultiLine"
+        android:padding="10dp"
         android:verticalScrollbarPosition="right"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/writeDescription" />
 

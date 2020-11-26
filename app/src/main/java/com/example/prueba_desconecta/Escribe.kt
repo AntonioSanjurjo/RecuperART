@@ -10,7 +10,7 @@ class Escribe : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_escribe)
 
-        val btn: Button = findViewById(R.id.buttonEscribe)
+        val btn: Button = findViewById(R.id.buttonEscriu)
         btn.setOnClickListener{
             val r = Intent(this, Crea::class.java)
             startActivity(r)

@@ -16,7 +16,7 @@ class Dibuja : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dibuja)
 
-        val btn: Button = findViewById(R.id.buttonDibuja)
+        val btn: Button = findViewById(R.id.buttonDibuixa)
         btn.setOnClickListener{
             val r = Intent(this, Escribe::class.java)
             startActivity(r)

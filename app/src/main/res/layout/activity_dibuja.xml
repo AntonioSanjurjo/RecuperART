@@ -7,25 +7,29 @@
     tools:context=".Dibuja">
 
     <Button
-        android:id="@+id/buttonDibuja"
+        android:id="@+id/buttonDibuixa"
         android:layout_width="193dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="56dp"
-        android:backgroundTint="@color/colorSecundary"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#779BBC"
+        android:fontFamily="@font/mm"
         android:text="@string/next"
+        android:textColor="#FFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbardraw"
+        android:id="@+id/toolbardescubre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#89ACC8"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:fontFamily="@font/mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +54,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:text="@string/draw_description"
-        android:textColor="@color/colorBlack"
+        android:fontFamily="@font/ml"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/draw" />

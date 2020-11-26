@@ -6,18 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".Concentra">
 
-
     <Button
         android:id="@+id/buttonConcentra"
         android:layout_width="193dp"
         android:layout_height="66dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/colorSecundary"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#779BBC"
+        android:fontFamily="@font/mm"
         android:text="@string/next"
+        android:textColor="#FFF"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editTextTextPersonName5"
@@ -28,6 +31,7 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="@string/textHint"
+        android:fontFamily="@font/mm"
         android:inputType=
             "textCapSentences|textAutoCorrect"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,6 +47,7 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="@string/textHint"
+        android:fontFamily="@font/mm"
         android:inputType=
             "textCapSentences|textAutoCorrect"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,11 +56,13 @@
 
     <TextView
         android:id="@+id/concentrate"
-        android:layout_width="141dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/concentrate"
-        android:textColor="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/mm"
+        android:text="CONCENTRA'T"
+        android:textAlignment="center"
+        android:textColor="#779BBC"
         android:textColorHint="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,9 +73,10 @@
         android:id="@+id/toolbardescubre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#779BBC"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:fontFamily="@font/mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +92,7 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="@string/textHint"
+        android:fontFamily="@font/mm"
         android:inputType=
             "textCapSentences|textAutoCorrect"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,6 +108,7 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="@string/textHint"
+        android:fontFamily="@font/mm"
         android:inputType=
             "textCapSentences|textAutoCorrect"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,6 +124,7 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="@string/textHint"
+        android:fontFamily="@font/mm"
         android:inputType=
             "textCapSentences|textAutoCorrect"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,10 +136,12 @@
         android:layout_width="330dp"
         android:layout_height="39dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
         android:text="@string/concentrate_instructions"
         android:textSize="14sp"
+        android:fontFamily="@font/ml"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

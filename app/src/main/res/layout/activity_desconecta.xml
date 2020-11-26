@@ -12,14 +12,17 @@
         android:id="@+id/buttonDesconecta"
         android:layout_width="193dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="56dp"
-        android:backgroundTint="@color/colorSecundary"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#779BBC"
+        android:fontFamily="@font/mm"
         android:text="@string/next"
+        android:textColor="#FFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbardisconnect"
@@ -27,7 +30,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+        android:backgroundTint="#779BBC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

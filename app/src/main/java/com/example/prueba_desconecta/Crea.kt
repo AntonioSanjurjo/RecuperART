@@ -1,5 +1,6 @@
 package com.example.prueba_desconecta
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -18,23 +19,23 @@ class Crea : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crea)
-        val resp : TextView = findViewById(R.id.httpResp)
+        //val resp : TextView = findViewById(R.id.httpResp)
 
-        val btn: Button = findViewById(R.id.buttonCreate)
+        val btn: Button = findViewById(R.id.buttonCrea)
         btn.setOnClickListener{
-            //val r = Intent(this, Revisita::class.java)
-            //startActivity(r)
-            val queue = Volley.newRequestQueue(this)
+            val r = Intent(this, Revisita::class.java)
+            startActivity(r)
+            //val queue = Volley.newRequestQueue(this)
             //val url = "http://pae-ics.etsetb.upc.edu/api"
-            val url = httpProve.text.toString()
+            //val url = httpProve.text.toString()
 
-            val jsonArrayReq = JsonArrayRequest(url,Response.Listener {
-                    response ->
-                       resp.setText("Response is: ".format(response.toString()))
-                     },
-                    Response.ErrorListener { error->
-                      resp.setText(error.message)
-                    })
+            //val jsonArrayReq = JsonArrayRequest(url,Response.Listener {
+            //        response ->
+            //           resp.setText("Response is: ".format(response.toString()))
+            //         },
+            //        Response.ErrorListener { error->
+            //          resp.setText(error.message)
+            //        })
         // Request a string response from the provided URL.
             //val jsonRequest = JsonObjectRequest(Request.Method.GET, url, null,  Response.Listener {
             //    response ->
@@ -44,7 +45,7 @@ class Crea : AppCompatActivity() {
             //      resp.setText(error.message)
             //    })
 
-            queue.add(jsonArrayReq)
+            //queue.add(jsonArrayReq)
 
 
             // Access the RequestQueue through your singleton class.

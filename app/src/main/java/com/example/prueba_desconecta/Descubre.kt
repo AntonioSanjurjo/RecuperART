@@ -10,7 +10,7 @@ class Descubre : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_descubre)
 
-        val btn: Button = findViewById(R.id.buttonDiscover)
+        val btn: Button = findViewById(R.id.buttonDescubreix)
         btn.setOnClickListener{
             val r = Intent(this, Desconecta::class.java)
             startActivity(r)

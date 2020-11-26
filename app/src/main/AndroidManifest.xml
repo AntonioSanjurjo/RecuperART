@@ -28,6 +28,8 @@
             android:name="com.google.android.actions"
             android:resource="@xml/network_security_config" />
 
+        <activity android:name=".Mood" />
+        <activity android:name=".Monsters" />
         <activity android:name=".Asocia" />
         <activity android:name=".Concentra" />
         <activity android:name=".Revisita"/>

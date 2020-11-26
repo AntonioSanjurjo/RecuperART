@@ -18,6 +18,11 @@ class QRScanner : AppCompatActivity() {
         scan_btn = findViewById<View>(R.id.btn_scan) as Button
         scan_btn!!.setOnClickListener(mOnClickListener)
         IntentIntegrator(this).setOrientationLocked(false)
+        val btn: Button = findViewById(R.id.btn_next)
+        btn.setOnClickListener{
+            val r = Intent(this, Mood::class.java)
+            startActivity(r)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
