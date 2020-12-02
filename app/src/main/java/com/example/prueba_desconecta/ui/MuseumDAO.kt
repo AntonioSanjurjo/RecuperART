@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta
+package com.example.prueba_desconecta.ui
 
 //import android.arch.persistence.room.Dao
 //import android.arch.persistence.room.Insert

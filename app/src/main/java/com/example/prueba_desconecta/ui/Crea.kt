@@ -1,18 +1,10 @@
-package com.example.prueba_desconecta
+package com.example.prueba_desconecta.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_crea.*
-import org.json.JSONObject
+import com.example.prueba_desconecta.R
 
 
 class Crea : AppCompatActivity() {
@@ -25,6 +17,7 @@ class Crea : AppCompatActivity() {
         btn.setOnClickListener{
             val r = Intent(this, Revisita::class.java)
             startActivity(r)
+            
             //val queue = Volley.newRequestQueue(this)
             //val url = "http://pae-ics.etsetb.upc.edu/api"
             //val url = httpProve.text.toString()

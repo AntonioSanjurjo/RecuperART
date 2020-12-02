@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta;
+package com.example.prueba_desconecta.ui;
 
 public class Obra {
 

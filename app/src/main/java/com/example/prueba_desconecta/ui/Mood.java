@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta;
+package com.example.prueba_desconecta.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.prueba_desconecta.R;
 
 public class Mood extends AppCompatActivity {
 

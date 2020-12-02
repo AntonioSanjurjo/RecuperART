@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta;
+package com.example.prueba_desconecta.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.prueba_desconecta.R;
 
 public class Monsters extends AppCompatActivity {
     String getThemeku;

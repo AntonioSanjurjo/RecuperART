@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:visibility="visible"
     app:layoutDescription="@xml/activity_inspira_scene"
-    tools:context=".Desconecta">
+    tools:context=".ui.Desconecta">
 
     <Button
         android:id="@+id/buttonDesconecta"

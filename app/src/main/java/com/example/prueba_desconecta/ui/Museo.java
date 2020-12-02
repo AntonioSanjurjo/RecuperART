@@ -1,8 +1,6 @@
-package com.example.prueba_desconecta;
+package com.example.prueba_desconecta.ui;
 
 import java.util.ArrayList;
-
-import javax.xml.namespace.QName;
 
 public class Museo {
 

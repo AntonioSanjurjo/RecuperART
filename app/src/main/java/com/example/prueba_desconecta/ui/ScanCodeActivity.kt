@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta
+package com.example.prueba_desconecta.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
