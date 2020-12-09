@@ -4,14 +4,14 @@ import com.example.prueba_desconecta.ui.Museo;
 
 import java.util.ArrayList;
 
-public class AllMuseoResponse {
+public class AllMuseusResponse {
 
  private boolean error;
  private int status;
  private int version;
  private ArrayList<Museo> Museos;
 
- public  AllMuseoResponse(){
+ public AllMuseusResponse(){
 
  }
 

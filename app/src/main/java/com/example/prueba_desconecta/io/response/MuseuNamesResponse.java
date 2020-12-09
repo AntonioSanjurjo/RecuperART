@@ -2,7 +2,7 @@ package com.example.prueba_desconecta.io.response;
 
 import java.util.ArrayList;
 
-public class MuseosNombresResponse {
+public class MuseuNamesResponse {
   private boolean err;
   private int status;
   private int version;

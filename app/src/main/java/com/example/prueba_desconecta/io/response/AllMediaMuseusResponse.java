@@ -1,10 +1,12 @@
 package com.example.prueba_desconecta.io.response;
 
-public class MuseoContentResponse {
+import java.util.ArrayList;
+
+public class AllMediaMuseusResponse {
     private boolean err;
     private int status;
-    private int version;
-    private String content;
+    private int version ;
+    private ArrayList<String> mediasmuseos;
 
     public boolean isErr() {
         return err;
@@ -30,11 +32,11 @@ public class MuseoContentResponse {
         this.version = version;
     }
 
-    public String getContent() {
-        return content;
+    public ArrayList<String> getMediasmuseos() {
+        return mediasmuseos;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setMediasmuseos(ArrayList<String> mediasmuseos) {
+        this.mediasmuseos = mediasmuseos;
     }
 }

@@ -5,7 +5,7 @@ import com.example.prueba_desconecta.ui.Obra;
 
 import java.util.ArrayList;
 
-public class MuseoResponse {
+public class MuseuResponse {
 
    private boolean err;
    private int status;

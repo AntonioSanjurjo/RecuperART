@@ -1,6 +1,6 @@
 package com.example.prueba_desconecta.io.response;
 
-public class MediaMuseoResponse {
+public class MediaMuseuResponse {
     private boolean err;
     private int Status;
     private int version;
