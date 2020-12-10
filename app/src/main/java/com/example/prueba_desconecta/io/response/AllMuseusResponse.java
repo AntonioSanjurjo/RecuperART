@@ -6,21 +6,21 @@ import java.util.ArrayList;
 
 public class AllMuseusResponse {
 
- private boolean error;
+ private boolean err;
  private int status;
  private int version;
- private ArrayList<Museo> Museos;
+ private ArrayList<Museo> ans;
 
  public AllMuseusResponse(){
 
  }
 
     public boolean isError() {
-        return error;
+        return err;
     }
 
     public void setError(boolean error) {
-        this.error = error;
+        this.err = error;
     }
 
     public int getStatus() {
@@ -40,10 +40,10 @@ public class AllMuseusResponse {
     }
 
     public ArrayList<Museo> getMuseos() {
-        return Museos;
+        return ans;
     }
 
     public void setMuseos(ArrayList<Museo> museos) {
-        Museos = museos;
+        ans = museos;
     }
 }

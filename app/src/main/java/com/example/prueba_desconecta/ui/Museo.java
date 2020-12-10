@@ -1,16 +1,13 @@
 package com.example.prueba_desconecta.ui;
 
-import java.util.ArrayList;
-
 public class Museo {
 
-    private String nombre;
-    //private ArrayList<Obra> obras;
     private int id;
-    private String tipo;
-    private String direccion;
-    private String descripcion;
-
+    private String nom;
+    //private ArrayList<Obra> obras;
+    private String tipus;
+    private String direccio;
+    private String descripcio;
 
     public Museo(){
 
@@ -25,12 +22,12 @@ public class Museo {
      //   return getObras().get(i);
   //  }
 
-    public String getNombre(){
-        return nombre;
+    public String getNom(){
+        return nom;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     //public ArrayList<Obra> getObras() {
@@ -49,27 +46,27 @@ public class Museo {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipus() {
+        return tipus;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipus(String tipus) {
+        this.tipus = tipus;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getDireccio() {
+        return direccio;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDireccio(String direccio) {
+        this.direccio = direccio;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcio() {
+        return descripcio;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
     }
 }

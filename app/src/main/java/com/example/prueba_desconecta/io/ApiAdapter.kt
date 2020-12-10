@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta.io.response
+package com.example.prueba_desconecta.io
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -10,8 +10,7 @@ object ApiAdapter {
     private var API_SERVICE: ApiService? = null// <-- usamos el log level
 
     // Creamos un interceptor y le indicamos el log level a usar
-    val apiService: ApiService?
-        get() {
+    public fun getApiService() : ApiService? {
 
             // Creamos un interceptor y le indicamos el log level a usar
             val logging = HttpLoggingInterceptor()

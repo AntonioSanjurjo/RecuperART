@@ -3,11 +3,16 @@ package com.example.prueba_desconecta.ui
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.io.response.AllMuseusResponse
+import com.example.prueba_desconecta.io.ApiAdapter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-
-class Crea : AppCompatActivity() {
+class Crea : AppCompatActivity(), Callback<AllMuseusResponse> {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crea)
@@ -17,34 +22,25 @@ class Crea : AppCompatActivity() {
         btn.setOnClickListener{
             val r = Intent(this, Revisita::class.java)
             startActivity(r)
-            
-            //val queue = Volley.newRequestQueue(this)
-            //val url = "http://pae-ics.etsetb.upc.edu/api"
-            //val url = httpProve.text.toString()
-
-            //val jsonArrayReq = JsonArrayRequest(url,Response.Listener {
-            //        response ->
-            //           resp.setText("Response is: ".format(response.toString()))
-            //         },
-            //        Response.ErrorListener { error->
-            //          resp.setText(error.message)
-            //        })
-        // Request a string response from the provided URL.
-            //val jsonRequest = JsonObjectRequest(Request.Method.GET, url, null,  Response.Listener {
-            //    response ->
-            //       resp.setText("Response is: ".format(response.toString()))
-           //     },
-            //    Response.ErrorListener { error->
-            //      resp.setText(error.message)
-            //    })
-
-            //queue.add(jsonArrayReq)
-
-
-            // Access the RequestQueue through your singleton class.
-            //https://developer.android.com/training/volley/requestqueue
-            //MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
         }
+
+        val btnres: Button = findViewById(R.id.requestButton)
+        btnres.setOnClickListener {
+            var call = (ApiAdapter.getApiService()?.allMuseus)?.also {
+                it.enqueue(this)
+            }
+        }
+
+    }
+
+    override fun onResponse(call: Call<AllMuseusResponse>, response: Response<AllMuseusResponse>) {
+        if (response.isSuccessful()){
+            var allMuseus: AllMuseusResponse? = response.body()
+            var museo = allMuseus?.museos
+        }
+    }
+
+    override fun onFailure(call: Call<AllMuseusResponse>, t: Throwable) {
 
     }
 }
