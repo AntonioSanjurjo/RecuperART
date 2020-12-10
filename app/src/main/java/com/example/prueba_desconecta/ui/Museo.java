@@ -6,7 +6,7 @@ public class Museo {
 
     private String nombre;
     //private ArrayList<Obra> obras;
-    private String id;
+    private int id;
     private String tipo;
     private String direccion;
     private String descripcion;
@@ -41,11 +41,11 @@ public class Museo {
     //    this.obras = obras;
    // }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
