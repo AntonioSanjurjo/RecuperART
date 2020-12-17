@@ -1,11 +1,15 @@
 package com.example.prueba_desconecta.io.response;
 
-public class MediaObraRespone {
+import com.example.prueba_desconecta.ui.Obra;
+
+import java.util.ArrayList;
+
+public class ObresByMuseuResponse {
 
     private boolean err;
     private int status;
     private int version;
-    private String ans;
+    private ArrayList<Obra> ans;
 
     public boolean isErr() {
         return err;
@@ -31,11 +35,11 @@ public class MediaObraRespone {
         this.version = version;
     }
 
-    public String getAns() {
+    public ArrayList<Obra> getAns() {
         return ans;
     }
 
-    public void setAns(String ans) {
+    public void setAns(ArrayList<Obra> ans) {
         this.ans = ans;
     }
 }

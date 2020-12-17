@@ -4,7 +4,7 @@ public class MediaMuseuResponse {
     private boolean err;
     private int Status;
     private int version;
-    private String media;
+    private String ans;
 
     public boolean isErr() {
         return err;
@@ -30,11 +30,11 @@ public class MediaMuseuResponse {
         this.version = version;
     }
 
-    public String getMedia() {
-        return media;
+    public String getAns() {
+        return ans;
     }
 
-    public void setMedia(String media) {
-        this.media = media;
+    public void setAns(String ans) {
+        this.ans = ans;
     }
 }

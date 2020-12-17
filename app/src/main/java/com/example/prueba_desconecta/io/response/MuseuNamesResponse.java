@@ -1,12 +1,14 @@
 package com.example.prueba_desconecta.io.response;
 
+import com.example.prueba_desconecta.ui.MuseuNames;
+
 import java.util.ArrayList;
 
 public class MuseuNamesResponse {
   private boolean err;
   private int status;
   private int version;
-  private ArrayList<String> Nombres;
+  private ArrayList<MuseuNames> ans;
 
 
     public boolean isErr() {
@@ -33,11 +35,10 @@ public class MuseuNamesResponse {
         this.version = version;
     }
 
-    public ArrayList<String> getNombres() {
-        return Nombres;
+    public ArrayList<MuseuNames> getAns() {
+        return ans;
     }
 
-    public void setNombres(ArrayList<String> nombres) {
-        Nombres = nombres;
+    public void setAns(ArrayList<MuseuNames> ans) { this.ans = ans;
     }
 }

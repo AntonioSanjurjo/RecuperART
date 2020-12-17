@@ -1,11 +1,14 @@
 package com.example.prueba_desconecta.io.response;
 
-public class MediaObraRespone {
+import com.example.prueba_desconecta.ui.Museo;
 
+import java.util.ArrayList;
+
+public class MuseuByIdResponse {
     private boolean err;
     private int status;
-    private int version;
-    private String ans;
+    private int version ;
+    private Museo ans;
 
     public boolean isErr() {
         return err;
@@ -31,11 +34,11 @@ public class MediaObraRespone {
         this.version = version;
     }
 
-    public String getAns() {
+    public Museo getAns() {
         return ans;
     }
 
-    public void setAns(String ans) {
+    public void setAns(Museo ans) {
         this.ans = ans;
     }
 }

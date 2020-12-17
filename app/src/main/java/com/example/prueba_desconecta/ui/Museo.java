@@ -14,12 +14,12 @@ public class Museo {
     }
 
    // public ArrayList<Obra> getobralist(){
-     //   return getObras();
+     //   return getAns();
 
     //}
 
-   // public Obra getObra(int i){
-     //   return getObras().get(i);
+   // public Obra getAns(int i){
+     //   return getAns().get(i);
   //  }
 
     public String getNom(){
@@ -30,11 +30,11 @@ public class Museo {
         this.nom = nom;
     }
 
-    //public ArrayList<Obra> getObras() {
+    //public ArrayList<Obra> getAns() {
    //     return obras;
    // }
 
-   // public void setObras(ArrayList<Obra> obras) {
+   // public void setAns(ArrayList<Obra> obras) {
     //    this.obras = obras;
    // }
 

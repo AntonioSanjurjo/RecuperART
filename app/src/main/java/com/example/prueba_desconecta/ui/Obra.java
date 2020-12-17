@@ -5,10 +5,13 @@ public class Obra {
     
 
 private String tipo;
-private String id;
+private int id;
 private String descripcion;
 private String autor;
 private Museo museo;
+private String museuNom;
+private String nom;
+
 
 public Obra(){
 
@@ -23,11 +26,11 @@ public Obra(){
         this.tipo = tipo;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -53,5 +56,21 @@ public Obra(){
 
     public void setMuseo(Museo museo) {
         this.museo = museo;
+    }
+
+    public String getMuseuNom() {
+        return museuNom;
+    }
+
+    public void setMuseuNom(String museuNom) {
+        this.museuNom = museuNom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 }

@@ -6,7 +6,7 @@ public class AllMediaMuseusResponse {
     private boolean err;
     private int status;
     private int version ;
-    private ArrayList<String> mediasmuseos;
+    private ArrayList<String> ans;
 
     public boolean isErr() {
         return err;
@@ -32,11 +32,11 @@ public class AllMediaMuseusResponse {
         this.version = version;
     }
 
-    public ArrayList<String> getMediasmuseos() {
-        return mediasmuseos;
+    public ArrayList<String> getAns() {
+        return ans;
     }
 
-    public void setMediasmuseos(ArrayList<String> mediasmuseos) {
-        this.mediasmuseos = mediasmuseos;
+    public void setAns(ArrayList<String> ans) {
+        this.ans = ans;
     }
 }

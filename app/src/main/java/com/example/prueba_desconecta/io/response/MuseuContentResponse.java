@@ -4,7 +4,7 @@ public class MuseuContentResponse {
     private boolean err;
     private int status;
     private int version;
-    private String content;
+    private String ans;
 
     public boolean isErr() {
         return err;
@@ -30,11 +30,11 @@ public class MuseuContentResponse {
         this.version = version;
     }
 
-    public String getContent() {
-        return content;
+    public String getAns() {
+        return ans;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setAns(String ans) {
+        this.ans = ans;
     }
 }

@@ -6,7 +6,7 @@ public class ObraResponse {
    private boolean err;
    private int status;
    private int version;
-   private Obra obra;
+   private Obra ans;
 
     public boolean isErr() {
         return err;
@@ -32,11 +32,11 @@ public class ObraResponse {
         this.version = version;
     }
 
-    public Obra getObra() {
-        return obra;
+    public Obra getAns() {
+        return ans;
     }
 
-    public void setObra(Obra obra) {
-        this.obra = obra;
+    public void setAns(Obra ans) {
+        this.ans = ans;
     }
 }

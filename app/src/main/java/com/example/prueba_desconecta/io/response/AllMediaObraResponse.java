@@ -6,7 +6,7 @@ public class AllMediaObraResponse {
     private boolean err;
     private int status;
     private int version;
-    private ArrayList<String> mediasobras;
+    private ArrayList<String> ans;
 
 
     public boolean isErr() {
@@ -33,11 +33,11 @@ public class AllMediaObraResponse {
         this.version = version;
     }
 
-    public ArrayList<String> getMediasobras() {
-        return mediasobras;
+    public ArrayList<String> getAns() {
+        return ans;
     }
 
-    public void setMediasobras(ArrayList<String> mediasobras) {
-        this.mediasobras = mediasobras;
+    public void setAns(ArrayList<String> ans) {
+        this.ans = ans;
     }
 }

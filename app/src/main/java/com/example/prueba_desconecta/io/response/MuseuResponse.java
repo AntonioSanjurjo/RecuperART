@@ -1,16 +1,13 @@
 package com.example.prueba_desconecta.io.response;
 
 import com.example.prueba_desconecta.ui.Museo;
-import com.example.prueba_desconecta.ui.Obra;
-
-import java.util.ArrayList;
 
 public class MuseuResponse {
 
    private boolean err;
    private int status;
    private int version;
-   private Museo museo;
+   private Museo ans;
 
 
     public boolean isErr() {
@@ -37,11 +34,11 @@ public class MuseuResponse {
         this.version = version;
     }
 
-    public Museo getMuseo() {
-        return museo;
+    public Museo getAns() {
+        return ans;
     }
 
-    public void setMuseo(Museo museo) {
-        this.museo = museo;
+    public void setAns(Museo ans) {
+        this.ans = ans;
     }
 }

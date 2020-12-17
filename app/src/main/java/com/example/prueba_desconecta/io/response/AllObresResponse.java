@@ -8,7 +8,7 @@ public class AllObresResponse {
     private boolean err;
     private int status;
     private int version;
-    private ArrayList<Obra> obras;
+    private ArrayList<Obra> ans;
 
     public boolean isErr() {
         return err;
@@ -34,11 +34,11 @@ public class AllObresResponse {
         this.version = version;
     }
 
-    public ArrayList<Obra> getObras() {
-        return obras;
+    public ArrayList<Obra> getAns() {
+        return ans;
     }
 
-    public void setObras(ArrayList<Obra> obras) {
-        this.obras = obras;
+    public void setAns(ArrayList<Obra> ans) {
+        this.ans = ans;
     }
 }
