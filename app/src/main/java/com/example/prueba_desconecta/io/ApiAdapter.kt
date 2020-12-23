@@ -20,7 +20,7 @@ object ApiAdapter {
             val httpClient = OkHttpClient.Builder()
             httpClient.addInterceptor(logging)
 
-            val baseUrl = "http://pae-ics.etsetb.upc.edu/api/"
+            val baseUrl = Constantes.BASE_URL
             if (API_SERVICE == null) {
                 val retrofit = Retrofit.Builder()
                     .baseUrl(baseUrl)

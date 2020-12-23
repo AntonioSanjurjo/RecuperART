@@ -1,6 +1,6 @@
 package com.example.prueba_desconecta.io.response;
 
-import com.example.prueba_desconecta.ui.Museo;
+import com.example.prueba_desconecta.ui.PreviewMuseo;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class AllMuseusResponse {
  private boolean err;
  private int status;
  private int version;
- private ArrayList<Museo> ans;
+ private ArrayList<PreviewMuseo> ans;
 
  public AllMuseusResponse(){
 
@@ -39,11 +39,11 @@ public class AllMuseusResponse {
         this.version = version;
     }
 
-    public ArrayList<Museo> getMuseos() {
+    public ArrayList<PreviewMuseo> getMuseos() {
         return ans;
     }
 
-    public void setMuseos(ArrayList<Museo> museos) {
-        ans = museos;
+    public void setMuseos(ArrayList<PreviewMuseo> previewMuseos) {
+        ans = previewMuseos;
     }
 }

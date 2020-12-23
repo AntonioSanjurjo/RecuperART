@@ -5,6 +5,7 @@ import com.example.prueba_desconecta.io.response.AllObresResponse;
 import com.example.prueba_desconecta.io.response.AllTipusMuseuResponse;
 import com.example.prueba_desconecta.io.response.AllTipusObraResponse;
 import com.example.prueba_desconecta.io.response.MuseuByIdResponse;
+import com.example.prueba_desconecta.io.response.MuseuContentByIdResponse;
 import com.example.prueba_desconecta.io.response.MuseuNamesResponse;
 import com.example.prueba_desconecta.io.response.ObresByMuseuResponse;
 
@@ -12,7 +13,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ApiService {
-    //int id = 0;
 
     @GET("getAllMuseus/")
     Call<AllMuseusResponse> getAllMuseus();
@@ -29,14 +29,16 @@ public interface ApiService {
     @GET("getAllTipusMuseu//")
     Call<AllTipusMuseuResponse> getAllTipusMuseu();
 
-    //@GET("getObresByMuseu/{"+this.id+"}/")
-    //Call<ObresByMuseuResponse> getObresByMuseu();
+    @GET("getObresByMuseu/")
+    Call<ObresByMuseuResponse> getObresByMuseu();
 
-    @GET(" getAllMuseusNames/")
+    @GET("getAllMuseusNames/")
     Call<MuseuNamesResponse> getAllMuseusNames();
 
-    //@GET(" getMuseuById/" +this.id+"/")
-    //Call<MuseuByIdResponse> getMuseuById();
+    @GET("getMuseuById/")
+    Call<MuseuByIdResponse> getMuseuById();
 
+    @GET("getMuseuContentById/")
+    Call<MuseuContentByIdResponse> getMuseuContentById();
 }
 

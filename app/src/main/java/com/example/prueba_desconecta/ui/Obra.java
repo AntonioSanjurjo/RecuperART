@@ -8,7 +8,7 @@ private String tipo;
 private int id;
 private String descripcion;
 private String autor;
-private Museo museo;
+private PreviewMuseo museo;
 private String museuNom;
 private String nom;
 
@@ -50,11 +50,11 @@ public Obra(){
         this.autor = autor;
     }
 
-    public Museo getMuseo() {
+    public PreviewMuseo getMuseo() {
         return museo;
     }
 
-    public void setMuseo(Museo museo) {
+    public void setMuseo(PreviewMuseo museo) {
         this.museo = museo;
     }
 

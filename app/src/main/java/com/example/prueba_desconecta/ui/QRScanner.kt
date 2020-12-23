@@ -7,10 +7,63 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.io.ApiAdapter
+import com.example.prueba_desconecta.io.ApiClient
+import com.example.prueba_desconecta.io.ApiService
+import com.example.prueba_desconecta.io.ApiServiceInterceptor
+import com.example.prueba_desconecta.io.response.MuseuByIdResponse
+import com.example.prueba_desconecta.io.response.MuseuContentByIdResponse
 import com.google.zxing.integration.android.IntentIntegrator
+import retrofit2.Call
+import retrofit2.Response
+import retrofit2.Callback
 
-class QRScanner : AppCompatActivity() {
+
+class QRScanner : AppCompatActivity(){
     var scan_btn: Button? = null
+    var apiService: ApiService? = null
+    var apiClient: ApiClient? = null
+    var museo: Museo? =null;
+    var respuesta: String =""
+
+
+    init {
+        apiClient =ApiClient(respuesta)
+        apiService = apiClient?.getApiService()
+        museo = TheMuseo()
+
+    }
+
+    fun TheMuseo(): Museo?{
+
+        if (museo== null){
+          museo=Museo()
+
+        }
+
+        var call = (ApiAdapter.getApiService()?.museuContentById)?.also {
+            it.enqueue( object: Callback<MuseuContentByIdResponse> {
+
+                override fun onFailure(call: Call<MuseuContentByIdResponse>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onResponse(
+                    call: Call<MuseuContentByIdResponse>,
+                    response: Response<MuseuContentByIdResponse>
+                ) {
+                    var Museu: MuseuContentByIdResponse? = response.body()
+                    var museo = Museu?.ans
+                }
+
+
+            })
+        }
+        return museo
+    }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrscanner)
@@ -36,6 +89,15 @@ class QRScanner : AppCompatActivity() {
         } else {
             resultTextView!!.text = "Error al escanear el código de barras"
         }
+        respuesta = result.contents;
+
+
+
+
+
+
+
+
     }
 
     private val mOnClickListener =
@@ -46,7 +108,12 @@ class QRScanner : AppCompatActivity() {
             }
         }
 
+
     companion object {
         var resultTextView: TextView? = null
     }
+
+
+
+
 }
