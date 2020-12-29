@@ -1,6 +1,6 @@
 package com.example.prueba_desconecta.io.response;
 
-public class MediaObraRespone {
+public class MediaObraResponse {
 
     private boolean err;
     private int status;
@@ -31,11 +31,11 @@ public class MediaObraRespone {
         this.version = version;
     }
 
-    public String getAns() {
+    public String getMediaObra(){
         return ans;
     }
 
-    public void setAns(String ans) {
+    public void setMediaObra(String ans) {
         this.ans = ans;
     }
 }

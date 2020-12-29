@@ -1,9 +1,13 @@
 package com.example.prueba_desconecta.io;
 
+import com.example.prueba_desconecta.io.response.AllMediaMuseusResponse;
+import com.example.prueba_desconecta.io.response.AllMediaObraResponse;
 import com.example.prueba_desconecta.io.response.AllMuseusResponse;
 import com.example.prueba_desconecta.io.response.AllObresResponse;
 import com.example.prueba_desconecta.io.response.AllTipusMuseuResponse;
 import com.example.prueba_desconecta.io.response.AllTipusObraResponse;
+import com.example.prueba_desconecta.io.response.MediaMuseuResponse;
+import com.example.prueba_desconecta.io.response.MediaObraResponse;
 import com.example.prueba_desconecta.io.response.MuseuByIdResponse;
 import com.example.prueba_desconecta.io.response.MuseuContentByIdResponse;
 import com.example.prueba_desconecta.io.response.MuseuNamesResponse;
@@ -40,5 +44,40 @@ public interface ApiService {
 
     @GET("getMuseuContentById/")
     Call<MuseuContentByIdResponse> getMuseuContentById();
+
+    @GET("getAllMediaMuseu/")
+    Call<AllMediaMuseusResponse> getAllMediaMuseu();
+
+    @GET("getMediaMuseuByMuseu/")
+    Call<MediaMuseuResponse> getMediaMuseu();
+
+    @GET("getMediaMuseuByCategoria/")
+    Call<MediaMuseuResponse> getMediaMuseuByCategoria();
+
+    @GET("getAllMediaObra/")
+    Call<AllMediaObraResponse> getAllMediaObra();
+
+    @GET("getMediaObraByObra/")
+    Call<MediaObraResponse> getMediaObra();
+
+    @GET("getMediaObraByFiletype/")
+    Call<MediaObraResponse> getMediaObraByFileType();
+
+    @GET("getMediaObraByCategoria/")
+    Call<MediaObraResponse> getMediaObraByCategoria();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 

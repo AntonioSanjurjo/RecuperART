@@ -32,11 +32,11 @@ public class ObraResponse {
         this.version = version;
     }
 
-    public Obra getAns() {
+    public Obra getObra() {
         return ans;
     }
 
-    public void setAns(Obra ans) {
+    public void setObra(Obra ans) {
         this.ans = ans;
     }
 }

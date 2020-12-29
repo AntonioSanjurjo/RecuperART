@@ -35,10 +35,10 @@ public class MuseuNamesResponse {
         this.version = version;
     }
 
-    public ArrayList<MuseuNames> getAns() {
+    public ArrayList<MuseuNames> getMuseuName() {
         return ans;
     }
 
-    public void setAns(ArrayList<MuseuNames> ans) { this.ans = ans;
+    public void setMuseuName(ArrayList<MuseuNames> ans) { this.ans = ans;
     }
 }

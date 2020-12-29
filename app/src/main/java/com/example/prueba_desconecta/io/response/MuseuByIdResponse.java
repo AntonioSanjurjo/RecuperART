@@ -36,7 +36,7 @@ public class MuseuByIdResponse {
         return ans;
     }
 
-    public void setAns(PreviewMuseo ans) {
+    public void setMuseu(PreviewMuseo ans) {
         this.ans = ans;
     }
 }
