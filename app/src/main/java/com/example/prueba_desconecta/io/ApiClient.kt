@@ -9,14 +9,13 @@ class ApiClient (id: String){
     private val apiService: ApiService;
     private val retrofit: Retrofit
     var apiServiceInterceptor: ApiServiceInterceptor? = null
-    var id:String =""
 
     companion object {
 
         var instance: ApiClient? = null
             get() {
                 if (field == null) {
-                    instance = ApiClient("1")
+                    instance = ApiClient.instance
                 }
                 return instance
             }
@@ -27,9 +26,8 @@ class ApiClient (id: String){
 
         //incluir el interceptro que hemos definido
 
-        this.id= id
         val okhttpClientBuilder = OkHttpClient.Builder()
-        okhttpClientBuilder.addInterceptor(ApiServiceInterceptor(this.id))
+        okhttpClientBuilder.addInterceptor(ApiServiceInterceptor())
 
         val cliente =okhttpClientBuilder.build()
 

@@ -30,11 +30,11 @@ public class MuseuContentResponse {
         this.version = version;
     }
 
-    public String getAns() {
+    public String getMuseu() {
         return ans;
     }
 
-    public void setAns(String ans) {
+    public void setMuseu(String ans) {
         this.ans = ans;
     }
 }

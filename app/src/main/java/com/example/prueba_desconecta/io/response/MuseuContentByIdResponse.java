@@ -36,11 +36,11 @@ public class MuseuContentByIdResponse {
         this.version = version;
     }
 
-    public Museo getAns() {
+    public Museo getMuseu() {
         return ans;
     }
 
-    public void setAns(Museo ans) {
+    public void setMuseu(Museo ans) {
         this.ans = ans;
     }
 }

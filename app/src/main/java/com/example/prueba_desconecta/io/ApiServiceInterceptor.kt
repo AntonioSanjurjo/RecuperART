@@ -5,13 +5,9 @@ import android.os.Parcelable
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class ApiServiceInterceptor(id:String) : Interceptor{
+class ApiServiceInterceptor() : Interceptor{
 
-    var id: String= "";
 
-    init {
-        this.id=id
-    }
 
 
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -20,7 +16,7 @@ class ApiServiceInterceptor(id:String) : Interceptor{
         val urlWithParams = chain.request()
             .url
             .newBuilder()
-            .addQueryParameter("id",id)
+            .addQueryParameter("id", Constantes.ID)
             .build()
 
         var request = chain.request()
