@@ -3,18 +3,18 @@
     package="com.example.prueba_desconecta">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <uses-feature android:name="android.hardware.location.gps" />
 
     <application
+        android:name=".common.MyApp"
         android:allowBackup="true"
         android:icon="@drawable/recuperart"
         android:label="@string/app_name"
@@ -22,8 +22,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.ScanCodeActivity"></activity>
-        <activity android:name=".ui.QRScanner"/>
+        <activity
+            android:name=".ui.ui.elije.Elige"
+            android:label="@string/title_activity_elige"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.ScanCodeActivity" />
+        <activity android:name=".ui.QRScanner" />
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/network_security_config" />
@@ -32,15 +37,16 @@
         <activity android:name=".ui.Monsters" />
         <activity android:name=".ui.Asocia" />
         <activity android:name=".ui.Concentra" />
-        <activity android:name=".ui.Revisita"/>
+        <activity android:name=".ui.Revisita" />
         <activity android:name=".ui.Escribe" />
         <activity android:name=".ui.Desconecta" />
         <activity android:name=".ui.Crea" />
-        <activity android:name=".ui.Descubre" />
+        <activity android:name=".ui.descubre.Descubre" />
         <activity android:name=".ui.Dibuja" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

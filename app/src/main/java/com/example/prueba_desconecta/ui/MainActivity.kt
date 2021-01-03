@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.ui.ui.elije.Elige
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,10 +17,9 @@ class MainActivity : AppCompatActivity() {
 
         val btn: Button = findViewById(R.id.buttonMain)
         btn.setOnClickListener{
-            val r = Intent(this, QRScanner::class.java)
+            val r = Intent(this, Elige::class.java)
             startActivity(r)
         }
     }
 
-//probando//
 }

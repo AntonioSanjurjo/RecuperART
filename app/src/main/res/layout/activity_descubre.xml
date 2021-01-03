@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Descubre">
+    tools:context=".ui.descubre.Descubre">
 
     <Button
         android:id="@+id/buttonDescubreix"
         android:layout_width="193dp"
         android:layout_height="66dp"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="#779BBC"
+        android:backgroundTint="@color/colorSecundaryDark"
         android:fontFamily="@font/mm"
         android:text="@string/next"
         android:textColor="#FFF"
@@ -26,10 +26,10 @@
         android:id="@+id/toolbardescubre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#89ACC8"
+        android:background="@color/colorSecundary"
+        android:fontFamily="@font/mm"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        android:fontFamily="@font/mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +38,8 @@
 
     <ImageView
         android:id="@+id/testmap"
-        android:layout_width="328dp"
-        android:layout_height="278dp"
+        android:layout_width="238dp"
+        android:layout_height="160dp"
         android:layout_marginTop="16dp"
         android:contentDescription="testing"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,8 +63,8 @@
 
     <TextView
         android:id="@+id/discoverDesciption"
-        android:layout_width="371dp"
-        android:layout_height="62dp"
+        android:layout_width="390dp"
+        android:layout_height="41dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/ml"
         android:text="@string/discover_description"
@@ -73,41 +73,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dicover" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:cardBackgroundColor="#009688"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chosen">
-
-        <TextView
-            android:id="@+id/testdescription"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:fontFamily="@font/mr"
-            android:padding="5dp"
-            android:text="Flat Genesis, 1999"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:textColorHint="@color/colorAccent"
-            android:textSize="28sp" />
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/chosen"
-        android:layout_width="348dp"
-        android:layout_height="28dp"
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.prueba_desconecta.ui.descubre.ObrasFragment"
+        android:layout_width="match_parent"
+        android:layout_height="242dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/mm"
-        android:text="@string/chosen"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/testmap" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

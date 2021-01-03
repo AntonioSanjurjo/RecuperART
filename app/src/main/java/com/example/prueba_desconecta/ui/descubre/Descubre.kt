@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta.ui
+package com.example.prueba_desconecta.ui.descubre
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,8 @@ import com.example.prueba_desconecta.io.ApiAdapter
 import com.example.prueba_desconecta.io.ApiClient
 import com.example.prueba_desconecta.io.ApiService
 import com.example.prueba_desconecta.io.response.MuseuContentByIdResponse
+import com.example.prueba_desconecta.ui.Desconecta
+import com.example.prueba_desconecta.ui.Museo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,13 +41,10 @@ class Descubre : AppCompatActivity() {
     }
 
 
-
-
-
     fun TheMuseo(): Museo?{
 
         if (museo== null){
-            museo=Museo()
+            museo= Museo()
 
         }
 

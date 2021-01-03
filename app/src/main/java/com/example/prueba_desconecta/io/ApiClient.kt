@@ -4,7 +4,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiClient (id: String){
+class ApiClient (){
 
     private val apiService: ApiService;
     private val retrofit: Retrofit
@@ -15,7 +15,7 @@ class ApiClient (id: String){
         var instance: ApiClient? = null
             get() {
                 if (field == null) {
-                    instance = ApiClient.instance
+                    instance = ApiClient()
                 }
                 return instance
             }

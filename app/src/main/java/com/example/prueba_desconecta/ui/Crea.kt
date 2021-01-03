@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class Crea : AppCompatActivity(), Callback<AllMuseusResponse> {
+class Crea : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,23 +25,6 @@ class Crea : AppCompatActivity(), Callback<AllMuseusResponse> {
             startActivity(r)
         }
 
-        val btnres: Button = findViewById(R.id.requestButton)
-        btnres.setOnClickListener {
-            var call = (ApiAdapter.getApiService()?.allMuseus)?.also {
-                it.enqueue(this)
-            }
-        }
-
     }
 
-    override fun onResponse(call: Call<AllMuseusResponse>, response: Response<AllMuseusResponse>) {
-        if (response.isSuccessful()){
-            var allMuseus: AllMuseusResponse? = response.body()
-            var museo = allMuseus?.museos
-        }
-    }
-
-    override fun onFailure(call: Call<AllMuseusResponse>, t: Throwable) {
-
-    }
 }

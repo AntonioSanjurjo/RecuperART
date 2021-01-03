@@ -4,23 +4,14 @@ public class PreviewMuseo {
 
     private int id;
     private String nom;
-    //private ArrayList<Obra> obras;
     private String tipus;
     private String direccio;
     private String descripcio;
 
     public PreviewMuseo(){
-
     }
 
-   // public ArrayList<Obra> getobralist(){
-     //   return getAns();
 
-    //}
-
-   // public Obra getAns(int i){
-     //   return getAns().get(i);
-  //  }
 
     public String getNom(){
         return nom;
@@ -29,14 +20,6 @@ public class PreviewMuseo {
     public void setNom(String nom) {
         this.nom = nom;
     }
-
-    //public ArrayList<Obra> getAns() {
-   //     return obras;
-   // }
-
-   // public void setAns(ArrayList<Obra> obras) {
-    //    this.obras = obras;
-   // }
 
     public int getId() {
         return id;
@@ -68,5 +51,11 @@ public class PreviewMuseo {
 
     public void setDescripcio(String descripcio) {
         this.descripcio = descripcio;
+    }
+
+    public void createDefault(int idDef,String n,String dir) {
+        this.id=idDef;
+        this.nom=n;
+        this.direccio=dir;
     }
 }

@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.ui.descubre.Descubre
 
 class Monsters : AppCompatActivity() {
     var getThemeku: String? = null

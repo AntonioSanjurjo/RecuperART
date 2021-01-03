@@ -2,13 +2,10 @@ package com.example.prueba_desconecta.ui;
 
 public class Obra {
 
-    
-
 private String tipo;
 private int id;
 private String descripcion;
 private String autor;
-private PreviewMuseo museo;
 private String museuNom;
 private String nom;
 
@@ -16,8 +13,6 @@ private String nom;
 public Obra(){
 
 }
-
-
     public String getTipo() {
         return tipo;
     }
@@ -48,14 +43,6 @@ public Obra(){
 
     public void setAutor(String autor) {
         this.autor = autor;
-    }
-
-    public PreviewMuseo getMuseo() {
-        return museo;
-    }
-
-    public void setMuseo(PreviewMuseo museo) {
-        this.museo = museo;
     }
 
     public String getMuseuNom() {
