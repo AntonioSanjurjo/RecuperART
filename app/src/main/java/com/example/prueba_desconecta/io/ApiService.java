@@ -12,72 +12,66 @@ import com.example.prueba_desconecta.io.response.MuseuByIdResponse;
 import com.example.prueba_desconecta.io.response.MuseuContentByIdResponse;
 import com.example.prueba_desconecta.io.response.MuseuNamesResponse;
 import com.example.prueba_desconecta.io.response.ObresByMuseuResponse;
+import com.example.prueba_desconecta.io.response.WordCloud;
 
+import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface ApiService {
 
-    @GET("getAllMuseus/")
+    @GET("api/getAllMuseus/")
     Call<AllMuseusResponse> getAllMuseus();
 
-    @GET("getAllMuseusNames/")
+    @GET("api/getAllMuseusNames/")
     Call<MuseuNamesResponse> getMuseusNames();
 
-    @GET("getAllObres/")
+    @GET("api/getAllObres/")
     Call<AllObresResponse> getAllObres();
 
-    @GET("getAllTipusObra/")
+    @GET("api/getAllTipusObra/")
     Call<AllTipusObraResponse> getAllTipusObra();
 
-    @GET("getAllTipusMuseu//")
+    @GET("api/getAllTipusMuseu//")
     Call<AllTipusMuseuResponse> getAllTipusMuseu();
 
-    @GET("getObresByMuseu/")
+    @GET("api/getObresByMuseu/")
     Call<ObresByMuseuResponse> getObresByMuseu();
 
-    @GET("getAllMuseusNames/")
+    @GET("api/getAllMuseusNames/")
     Call<MuseuNamesResponse> getAllMuseusNames();
 
-    @GET("getMuseuById/")
+    @GET("api/getMuseuById/")
     Call<MuseuByIdResponse> getMuseuById();
 
-    @GET("getMuseuContentById/")
+    @GET("api/getMuseuContentById/")
     Call<MuseuContentByIdResponse> getMuseuContentById();
 
-    @GET("getAllMediaMuseu/")
+    @GET("api/getAllMediaMuseu/")
     Call<AllMediaMuseusResponse> getAllMediaMuseu();
 
-    @GET("getMediaMuseuByMuseu/")
+    @GET("api/getMediaMuseuByMuseu/")
     Call<MediaMuseuResponse> getMediaMuseu();
 
-    @GET("getMediaMuseuByCategoria/")
+    @GET("api/getMediaMuseuByCategoria/")
     Call<MediaMuseuResponse> getMediaMuseuByCategoria();
 
-    @GET("getAllMediaObra/")
+    @GET("api/getAllMediaObra/")
     Call<AllMediaObraResponse> getAllMediaObra();
 
-    @GET("getMediaObraByObra/")
+    @GET("api/getMediaObraByObra/")
     Call<MediaObraResponse> getMediaObra();
 
-    @GET("getMediaObraByFiletype/")
+    @GET("api/getMediaObraByFiletype/")
     Call<MediaObraResponse> getMediaObraByFileType();
 
-    @GET("getMediaObraByCategoria/")
+    @GET("api/getMediaObraByCategoria/")
     Call<MediaObraResponse> getMediaObraByCategoria();
 
-
-
-
-
-
-
-
-
-
-
-
-
+    @POST("WordCloud/getWordCloud")
+    Call<WordCloud> postWordCloud(@Body RequestBody body);
 
 }
 

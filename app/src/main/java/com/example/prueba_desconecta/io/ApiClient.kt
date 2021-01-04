@@ -21,9 +21,8 @@ class ApiClient (){
             }
 
     }
+
     init {
-
-
         //incluir el interceptro que hemos definido
 
         val okhttpClientBuilder = OkHttpClient.Builder()

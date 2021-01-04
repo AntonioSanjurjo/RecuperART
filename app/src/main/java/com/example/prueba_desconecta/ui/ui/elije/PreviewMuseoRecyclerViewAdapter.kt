@@ -29,6 +29,7 @@ class PreviewMuseoRecyclerViewAdapter(private val context: Context) : RecyclerVi
     }
 
     override fun getItemCount(): Int = museus.size
+
     fun setData(allMuseus: ArrayList<PreviewMuseo>?) {
         museus = allMuseus!!
         notifyDataSetChanged()

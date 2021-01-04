@@ -8,14 +8,21 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.prueba_desconecta.R
-import com.example.prueba_desconecta.ui.descubre.dummy.DummyContent
+import com.example.prueba_desconecta.ui.Museo
+import com.example.prueba_desconecta.ui.Obra
+import com.example.prueba_desconecta.ui.ui.elije.PreviewMuseoRecyclerViewAdapter
+import com.example.prueba_desconecta.viewmodel.AllMuseusViewModel
+import com.example.prueba_desconecta.viewmodel.MuseoViewModel
 
-/**
- * A fragment representing a list of Items.
- */
+
 class ObrasFragment : Fragment() {
-
+    private lateinit var museoViewModel: MuseoViewModel
+    private lateinit var obrasAdapter: ObrasRecyclerViewAdapter
+    private var allobras: ArrayList<Obra> = ArrayList()
+    private var museo: Museo = Museo()
     private var columnCount = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +38,9 @@ class ObrasFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_item_o_list, container, false)
-
+        // Get ViewModel
+        museoViewModel = ViewModelProvider(this).get(MuseoViewModel::class.java)
+        obrasAdapter = activity?.let { ObrasRecyclerViewAdapter(it) }!!
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {
@@ -39,18 +48,25 @@ class ObrasFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = ObrasRecyclerViewAdapter(DummyContent.ITEMS)
+                adapter = obrasAdapter
             }
         }
+        // Observer del museo
+
+        museoViewModel.getallObras().observe(viewLifecycleOwner,    Observer {
+            allobras = it
+            obrasAdapter.setData(museo,allobras)
+        })
+
+
+
         return view
     }
 
     companion object {
-
-        // TODO: Customize parameter argument names
+        
         const val ARG_COLUMN_COUNT = "column-count"
 
-        // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
             ObrasFragment().apply {

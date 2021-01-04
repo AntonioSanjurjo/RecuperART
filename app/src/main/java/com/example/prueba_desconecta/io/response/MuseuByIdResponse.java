@@ -1,12 +1,13 @@
 package com.example.prueba_desconecta.io.response;
 
+import com.example.prueba_desconecta.ui.Museo;
 import com.example.prueba_desconecta.ui.PreviewMuseo;
 
 public class MuseuByIdResponse {
     private boolean err;
     private int status;
     private int version ;
-    private PreviewMuseo ans;
+    private Museo ans;
 
     public boolean isErr() {
         return err;
@@ -32,11 +33,11 @@ public class MuseuByIdResponse {
         this.version = version;
     }
 
-    public PreviewMuseo getMuseu() {
+    public Museo getMuseu() {
         return ans;
     }
 
-    public void setMuseu(PreviewMuseo ans) {
+    public void setMuseu(Museo ans) {
         this.ans = ans;
     }
 }
