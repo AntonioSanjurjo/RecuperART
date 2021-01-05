@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.prueba_desconecta.R
-import com.example.prueba_desconecta.ui.PreviewMuseo
+import com.example.prueba_desconecta.io.model.PreviewMuseo
 import com.example.prueba_desconecta.viewmodel.AllMuseusViewModel
 
 class PreviewMuseoFragment : Fragment() {

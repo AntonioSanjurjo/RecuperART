@@ -22,20 +22,6 @@
                android:scaleY="1.5" />
        </KeyFrameSet>
         <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
-        <OnClick motion:targetId="@+id/imageView" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">

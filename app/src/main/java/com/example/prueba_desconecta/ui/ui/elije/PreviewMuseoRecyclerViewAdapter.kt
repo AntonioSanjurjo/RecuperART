@@ -10,7 +10,7 @@ import android.widget.TextView
 import com.example.prueba_desconecta.R
 import com.example.prueba_desconecta.io.Constantes
 import com.example.prueba_desconecta.ui.Mood
-import com.example.prueba_desconecta.ui.PreviewMuseo
+import com.example.prueba_desconecta.io.model.PreviewMuseo
 
 class PreviewMuseoRecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<PreviewMuseoRecyclerViewAdapter.ViewHolder>() {
     

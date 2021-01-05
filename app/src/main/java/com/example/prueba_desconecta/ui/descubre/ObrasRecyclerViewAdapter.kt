@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.prueba_desconecta.R
-import com.example.prueba_desconecta.ui.Museo
-import com.example.prueba_desconecta.ui.Obra
+import com.example.prueba_desconecta.io.model.Museo
+import com.example.prueba_desconecta.io.model.Obra
 
 class ObrasRecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<ObrasRecyclerViewAdapter.ViewHolder>() {
 
     private var obras: ArrayList<Obra> = ArrayList()
-    private var museo: Museo = Museo()
+    private var museo: Museo =
+        Museo()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.fragment_item_o, parent, false)

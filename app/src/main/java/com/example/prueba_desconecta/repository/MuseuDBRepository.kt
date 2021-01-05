@@ -3,13 +3,11 @@ package com.example.prueba_desconecta.repository
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.example.prueba_desconecta.common.MyApp
-import com.example.prueba_desconecta.io.ApiAdapter
 import com.example.prueba_desconecta.io.ApiClient
 import com.example.prueba_desconecta.io.ApiService
-import com.example.prueba_desconecta.io.response.MuseuByIdResponse
 import com.example.prueba_desconecta.io.response.MuseuContentByIdResponse
-import com.example.prueba_desconecta.ui.Museo
-import com.example.prueba_desconecta.ui.Obra
+import com.example.prueba_desconecta.io.model.Museo
+import com.example.prueba_desconecta.io.model.Obra
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,9 +31,8 @@ class MuseuDBRepository {
 
         }
 
-        var call = (ApiAdapter.getApiService()?.museuContentById)?.also {
-            it.enqueue( object: Callback<MuseuContentByIdResponse> {
-
+        val call: Call<MuseuContentByIdResponse>? = (apiService?.museuContentById)
+        call?.enqueue( object: Callback<MuseuContentByIdResponse> {
                 override fun onFailure(call: Call<MuseuContentByIdResponse>, t: Throwable) {
                     Toast.makeText(MyApp.instance, "Error en la llamada", Toast.LENGTH_LONG).show()
                 }
@@ -52,7 +49,6 @@ class MuseuDBRepository {
 
 
             })
-        }
         return museo
     }
 }

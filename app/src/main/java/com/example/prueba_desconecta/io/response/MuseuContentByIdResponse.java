@@ -1,8 +1,6 @@
 package com.example.prueba_desconecta.io.response;
 
-import com.example.prueba_desconecta.ui.Museo;
-
-import java.util.ArrayList;
+import com.example.prueba_desconecta.io.model.Museo;
 
 public class MuseuContentByIdResponse {
 

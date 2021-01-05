@@ -1,6 +1,6 @@
 package com.example.prueba_desconecta.io.response;
 
-import com.example.prueba_desconecta.ui.PreviewMuseo;
+import com.example.prueba_desconecta.io.model.PreviewMuseo;
 
 public class MuseuResponse {
 

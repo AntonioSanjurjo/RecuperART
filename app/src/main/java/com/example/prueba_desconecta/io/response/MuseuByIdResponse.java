@@ -1,7 +1,6 @@
 package com.example.prueba_desconecta.io.response;
 
-import com.example.prueba_desconecta.ui.Museo;
-import com.example.prueba_desconecta.ui.PreviewMuseo;
+import com.example.prueba_desconecta.io.model.Museo;
 
 public class MuseuByIdResponse {
     private boolean err;

@@ -39,8 +39,6 @@ class ApiClient (){
 
         //Instanciamos el servicio de retrofit a partir del objeto retrofit
         apiService =retrofit.create(ApiService::class.java)
-
-
     }
 
 

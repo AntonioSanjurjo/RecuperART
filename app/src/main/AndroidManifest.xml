@@ -26,9 +26,6 @@
             android:name=".ui.ui.elije.Elige"
             android:label="@string/title_activity_elige"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.ScanCodeActivity" />
-        <activity android:name=".ui.QRScanner" />
-
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/network_security_config" />

@@ -5,14 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import com.example.prueba_desconecta.common.MyApp
 import com.example.prueba_desconecta.io.ApiAdapter
 import com.example.prueba_desconecta.io.response.AllMuseusResponse
-import com.example.prueba_desconecta.ui.PreviewMuseo
+import com.example.prueba_desconecta.io.model.PreviewMuseo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class AllMuseusDBRepository : Callback<AllMuseusResponse> {
     var allMuseus : MutableLiveData<ArrayList<PreviewMuseo>>? =  null
-    var museoDefault: PreviewMuseo = PreviewMuseo()
+    var museoDefault: PreviewMuseo =
+        PreviewMuseo()
     init{
         allMuseus =  callallmuseus()
         museoDefault.createDefault(0,"Començar sense museu", "Feu clic aquí")

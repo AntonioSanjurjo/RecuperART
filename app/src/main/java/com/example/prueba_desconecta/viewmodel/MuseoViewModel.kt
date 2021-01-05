@@ -3,8 +3,8 @@ package com.example.prueba_desconecta.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.prueba_desconecta.repository.MuseuDBRepository
-import com.example.prueba_desconecta.ui.Museo
-import com.example.prueba_desconecta.ui.Obra
+import com.example.prueba_desconecta.io.model.Museo
+import com.example.prueba_desconecta.io.model.Obra
 
 class MuseoViewModel: ViewModel() {
     private var museuContentDBRepository: MuseuDBRepository
@@ -17,7 +17,7 @@ class MuseoViewModel: ViewModel() {
         allObras = museuContentDBRepository?.allObras!!
     }
 
-    fun getMuseuContent(): Museo{ return museu }
+    fun getMuseuContent(): Museo { return museu }
 
     fun getallObras(): MutableLiveData<ArrayList<Obra>>{ return allObras }
 }

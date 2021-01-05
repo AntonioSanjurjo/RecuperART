@@ -1,6 +1,6 @@
 package com.example.prueba_desconecta.io.response;
 
-import com.example.prueba_desconecta.ui.Obra;
+import com.example.prueba_desconecta.io.model.Obra;
 
 public class ObraResponse {
    private boolean err;

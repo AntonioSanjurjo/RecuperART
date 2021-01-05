@@ -11,10 +11,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.prueba_desconecta.R
-import com.example.prueba_desconecta.ui.Museo
-import com.example.prueba_desconecta.ui.Obra
-import com.example.prueba_desconecta.ui.ui.elije.PreviewMuseoRecyclerViewAdapter
-import com.example.prueba_desconecta.viewmodel.AllMuseusViewModel
+import com.example.prueba_desconecta.io.model.Museo
+import com.example.prueba_desconecta.io.model.Obra
 import com.example.prueba_desconecta.viewmodel.MuseoViewModel
 
 
@@ -22,7 +20,8 @@ class ObrasFragment : Fragment() {
     private lateinit var museoViewModel: MuseoViewModel
     private lateinit var obrasAdapter: ObrasRecyclerViewAdapter
     private var allobras: ArrayList<Obra> = ArrayList()
-    private var museo: Museo = Museo()
+    private var museo: Museo =
+        Museo()
     private var columnCount = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {

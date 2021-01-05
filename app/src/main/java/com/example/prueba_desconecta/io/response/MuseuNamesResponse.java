@@ -1,6 +1,6 @@
 package com.example.prueba_desconecta.io.response;
 
-import com.example.prueba_desconecta.ui.MuseuNames;
+import com.example.prueba_desconecta.io.model.MuseuNames;
 
 import java.util.ArrayList;
 
