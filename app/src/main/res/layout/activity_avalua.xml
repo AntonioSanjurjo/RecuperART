@@ -4,29 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Revisita">
+    tools:context=".ui.Avalua">
 
     <Button
-        android:id="@+id/buttonEnd"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/buttonDibuixa"
+        android:layout_width="193dp"
+        android:layout_height="66dp"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/colorSecundary"
-        android:background="@drawable/bgwhite"
+        android:backgroundTint="#779BBC"
+        android:fontFamily="@font/mm"
+        android:text="@string/next"
         android:textColor="#FFF"
-        android:text="@string/end"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbardescubre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorSecundary"
+        android:background="#89ACC8"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:fontFamily="@font/mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,52 +37,42 @@
         app:navigationIcon="@drawable/ic_baseline_drag_handle_24" />
 
     <TextView
-        android:id="@+id/revisit"
+        android:id="@+id/draw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/mm"
-        android:text="@string/revisit"
-        android:textColor="@color/colorSecundary"
+        android:text="@string/draw"
+        android:textColor="#779BBC"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbardescubre" />
 
     <TextView
-        android:id="@+id/writeDescription"
+        android:id="@+id/discoverDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:fontFamily="@font/ml"
-        android:text="@string/write_description"
+        android:text="@string/draw_description"
+        android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/revisit" />
+        app:layout_constraintTop_toBottomOf="@+id/draw" />
 
-    <EditText
-        android:id="@+id/writeUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="254dp"
+        android:layout_height="402dp"
+        android:layout_marginStart="106dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:padding="10dp"
-        android:background="@drawable/textview_border"
-        android:hint="Escriu aquí ..."
-        android:gravity="top|left"
-        android:inputType="textMultiLine"
-        android:fontFamily="@font/mm"
-        android:verticalScrollbarPosition="right"
-        android:textSize="18sp"
-        android:scrollbars="vertical"
-        android:visibility="visible"
-        android:minHeight="200dp"
+        android:layout_marginEnd="107dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writeDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/discoverDescription"
+        app:srcCompat="@drawable/draw_cam" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

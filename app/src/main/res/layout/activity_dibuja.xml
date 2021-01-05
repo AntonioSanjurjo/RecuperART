@@ -8,14 +8,15 @@
 
     <Button
         android:id="@+id/buttonDibuixa"
-        android:layout_width="193dp"
-        android:layout_height="66dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="#779BBC"
+        android:backgroundTint="@color/colorSecundary"
         android:fontFamily="@font/mm"
         android:text="@string/next"
         android:textColor="#FFF"
         android:textSize="24sp"
+        android:background="@drawable/bgwhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbardescubre"
+        android:id="@+id/toolbardraw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#89ACC8"
@@ -40,36 +41,40 @@
         android:id="@+id/draw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
         android:text="@string/draw"
-        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/mm"
+        android:textColor="#779BBC"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbardraw" />
 
     <TextView
-        android:id="@+id/discoverDesciption"
-        android:layout_width="293dp"
-        android:layout_height="50dp"
+        android:id="@+id/discoverDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/draw_description"
         android:fontFamily="@font/ml"
+        android:textSize="18sp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/draw" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="254dp"
-        android:layout_height="402dp"
+        android:id="@+id/openCamera"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
         android:layout_marginStart="106dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="107dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discoverDesciption"
+        app:layout_constraintTop_toBottomOf="@+id/discoverDescription"
         app:srcCompat="@drawable/draw_cam" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

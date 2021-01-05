@@ -4,45 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Asocia">
+    android:layout_gravity="bottom"
+    android:layout_alignParentBottom="true"
+    tools:context=".ui.Associa_activity.Asocia">
 
     <Button
         android:id="@+id/buttonAsocia"
-        android:layout_width="193dp"
-        android:layout_height="66dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="#779BBC"
+        android:backgroundTint="@color/colorSecundary"
         android:fontFamily="@font/mm"
         android:text="@string/next"
         android:textColor="#FFF"
         android:textSize="24sp"
+        android:background="@drawable/bgwhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <Button
         android:id="@+id/buttonSpotify"
         android:layout_width="209dp"
         android:layout_height="78dp"
-        android:layout_marginBottom="125dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/spotifylogo"
         android:fontFamily="@font/mm"
         android:padding="30dp"
         android:textColor="#FFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintBottom_toTopOf="@+id/buttonAsocia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbardescubre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#89ACC8"
+        android:background="@color/colorSecundary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:fontFamily="@font/mm"
@@ -56,7 +58,7 @@
         android:id="@+id/associates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:text="ASSOCIA"
         android:textColor="#779BBC"
         android:textSize="30sp"
@@ -66,10 +68,12 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbardescubre" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName9"
+        android:id="@+id/associates_song"
         android:layout_width="372dp"
         android:layout_height="54dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:ems="10"
         android:fontFamily="@font/mm"
         android:hint="@string/textHint"
@@ -77,60 +81,55 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+        app:layout_constraintTop_toBottomOf="@+id/associates_list" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName8"
-        android:layout_width="372dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:fontFamily="@font/mm"
-        android:hint="@string/textHint"
-        android:inputType="textCapSentences|textAutoCorrect"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName6"
-        android:layout_width="365dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:fontFamily="@font/mm"
-        android:hint="@string/textHint"
-        android:inputType="textCapSentences|textAutoCorrect"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.41"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName7"
-        android:layout_width="365dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:fontFamily="@font/mm"
-        android:hint="@string/textHint"
-        android:inputType="textCapSentences|textAutoCorrect"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.41"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+        <TextView
+            android:id="@+id/associates_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/textview_border"
+            android:fontFamily="@font/mm"
+            android:scrollbars="vertical"
+            android:maxHeight="150dp"
+            android:minHeight="100dp"
+            android:text="Llista de cançons:"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/associates_description"/>
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="371dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/associates_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:fontFamily="@font/ml"
         android:text="@string/instruction_assosiates"
         android:textAlignment="center"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/associates" />
+
+    <Button
+        android:id="@+id/buttonAddToList"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="178dp"
+        android:backgroundTint="@color/colorSecundary"
+        android:fontFamily="@font/mm"
+        android:text="@string/addtolist"
+        android:textColor="#FFF"
+        android:textSize="24sp"
+        android:background="@drawable/bgwhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/associates_song" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
-import com.example.prueba_desconecta.ui.descubre.Descubre
+import com.example.prueba_desconecta.ui.Associa_activity.Asocia
+import com.example.prueba_desconecta.ui.Desconnecta_activity.Desconecta
 
 class Monsters : AppCompatActivity() {
     var getThemeku: String? = null
@@ -27,7 +28,7 @@ class Monsters : AppCompatActivity() {
 
         // give an event to next activity
         btn.setOnClickListener(View.OnClickListener {
-            val a = Intent(this@Monsters, Descubre::class.java)
+            val a = Intent(this@Monsters, Desconecta::class.java)
             startActivity(a)
         })
         changeOurTheme()
@@ -39,19 +40,19 @@ class Monsters : AppCompatActivity() {
         if (getThemeku == "blue") {
             icontheme!!.setImageResource(R.drawable.icmob)
             btncontinue!!.setBackgroundResource(R.drawable.bgblue)
-            subtitlepage!!.text = "The water is beautiful of blue"
+            subtitlepage!!.text = "L’aigua és preciosa de color blau"
         } else if (getThemeku == "green") {
             icontheme!!.setImageResource(R.drawable.icmog)
             btncontinue!!.setBackgroundResource(R.drawable.bggreen)
-            subtitlepage!!.text = "Nature and Green are friends"
+            subtitlepage!!.text = "La Natura i el color Verd són amics"
         } else if (getThemeku == "purple") {
             icontheme!!.setImageResource(R.drawable.icmop)
             btncontinue!!.setBackgroundResource(R.drawable.bgpurple)
-            subtitlepage!!.text = "Shiny even in the dark"
+            subtitlepage!!.text = "Brillant fins i tot a les fosques"
         } else if (getThemeku == "orange") {
             icontheme!!.setImageResource(R.drawable.icmoc)
             btncontinue!!.setBackgroundResource(R.drawable.bgorange)
-            subtitlepage!!.text = "Orange is like a yellow"
+            subtitlepage!!.text = "El taronja és com un groc"
         }
     }
 }

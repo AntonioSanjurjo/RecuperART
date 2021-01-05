@@ -6,18 +6,19 @@
     android:layout_height="match_parent"
     android:visibility="visible"
     app:layoutDescription="@xml/activity_inspira_scene"
-    tools:context=".ui.Desconecta">
+    tools:context=".ui.Desconnecta_activity.Desconecta">
 
     <Button
         android:id="@+id/buttonDesconecta"
-        android:layout_width="193dp"
-        android:layout_height="66dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="#779BBC"
+        android:backgroundTint="@color/colorSecundary"
         android:fontFamily="@font/mm"
         android:text="@string/next"
         android:textColor="#FFF"
         android:textSize="24sp"
+        android:background="@drawable/bgwhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,20 +31,51 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:backgroundTint="#779BBC"
+        android:backgroundTint="@color/colorSecundary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_baseline_drag_handle_24" />
 
-    <com.airbnb.lottie.LottieAnimationView
+    <ImageView
         android:id="@+id/desconectaImageView"
-        android:layout_width="277dp"
-        android:layout_height="277dp"
-        android:layout_marginTop="196dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/inspira" />
+        app:layout_constraintTop_toBottomOf="@+id/disconnect_description"
+        app:srcCompat="@drawable/desconnecta" />
+
+    <TextView
+        android:id="@+id/disconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/mm"
+        android:text="@string/disconnect"
+        android:textColor="@color/colorSecundary"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbardisconnect" />
+
+    <TextView
+        android:id="@+id/disconnect_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/ml"
+        android:text="@string/disconnect_description"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disconnect" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

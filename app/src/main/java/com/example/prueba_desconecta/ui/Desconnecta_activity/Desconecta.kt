@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta.ui
+package com.example.prueba_desconecta.ui.Desconnecta_activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -13,20 +13,10 @@ class Desconecta : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_desconecta)
 
-        desconectaImageView.setOnClickListener {
-            inspiraAnimation(desconectaImageView, R.raw.breath)
-        }
-
         val btn: Button = findViewById(R.id.buttonDesconecta)
         btn.setOnClickListener{
-            val r = Intent(this, Concentra::class.java)
+            val r = Intent(this, Respiracio::class.java)
             startActivity(r)
         }
-    }
-
-    private fun inspiraAnimation(imageView: LottieAnimationView, animation: Int) : Boolean {
-        imageView.setAnimation(animation)
-        imageView.playAnimation()
-        return true
     }
 }

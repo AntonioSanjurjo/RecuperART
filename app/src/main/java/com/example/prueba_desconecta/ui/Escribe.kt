@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.ui.Crea_activity.Crea
 
 class Escribe : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
