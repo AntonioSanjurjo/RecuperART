@@ -51,13 +51,10 @@ class ObrasFragment : Fragment() {
             }
         }
         // Observer del museo
-
         museoViewModel.getallObras().observe(viewLifecycleOwner,    Observer {
             allobras = it
             obrasAdapter.setData(museo,allobras)
         })
-
-
 
         return view
     }

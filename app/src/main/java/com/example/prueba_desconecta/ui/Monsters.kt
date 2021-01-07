@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
 import com.example.prueba_desconecta.ui.Associa_activity.Asocia
 import com.example.prueba_desconecta.ui.Desconnecta_activity.Desconecta
+import com.example.prueba_desconecta.ui.descubre.Descubre
 
 class Monsters : AppCompatActivity() {
     var getThemeku: String? = null
@@ -28,7 +29,7 @@ class Monsters : AppCompatActivity() {
 
         // give an event to next activity
         btn.setOnClickListener(View.OnClickListener {
-            val a = Intent(this@Monsters, Desconecta::class.java)
+            val a = Intent(this@Monsters, Descubre::class.java)
             startActivity(a)
         })
         changeOurTheme()

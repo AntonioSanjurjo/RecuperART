@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
+        android:fontFamily="@font/mm"
         android:text="@string/create"
         android:textColor="@color/colorSecundary"
         android:textSize="30sp"

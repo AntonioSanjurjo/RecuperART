@@ -28,7 +28,6 @@ class MuseuDBRepository {
 
         if (museo== null){
             museo= Museo()
-
         }
 
         val call: Call<MuseuContentByIdResponse>? = (apiService?.museuContentById)

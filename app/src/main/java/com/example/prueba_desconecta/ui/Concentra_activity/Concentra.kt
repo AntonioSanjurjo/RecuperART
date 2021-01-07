@@ -8,10 +8,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
 import com.example.prueba_desconecta.R
@@ -25,15 +22,16 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 
-class Concentra : AppCompatActivity(), Callback<WordCloud> {
+class Concentra : AppCompatActivity() {
+
+
+    //Request variables
+    var lastDown : Long = 0
+    var wordCloud = ""
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_concentra)
-
-            //Evitar error NetworkOnMainThreadException
-            val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
-            StrictMode.setThreadPolicy(policy)
 
             //Visible-->Gone pushing btnWC
             var word : EditText = findViewById(R.id.emotionWord)
@@ -48,17 +46,19 @@ class Concentra : AppCompatActivity(), Callback<WordCloud> {
             val buttonNext : Button = findViewById(R.id.buttonConcentra)
             val wordCloudTitle : TextView = findViewById(R.id.wordcloud)
 
-            //Request data
-            val url = URL("http://pae-ics.etsetb.upc.edu/WordCloud/getWordCloud")
-            var wordCloud = ""
-
-            var lastDown : Long = 0
-
+            //Evitar error NetworkOnMainThreadException
+            val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+            StrictMode.setThreadPolicy(policy)
+            //Button to create String by pulsating time
             clock.setOnTouchListener(OnTouchListener { view, event ->
                 if (event.action == MotionEvent.ACTION_DOWN) {
-                    lastDown = System.currentTimeMillis()
-                    clockAnimation(clock, R.raw.redbuttonanimation)
-                    clock.loop(true)
+                    if(word.text.trim().length > 0) {   //Check Request body in order to avoid Exceptions
+                        lastDown = System.currentTimeMillis()
+                        clockAnimation(clock, R.raw.redbuttonanimation)
+                        clock.loop(true)
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Introdueix una paraula al camp de text", Toast.LENGTH_SHORT).show()
+                    }
                 } else if (event.action == MotionEvent.ACTION_UP) {
                     clock.loop(false)
                     var lastDuration = (System.currentTimeMillis() - lastDown) / 1000
@@ -73,9 +73,8 @@ class Concentra : AppCompatActivity(), Callback<WordCloud> {
                 true
             })
 
-
             btnWC.setOnClickListener{
-                //Change visibility in layout
+                //Change visibility in layout when Request is sent
                 instructions.visibility = View.GONE
                 clock.visibility = View.GONE
                 word.visibility = View.GONE
@@ -85,44 +84,38 @@ class Concentra : AppCompatActivity(), Callback<WordCloud> {
                 buttonNext.visibility = View.VISIBLE
                 wordCloudExplanation.visibility = View.VISIBLE
                 wordCloudTitle.visibility = View.VISIBLE
-                //Send POST Request and set Response to ImageView
-                //var bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream())
-                Log.i("Wordcloud",wordCloud)
-                val con: HttpURLConnection = url.openConnection() as HttpURLConnection
-                con.setRequestMethod("POST");
-                con.setRequestProperty("Content-Type", "text/plain")
-                //con.setRequestProperty("Accept", "application/json");
-                con.setDoOutput(true)
-                con.outputStream.use { os ->
-                    val input: ByteArray = wordCloud.toByteArray()
-                    os.write(input, 0, input.size)
-                }
-                BufferedInputStream(con.inputStream).use { bis ->
-                    var bitmap = BitmapFactory.decodeStream(bis)
-                    imageView.setImageBitmap(bitmap)
+                //Send POST Request to BE and set its response to an ImageView
+                val url = URL("http://pae-ics.etsetb.upc.edu/WordCloud/getWordCloud")
+                if (wordCloud.trim().length > 0) {      //Check Request body in order to avoid Exceptions
+                    val con: HttpURLConnection = url.openConnection() as HttpURLConnection
+                    con.setRequestMethod("POST");
+                    con.setRequestProperty("Content-Type", "text/plain")
+                    con.setDoOutput(true)
+                    con.outputStream.use { os ->
+                        val input: ByteArray = wordCloud.toByteArray()
+                        os.write(input, 0, input.size)
+                    }
+                    BufferedInputStream(con.inputStream).use { bis ->
+                        var bitmap = BitmapFactory.decodeStream(bis)
+                        imageView.setImageBitmap(bitmap)
+                    }
+                } else {
+                    imageView.setImageResource(R.drawable.wcerror)
                 }
             }
 
+            //Change to Asocia activity
             val btnNext : Button = findViewById(R.id.buttonConcentra)
             btnNext.setOnClickListener{
                 val r = Intent(this, Asocia::class.java)
                 startActivity(r)
             }
-
-
     }
 
+    //Starts animation
     private fun clockAnimation(imageView: LottieAnimationView, animation: Int) : Boolean {
         imageView.setAnimation(animation)
         imageView.playAnimation()
         return true
-    }
-
-    override fun onResponse(call: Call<WordCloud>, response: Response<WordCloud>) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onFailure(call: Call<WordCloud>, t: Throwable) {
-        TODO("Not yet implemented")
     }
 }

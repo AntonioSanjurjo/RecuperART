@@ -8,7 +8,6 @@ class ApiClient (){
 
     private val apiService: ApiService;
     private val retrofit: Retrofit
-    var apiServiceInterceptor: ApiServiceInterceptor? = null
 
     companion object {
 
@@ -23,12 +22,12 @@ class ApiClient (){
     }
 
     init {
-        //incluir el interceptro que hemos definido
 
+        //Incluir el interceptor que hemos definido
         val okhttpClientBuilder = OkHttpClient.Builder()
         okhttpClientBuilder.addInterceptor(ApiServiceInterceptor())
 
-        val cliente =okhttpClientBuilder.build()
+        val cliente = okhttpClientBuilder.build()
 
         // Construir el cliente de Retrofit
         retrofit = Retrofit.Builder()
@@ -38,12 +37,9 @@ class ApiClient (){
             .build()
 
         //Instanciamos el servicio de retrofit a partir del objeto retrofit
-        apiService =retrofit.create(ApiService::class.java)
+        apiService = retrofit.create(ApiService::class.java)
     }
 
-
     fun getApiService() = apiService
-    
-
 
 }

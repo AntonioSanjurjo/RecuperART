@@ -9,7 +9,7 @@ class ApiServiceInterceptor() : Interceptor {
         val urlWithParams = chain.request()
             .url
             .newBuilder()
-            .addQueryParameter("", Constantes.ID)
+            .addQueryParameter("", Constantes.QR_ID)
             .build()
 
         var request = chain.request()

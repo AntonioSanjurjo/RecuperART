@@ -8,38 +8,6 @@
     android:layout_alignParentBottom="true"
     tools:context=".ui.Associa_activity.Asocia">
 
-    <Button
-        android:id="@+id/buttonAsocia"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/colorSecundary"
-        android:fontFamily="@font/mm"
-        android:text="@string/next"
-        android:textColor="#FFF"
-        android:textSize="24sp"
-        android:background="@drawable/bgwhite"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-
-    <Button
-        android:id="@+id/buttonSpotify"
-        android:layout_width="209dp"
-        android:layout_height="78dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/spotifylogo"
-        android:fontFamily="@font/mm"
-        android:padding="30dp"
-        android:textColor="#FFF"
-        android:textSize="24sp"
-
-        app:layout_constraintBottom_toTopOf="@+id/buttonAsocia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbardescubre"
         android:layout_width="0dp"
@@ -67,40 +35,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbardescubre" />
 
-    <EditText
-        android:id="@+id/associates_song"
-        android:layout_width="372dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:ems="10"
-        android:fontFamily="@font/mm"
-        android:hint="@string/textHint"
-        android:inputType="textCapSentences|textAutoCorrect"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/associates_list" />
-
-        <TextView
-            android:id="@+id/associates_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/textview_border"
-            android:fontFamily="@font/mm"
-            android:scrollbars="vertical"
-            android:maxHeight="150dp"
-            android:minHeight="100dp"
-            android:text="Llista de cançons:"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/associates_description"/>
-
     <TextView
         android:id="@+id/associates_description"
         android:layout_width="match_parent"
@@ -115,6 +49,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/associates" />
+
+    <ListView
+        android:id="@+id/associates_list"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/textview_border"
+        android:fontFamily="@font/mm"
+        android:minHeight="100dp"
+        android:maxHeight="200dp"
+        android:padding="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/associates_description" />
+
+    <EditText
+        android:id="@+id/associates_song"
+        android:layout_width="372dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/mm"
+        android:hint="@string/textHint"
+        android:imeOptions="actionSend"
+        android:inputType="textCapSentences|textAutoCorrect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/associates_list" />
 
     <Button
         android:id="@+id/buttonAddToList"
@@ -132,4 +98,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/associates_song" />
+
+    <Button
+        android:id="@+id/buttonAsocia"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/colorSecundary"
+        android:fontFamily="@font/mm"
+        android:text="@string/next"
+        android:textColor="#FFF"
+        android:textSize="24sp"
+        android:background="@drawable/bgwhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

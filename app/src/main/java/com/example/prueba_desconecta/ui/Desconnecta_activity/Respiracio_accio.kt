@@ -15,12 +15,15 @@ class Respiracio_accio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_respiracio_accio)
         var respira: LottieAnimationView = findViewById(R.id.respiracioImageView)
+        respira.frame
+        respira.pauseAnimation()
         respira.setOnClickListener {
             respiraAnimation(respira, R.raw.breathi)
         }
 
         val btn: Button = findViewById(R.id.buttonRespiracioAccio)
         btn.setOnClickListener{
+            respira.cancelAnimation()
             val r = Intent(this, Concentra::class.java)
             startActivity(r)
         }

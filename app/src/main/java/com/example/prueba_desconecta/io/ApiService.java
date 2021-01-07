@@ -70,6 +70,7 @@ public interface ApiService {
     @GET("api/getMediaObraByCategoria/")
     Call<MediaObraResponse> getMediaObraByCategoria();
 
+    //No implementado
     @POST("WordCloud/getWordCloud")
     Call<WordCloud> postWordCloud(@Body RequestBody body);
 

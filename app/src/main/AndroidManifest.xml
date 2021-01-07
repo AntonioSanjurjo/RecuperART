@@ -2,15 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prueba_desconecta">
 
+    <!-- Permisos necesarios (NO TOCAR) -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-feature android:name="android.hardware.camera" />
-
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-feature android:name="android.hardware.location.gps" />
 
     <application
@@ -22,35 +21,58 @@
         android:roundIcon="@raw/recuperart_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.ui.elije.Elige"
-            android:label="@string/title_activity_elige"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/network_security_config" />
 
         <activity
-            android:name=".ui.Desconnecta_activity.Respiracio_accio"></activity>
+            android:name=".ui.ui.elije.Elige"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".ui.Desconnecta_activity.Respiracio_accio"/>
+
         <activity
             android:name=".ui.Desconnecta_activity.Respiracio"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.Concentra_activity.Concentra" >
 
-        </activity>
+        <activity android:name=".ui.Concentra_activity.Concentra" />
+
         <activity
             android:name=".ui.Crea_activity.Puzzle"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".ui.Mood" />
+
         <activity android:name=".ui.Monsters" />
-        <activity android:name=".ui.Associa_activity.Asocia" />
+
+        <activity android:name=".ui.Associa_activity.Asocia" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".ui.Revisita" />
+
         <activity android:name=".ui.Escribe" />
-        <activity android:name=".ui.Desconnecta_activity.Desconecta" />
+
+        <activity android:name=".ui.Desconnecta_activity.Desconecta">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity android:name=".ui.Crea_activity.Crea" />
+
         <activity android:name=".ui.descubre.Descubre" />
+
         <activity android:name=".ui.Dibuja" />
+
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,6 +80,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

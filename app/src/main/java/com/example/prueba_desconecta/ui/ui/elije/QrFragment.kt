@@ -42,7 +42,7 @@ class QrFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) if (result.contents != null) {
-            Constantes.QR_ID= result.contents
+            Constantes.ID= result.contents
             val r = Intent(activity, Mood::class.java)
             startActivity(r)
         } else {
