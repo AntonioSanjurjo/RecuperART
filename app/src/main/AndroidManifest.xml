@@ -28,7 +28,7 @@
 
         <activity
             android:name=".ui.ui.elije.Elige"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme"/>
 
         <activity android:name=".ui.Desconnecta_activity.Respiracio_accio"/>
 
@@ -47,25 +47,13 @@
 
         <activity android:name=".ui.Monsters" />
 
-        <activity android:name=".ui.Associa_activity.Asocia" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.Associa_activity.Asocia" />
 
         <activity android:name=".ui.Revisita" />
 
         <activity android:name=".ui.Escribe" />
 
-        <activity android:name=".ui.Desconnecta_activity.Desconecta">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+        <activity android:name=".ui.Desconnecta_activity.Desconecta" />
 
         <activity android:name=".ui.Crea_activity.Crea" />
 
