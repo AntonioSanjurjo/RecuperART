@@ -13,7 +13,7 @@ data class Experience(
     val colorstart: String,
     val workcloud: Bitmap,
     val cancion: String,
-    val dibujo: String,
+    val dibujo: Bitmap,
     val escribe: String,
     val revisita: String,
     val colorend: String
