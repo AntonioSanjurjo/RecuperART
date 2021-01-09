@@ -1,0 +1,636 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.prueba_desconecta\">\r\n\r\n    <!-- Permisos necesarios (NO TOCAR) -->\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.CAMERA\" />\r\n    <uses-feature android:name=\"android.hardware.camera\"\r\n        android:required=\"true\" />\r\n    <uses-permission android:name=\"android.permission.RECORD_AUDIO\" />\r\n    <uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-feature android:name=\"android.hardware.location.gps\" />\r\n\r\n    <application\r\n        android:name=\".common.MyApp\"\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@drawable/recuperart\"\r\n        android:label=\"@string/app_name\"\r\n        android:networkSecurityConfig=\"@xml/network_security_config\"\r\n        android:roundIcon=\"@raw/recuperart_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\">\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.actions\"\r\n            android:resource=\"@xml/network_security_config\" />\r\n\r\n        <activity\r\n            android:name=\".ui.ui.elije.Elige\"\r\n            android:theme=\"@style/AppTheme.NoActionBar\" />\r\n\r\n        <activity android:name=\".ui.Desconnecta_activity.Respiracio_accio\"/>\r\n\r\n        <activity\r\n            android:name=\".ui.Desconnecta_activity.Respiracio\"\r\n            android:theme=\"@style/AppTheme.NoActionBar\" />\r\n\r\n        <activity android:name=\".ui.Concentra_activity.Concentra\" />\r\n\r\n        <activity\r\n            android:name=\".ui.Crea_activity.Puzzle\"\r\n            android:screenOrientation=\"portrait\"\r\n            android:theme=\"@style/AppTheme.NoActionBar\" />\r\n\r\n        <activity android:name=\".ui.Mood\" />\r\n\r\n        <activity android:name=\".ui.Monsters\" />\r\n\r\n        <activity android:name=\".ui.Associa_activity.Asocia\" >\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n\r\n        <activity android:name=\".ui.Revisita\" />\r\n\r\n        <activity android:name=\".ui.Escribe\" />\r\n\r\n        <activity android:name=\".ui.Desconnecta_activity.Desconecta\">\r\n        <intent-filter>\r\n            <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n            <category android:name=\"android.intent.category.LAUNCHER\" />\r\n        </intent-filter>\r\n        </activity>\r\n\r\n        <activity android:name=\".ui.Crea_activity.Crea\" />\r\n\r\n        <activity android:name=\".ui.descubre.Descubre\" />\r\n\r\n        <activity android:name=\".ui.Dibuja\" />\r\n\r\n        <activity android:name=\".ui.MainActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision c48571027a3790a3a5e64884f717c650102f2895)
++++ app/src/main/AndroidManifest.xml	(date 1610131068419)
+@@ -11,6 +11,7 @@
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+     <uses-feature android:name="android.hardware.location.gps" />
++    <uses-permission android:name="android.permission.WAKE_LOCK" />
+ 
+     <application
+         android:name=".common.MyApp"
+@@ -47,6 +48,8 @@
+ 
+         <activity android:name=".ui.Monsters" />
+ 
++        <service android:name=".ui.Associa_activity.BackgroundSoundService" />
++
+         <activity android:name=".ui.Associa_activity.Asocia" >
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+Index: app/src/main/java/com/example/prueba_desconecta/ui/Associa_activity/BackgroundSoundService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.prueba_desconecta.ui.Associa_activity;\r\n\r\nimport android.app.Service;\r\nimport android.content.Intent;\r\nimport android.media.MediaPlayer;\r\nimport android.os.IBinder;\r\nimport android.widget.Toast;\r\nimport androidx.annotation.Nullable;\r\n\r\nimport com.example.prueba_desconecta.R;\r\n\r\npublic class BackgroundSoundService extends Service {\r\n    MediaPlayer musicPlayer;\r\n\r\n    @Nullable\r\n    @Override\r\n    public IBinder onBind(Intent intent) {\r\n        //Transacciones entre APP y recursos exteriores\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public void onCreate() {\r\n        super.onCreate();\r\n        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);\r\n        //musicPlayer.setLooping(true); // Set looping\r\n        musicPlayer.setVolume(100, 100);\r\n    }\r\n\r\n    public int onStartCommand(Intent intent, int flags, int startId) {\r\n        musicPlayer.start();\r\n        Toast.makeText(getApplicationContext(), \"Reproduciendo en segundo plano\", Toast.LENGTH_SHORT).show();\r\n        return startId;\r\n    }\r\n\r\n    public void onStart(Intent intent, int startId) {\r\n    }\r\n\r\n    @Override\r\n    public void onDestroy() {\r\n        musicPlayer.stop();\r\n        musicPlayer.release();\r\n    }\r\n\r\n    @Override\r\n    public void onLowMemory() {\r\n    }\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/prueba_desconecta/ui/Associa_activity/BackgroundSoundService.java	(revision c48571027a3790a3a5e64884f717c650102f2895)
++++ app/src/main/java/com/example/prueba_desconecta/ui/Associa_activity/BackgroundSoundService.java	(date 1610133220582)
+@@ -22,14 +22,13 @@
+     @Override
+     public void onCreate() {
+         super.onCreate();
+-        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
+-        //musicPlayer.setLooping(true); // Set looping
+-        musicPlayer.setVolume(100, 100);
+     }
+ 
+     public int onStartCommand(Intent intent, int flags, int startId) {
++        musicPlayer = MediaPlayer.create(this, R.raw.classic);
++        musicPlayer.setLooping(true); // Set looping
++        musicPlayer.setVolume(100, 100);
+         musicPlayer.start();
+-        Toast.makeText(getApplicationContext(), "Reproduciendo en segundo plano", Toast.LENGTH_SHORT).show();
+         return startId;
+     }
+ 
+@@ -46,5 +45,4 @@
+     public void onLowMemory() {
+     }
+ 
+-}
+-
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/prueba_desconecta/ui/Associa_activity/Asocia.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.prueba_desconecta.ui.Associa_activity\r\n\r\nimport android.content.Intent\r\nimport android.os.Bundle\r\nimport android.view.KeyEvent\r\nimport android.view.View.OnKeyListener\r\nimport android.view.WindowManager\r\nimport android.widget.*\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport com.example.prueba_desconecta.R\r\nimport com.example.prueba_desconecta.ui.Dibuja\r\n\r\n\r\nclass Asocia : AppCompatActivity() {\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_asocia)\r\n        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)\r\n\r\n        var listView: ListView = findViewById(R.id.associates_list)\r\n        var song: EditText = findViewById(R.id.associates_song)\r\n        var arrayList: ArrayList<String> = ArrayList()\r\n\r\n        var adaptador = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)\r\n        /*val btnPlay: Button = findViewById(R.id.buttonSpotify)\r\n        btnPlay.setOnClickListener {\r\n            val r = Intent(this, BackgroundSoundService::class.java)\r\n            startActivity(r)\r\n        }*/\r\n\r\n        val btnNext: Button = findViewById(R.id.buttonAsocia)\r\n        btnNext.setOnClickListener {\r\n            val r = Intent(this, Dibuja::class.java)\r\n            startActivity(r)\r\n        }\r\n\r\n        song.setOnKeyListener(OnKeyListener { view, keyCode, keyevent ->\r\n            //If the keyevent is a key-down event on the \"enter\" button\r\n            if (keyevent.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {\r\n                var text = song.text.toString()\r\n                if (text.length > 0) {   //Check Request body in order to avoid Exceptions\r\n                    arrayList.add(text)\r\n                    adaptador = ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, arrayList)\r\n                    listView.adapter = adaptador\r\n                    song.setText(null)\r\n                } else {\r\n                    Toast.makeText(getApplicationContext(), \"Introdueix una paraula al camp de text\", Toast.LENGTH_SHORT).show()\r\n                }\r\n                true\r\n            } else false\r\n        })\r\n\r\n        val btnAddToList: Button = findViewById(R.id.buttonAddToList)\r\n        btnAddToList.setOnClickListener {\r\n            var text = song.text.toString()\r\n            if (text.length > 0) {   //Check Request body in order to avoid Exceptions\r\n                arrayList.add(text)\r\n                adaptador = ArrayAdapter<String>(\r\n                    this,\r\n                    android.R.layout.simple_list_item_activated_1,\r\n                    arrayList\r\n                )\r\n                listView.adapter = adaptador\r\n                song.setText(null)\r\n            } else {\r\n                Toast.makeText(getApplicationContext(), \"Introdueix una paraula al camp de text\", Toast.LENGTH_SHORT).show()\r\n            }\r\n        }\r\n    }\r\n\r\n    fun setTextToList(){\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/prueba_desconecta/ui/Associa_activity/Asocia.kt	(revision c48571027a3790a3a5e64884f717c650102f2895)
++++ app/src/main/java/com/example/prueba_desconecta/ui/Associa_activity/Asocia.kt	(date 1610131924732)
+@@ -1,10 +1,13 @@
+ package com.example.prueba_desconecta.ui.Associa_activity
+ 
+ import android.content.Intent
++import android.media.MediaPlayer
+ import android.os.Bundle
+ import android.view.KeyEvent
++import android.view.View
+ import android.view.View.OnKeyListener
+ import android.view.WindowManager
++import android.view.inputmethod.EditorInfo
+ import android.widget.*
+ import androidx.appcompat.app.AppCompatActivity
+ import com.example.prueba_desconecta.R
+@@ -13,6 +16,8 @@
+ 
+ class Asocia : AppCompatActivity() {
+ 
++    var musicPlayer : ArrayList<MediaPlayer> = ArrayList(12)
++
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_asocia)
+@@ -21,37 +26,87 @@
+         var listView: ListView = findViewById(R.id.associates_list)
+         var song: EditText = findViewById(R.id.associates_song)
+         var arrayList: ArrayList<String> = ArrayList()
+-
++        val assDescrip : TextView = findViewById(R.id.associates_description)
++        val btnAddToList: Button = findViewById(R.id.buttonAddToList)
+         var adaptador = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
+-        /*val btnPlay: Button = findViewById(R.id.buttonSpotify)
++
++        var musicResources : IntArray = intArrayOf(
++            R.raw.classic,
++            R.raw.blues,
++            R.raw.jazz,
++            R.raw.rock,
++            R.raw.soul,
++            R.raw.metal,
++            R.raw.pop,
++            R.raw.disco,
++            R.raw.ska,
++            R.raw.reggae,
++            R.raw.flamenco,
++            R.raw.hiphop
++        )
++        for (i in 0..(musicPlayer.size - 1)){
++            musicPlayer[i] = MediaPlayer.create(this, musicResources[i])
++        }
++
++        //val gridview : GridView = findViewById(R.id.musicTable)
++        //gridview.adapter = ButtonAdapter(this)
++        //val musicPlayer: MediaPlayer? = null
++        //musicPlayer!!.setVolume(100f, 100f)
++
++
++        /*val btnPlay: Button = findViewById(R.id.classical)
+         btnPlay.setOnClickListener {
+             val r = Intent(this, BackgroundSoundService::class.java)
+             startActivity(r)
+         }*/
+ 
++        //Change visibility to show Music Service
++        val btnBSS : Button = findViewById(R.id.buttonSeguent)
++        btnBSS.setOnClickListener {
++            //Visible-->Gone
++            assDescrip.visibility = View.GONE
++            listView.visibility = View.GONE
++            song.visibility = View.GONE
++            btnAddToList.visibility = View.GONE
++            btnBSS.visibility = View.GONE
++            //Gone--> Visible
++
++        }
++
++        //Change to Dibuja activity
+         val btnNext: Button = findViewById(R.id.buttonAsocia)
+         btnNext.setOnClickListener {
+             val r = Intent(this, Dibuja::class.java)
++            //val s = Intent(this, BackgroundSoundService::class.java)
+             startActivity(r)
+         }
+ 
++        //Add to list with ENTER/SEND button in Android Keyboard
++        song.setImeOptions(EditorInfo.IME_ACTION_DONE)
+         song.setOnKeyListener(OnKeyListener { view, keyCode, keyevent ->
+             //If the keyevent is a key-down event on the "enter" button
+             if (keyevent.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                 var text = song.text.toString()
+                 if (text.length > 0) {   //Check Request body in order to avoid Exceptions
+                     arrayList.add(text)
+-                    adaptador = ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, arrayList)
++                    adaptador = ArrayAdapter<String>(
++                        this,
++                        android.R.layout.simple_list_item_activated_1,
++                        arrayList
++                    )
+                     listView.adapter = adaptador
+                     song.setText(null)
+                 } else {
+-                    Toast.makeText(getApplicationContext(), "Introdueix una paraula al camp de text", Toast.LENGTH_SHORT).show()
++                    Toast.makeText(
++                        getApplicationContext(),
++                        "Introdueix una paraula al camp de text",
++                        Toast.LENGTH_SHORT
++                    ).show()
+                 }
+                 true
+             } else false
+         })
+ 
+-        val btnAddToList: Button = findViewById(R.id.buttonAddToList)
+         btnAddToList.setOnClickListener {
+             var text = song.text.toString()
+             if (text.length > 0) {   //Check Request body in order to avoid Exceptions
+@@ -64,12 +119,44 @@
+                 listView.adapter = adaptador
+                 song.setText(null)
+             } else {
+-                Toast.makeText(getApplicationContext(), "Introdueix una paraula al camp de text", Toast.LENGTH_SHORT).show()
++                Toast.makeText(
++                    getApplicationContext(),
++                    "Introdueix una paraula al camp de text",
++                    Toast.LENGTH_SHORT
++                ).show()
+             }
+         }
++        
++        val classical : Button = findViewById(R.id.classical)
++        classical.setOnClickListener {
++            val r = Intent(this, BackgroundSoundService::class.java)
++            //val s = Intent(this, BackgroundSoundService::class.java)
++            startService(r)
++        }
+     }
+ 
+-    fun setTextToList(){
+-
++    fun buttonClicked(view: View) {
++        when(view.id.dec()) {
++            R.id.classical -> {
++                var media : MediaPlayer = MediaPlayer.create(this,R.raw.classic)
++                media.setVolume(100F, 100F)
++                musicPlayer[0]?.start()
++            }
++            R.id.blues -> {
++                musicPlayer[1].setVolume(100F, 100F)
++                musicPlayer[1].start()
++            }
++            R.id.jazz -> musicPlayer[2].start()
++            R.id.rock -> musicPlayer[3].start()
++            R.id.soul -> musicPlayer[4].start()
++            R.id.metal -> musicPlayer[5].start()
++            R.id.pop -> musicPlayer[6].start()
++            R.id.disco -> musicPlayer[7].start()
++            R.id.ska -> musicPlayer[8].start()
++            R.id.reggae -> musicPlayer[9].start()
++            R.id.flamenco -> musicPlayer[10].start()
++            R.id.hiphop -> musicPlayer[11].start()
++        }
++        //musicPlayer[view.id].setVolume(200F, 200F)
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_asocia.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:layout_gravity=\"bottom\"\r\n    android:layout_alignParentBottom=\"true\"\r\n    tools:context=\".ui.Associa_activity.Asocia\">\r\n\r\n    <androidx.appcompat.widget.Toolbar\r\n        android:id=\"@+id/toolbardescubre\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:background=\"@color/colorSecundary\"\r\n        android:minHeight=\"?attr/actionBarSize\"\r\n        android:theme=\"?attr/actionBarTheme\"\r\n        android:fontFamily=\"@font/mm\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:navigationIcon=\"@drawable/ic_baseline_drag_handle_24\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/associates\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"30dp\"\r\n        android:text=\"ASSOCIA\"\r\n        android:textColor=\"#779BBC\"\r\n        android:textSize=\"30sp\"\r\n        android:fontFamily=\"@font/mm\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/toolbardescubre\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/associates_description\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:layout_marginLeft=\"20dp\"\r\n        android:layout_marginRight=\"20dp\"\r\n        android:fontFamily=\"@font/ml\"\r\n        android:text=\"@string/instruction_assosiates\"\r\n        android:textAlignment=\"center\"\r\n        android:textSize=\"18sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/associates\" />\r\n\r\n    <ListView\r\n        android:id=\"@+id/associates_list\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"200dp\"\r\n        android:layout_marginStart=\"20dp\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:layout_marginEnd=\"20dp\"\r\n        android:background=\"@drawable/textview_border\"\r\n        android:fontFamily=\"@font/mm\"\r\n        android:minHeight=\"100dp\"\r\n        android:maxHeight=\"200dp\"\r\n        android:padding=\"10dp\"\r\n        android:textSize=\"18sp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/associates_description\" />\r\n\r\n    <EditText\r\n        android:id=\"@+id/associates_song\"\r\n        android:layout_width=\"372dp\"\r\n        android:layout_height=\"54dp\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:layout_marginRight=\"20dp\"\r\n        android:layout_marginLeft=\"20dp\"\r\n        android:fontFamily=\"@font/mm\"\r\n        android:hint=\"@string/textHint\"\r\n        android:imeOptions=\"actionSend\"\r\n        android:inputType=\"textCapSentences|textAutoCorrect\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/associates_list\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/buttonAddToList\"\r\n        android:layout_width=\"300dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"166dp\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:layout_marginEnd=\"178dp\"\r\n        android:backgroundTint=\"@color/colorSecundary\"\r\n        android:fontFamily=\"@font/mm\"\r\n        android:text=\"@string/addtolist\"\r\n        android:textColor=\"#FFF\"\r\n        android:textSize=\"24sp\"\r\n        android:background=\"@drawable/bgwhite\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/associates_song\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/buttonAsocia\"\r\n        android:layout_width=\"200dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginBottom=\"40dp\"\r\n        android:backgroundTint=\"@color/colorSecundary\"\r\n        android:fontFamily=\"@font/mm\"\r\n        android:text=\"@string/next\"\r\n        android:textColor=\"#FFF\"\r\n        android:textSize=\"24sp\"\r\n        android:background=\"@drawable/bgwhite\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_asocia.xml	(revision c48571027a3790a3a5e64884f717c650102f2895)
++++ app/src/main/res/layout/activity_asocia.xml	(date 1610133255262)
+@@ -17,7 +17,6 @@
+         android:theme="?attr/actionBarTheme"
+         android:fontFamily="@font/mm"
+         app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintHorizontal_bias="0.0"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:navigationIcon="@drawable/ic_baseline_drag_handle_24" />
+@@ -46,6 +45,7 @@
+         android:text="@string/instruction_assosiates"
+         android:textAlignment="center"
+         android:textSize="18sp"
++        android:visibility="gone"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/associates" />
+@@ -58,11 +58,13 @@
+         android:layout_marginTop="20dp"
+         android:layout_marginEnd="20dp"
+         android:background="@drawable/textview_border"
++        android:backgroundTint="#8189ACC8"
+         android:fontFamily="@font/mm"
+-        android:minHeight="100dp"
+         android:maxHeight="200dp"
++        android:minHeight="100dp"
+         android:padding="10dp"
+         android:textSize="18sp"
++        android:visibility="gone"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/associates_description" />
+@@ -78,6 +80,7 @@
+         android:hint="@string/textHint"
+         android:imeOptions="actionSend"
+         android:inputType="textCapSentences|textAutoCorrect"
++        android:visibility="gone"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/associates_list" />
+@@ -95,12 +98,13 @@
+         android:textColor="#FFF"
+         android:textSize="24sp"
+         android:background="@drawable/bgwhite"
++        android:visibility="gone"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/associates_song" />
+ 
+     <Button
+-        android:id="@+id/buttonAsocia"
++        android:id="@+id/buttonSeguent"
+         android:layout_width="200dp"
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="40dp"
+@@ -110,8 +114,159 @@
+         android:textColor="#FFF"
+         android:textSize="24sp"
+         android:background="@drawable/bgwhite"
++        android:visibility="gone"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent" />
+ 
++    <TextView
++        android:id="@+id/associates_music"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="20dp"
++        android:layout_marginLeft="20dp"
++        android:layout_marginRight="20dp"
++        android:fontFamily="@font/ml"
++        android:text="@string/instruction_assosiates_music"
++        android:textAlignment="center"
++        android:textSize="18sp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/associates" />
++
++    <ScrollView
++        android:id="@+id/buttonList"
++        android:layout_width="match_parent"
++        android:layout_height="200dp"
++        android:layout_marginLeft="20dp"
++        android:layout_marginRight="20dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/associates_music">
++
++        <LinearLayout
++            android:id="@+id/buttonListLayout"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="20dp"
++            android:orientation="vertical">
++
++            <Button
++                android:id="@+id/classical"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Clàssica"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/blues"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Blues"
++                android:onClick="buttonClicked"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/jazz"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Jazz"
++                android:onClick="buttonClicked"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/rock"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Rock"
++                android:onClick="buttonClicked"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/soul"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Soul"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/metal"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Metal"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/pop"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Pop"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/disco"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Disco"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/ska"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Ska"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/reggae"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Reggae"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/flamenco"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Flamenco"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++            <Button
++                android:id="@+id/hiphop"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Hiphop"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent" />
++
++        </LinearLayout>
++
++    </ScrollView>
++
++    <Button
++        android:id="@+id/buttonAsocia"
++        android:layout_width="200dp"
++        android:layout_height="wrap_content"
++        android:background="@drawable/bgwhite"
++        android:backgroundTint="@color/colorSecundary"
++        android:fontFamily="@font/mm"
++        android:text="@string/next"
++        android:textColor="#FFF"
++        android:textSize="24sp"
++        android:visibility="gone"
++        app:layout_constraintTop_toBottomOf="@+id/buttonList"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent" />
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/prueba_desconecta/ui/Associa_activity/ButtonAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/prueba_desconecta/ui/Associa_activity/ButtonAdapter.java	(date 1610133220578)
++++ app/src/main/java/com/example/prueba_desconecta/ui/Associa_activity/ButtonAdapter.java	(date 1610133220578)
+@@ -0,0 +1,152 @@
++package com.example.prueba_desconecta.ui.Associa_activity;
++
++import android.content.Context;
++import android.content.Intent;
++import android.media.MediaPlayer;
++import android.os.IBinder;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.BaseAdapter;
++import android.widget.Button;
++import android.app.Service;
++import android.widget.Toast;
++
++import androidx.annotation.Nullable;
++
++import com.example.prueba_desconecta.R;
++
++public class ButtonAdapter extends BaseAdapter{
++
++    private BackgroundSoundService service;
++
++    private Context mContext;
++    private int btn_id = 0;
++    private int total_btns = 12;
++    MediaPlayer musicPlayer;
++
++    public ButtonAdapter(Context context) {
++        this.mContext = context;
++    }
++
++    @Override
++    public int getCount() {
++        return total_btns;
++    }
++
++    @Override
++    public Object getItem(int i) {
++        return null;
++    }
++
++    @Override
++    public long getItemId(int i) {
++        return 0;
++    }
++
++    @Override
++    public View getView(final int i, View view, ViewGroup viewGroup)
++    {
++        Button btn;
++
++        if (view == null) {
++            btn = new Button(mContext);
++            switch(btn_id) {
++                case 0:
++                    btn.setText("Clàssica");
++                    break;
++                case 1:
++                    btn.setText("Blues");
++                    break;
++                case 2:
++                    btn.setText("Jazz");
++                    break;
++                case 3:
++                    btn.setText("Rock");
++                    break;
++                case 4:
++                    btn.setText("Soul");
++                    break;
++                case 5:
++                    btn.setText("Metal");
++                    break;
++                case 6:
++                    btn.setText("Pop");
++                    break;
++                case 7:
++                    btn.setText("Disco");
++                    break;
++                case 8:
++                    btn.setText("Ska");
++                    break;
++                case 9:
++                    btn.setText("Reggae");
++                    break;
++                case 10:
++                    btn.setText("Flamenco");
++                    break;
++                case 11:
++                    btn.setText("Hip Hop");
++                    break;
++
++            }
++            btn_id++;
++        } else {
++            btn = (Button) view;
++        }
++
++        btn.setOnClickListener(new View.OnClickListener()
++        {
++            @Override
++            public void onClick(View v) {
++                musicPlayer.stop();
++                //musicPlayer.setLooping(true); // Set looping
++                switch(i){
++                    /*case 0:
++                        //Classical
++                        service.onStartCommand()
++                        break;
++                    case 1:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 2:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 3:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 4:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 5:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 6:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 7:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 8:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 9:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 10:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    case 11:
++                        musicPlayer = MediaPlayer.create(this, R.raw.lluvia);
++                        break;
++                    default:
++                        throw new IllegalStateException("Unexpected value: " + i);*/
++                }
++                musicPlayer.setVolume(100, 100);
++                musicPlayer.start();
++            }
++        });
++
++        return btn;
++    }
++
++}
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\" translatable=\"false\">RecuperArt</string>\r\n    <string name=\"welcome\">Benvinguts a</string>\r\n    <string name=\"colab\">Amb la col·laboració de:</string>\r\n    <string name=\"next\">Següent</string>\r\n    <string name=\"discover\">DESCOBREIX</string>\r\n    <string name=\"discover_description\">\"Passeja pel museu fins que t’hi sentis còmode.  Busca les diferents peces que et proposem i tria’n una.  \"</string>\r\n    <string name=\"chosen\">Obra escollida:</string>\r\n    <string name=\"draw\">DIBUIXA</string>\r\n    <string name=\"draw_description\">Intenta dibuixar l’objecte que tens al davant, no et preocupar per la qualitat final, intenta-ho. Quan acabis, clica sobre la següent animació per fer-li una fotografia</string>\r\n    <string name=\"write\">ESCRIU</string>\r\n    <string name=\"write_description\">Ara que coneixes l’objecte deixa anar la creativitat. Quines històries hi imagines?</string>\r\n    <string name=\"create\">CREA</string>\r\n    <string name=\"create_description\">Estàs en un museu, i tu també pots crear una petita obra per emportar-te i recordar la visita. Posa a prova la teva habilitat i resol el següent puzzle.</string>\r\n    <string name=\"revisit\">REVISITA</string>\r\n    <string name=\"end\">Finalitza</string>\r\n    <string name=\"music1\">associa</string>\r\n    <string name=\"concentrate_instructions\">Concentra\\'t en l\\'objecte i escriu les emocions o els conceptes que et genera. Quan escriguis una emoció, prem el botó vermell segons la importacia que li donis. Repeteix el procès fins que no se t\\'acudeixin més i llavors clica el botó Següent per veure\\'n el resultat</string>\r\n    <string name=\"concentrate\">CONCENTRA\\'T</string>\r\n    <string name=\"instruction_assosiates\">Concentra’t en l’objecte i escriu el títol de les cançons o la música que hi connectaries. Si vols tataraleja-les.</string>\r\n    <string name=\"associate\">ASSOCIA</string>\r\n    <string name=\"textHint\">Escriu aquí</string>\r\n    <string name=\"proveURL\">Introdueix URL</string>\r\n    <string name=\"httpResponse\"> </string>\r\n    <string name=\"scan\">Escaneja el codi QR</string>\r\n    <string name=\"mood\">ESTAT D\\'ÀNIM</string>\r\n    <string name=\"mood_description\">Quin color identifica el teu estat d\\'ànim actual?</string>\r\n    <string name=\"title_activity_elige\">Elige</string>\r\n    <string name=\"tab_text_1\">Museos</string>\r\n    <string name=\"tab_text_2\">Código QR</string>\r\n    <string name=\"title_activity_puzzle\">Puzzle</string>\r\n    <string name=\"wordcloud_instructions\">A continuació pots veure reflexades les emocions segons la seva importancia al Núvol de paraules. T\\'ha sorprès el resultat?</string>\r\n    <string name=\"squareBreathe\">RESPIRACIÓ DEL QUADRAT</string>\r\n    <string name=\"squareBreath_description\">Busca una posició còmoda, és millor si pots seure però no és imprescindible. Posa les mans sobre els teus genolls o sobre l’abdomen, on les sentis més relaxades</string>\r\n    <string name=\"instruccio_primera\">Clica al botó Següent quan estiguis llest</string>\r\n    <string name=\"title_activity_respiracio_accio\">Respiracio_accio</string>\r\n    <string name=\"sbdescription\">Clica al botó blau quan estiguis llest. Repeteix aquest cicle de respiració les vegades que siguin necessàries fins que et sentis en estat de relaxació i, llavors, clica al botó Següent</string>\r\n    <string name=\"title_activity_avalua\">AVALUA</string>\r\n    <string name=\"disconnect\">DESCONNECTA</string>\r\n    <string name=\"disconnect_description\">Observa l’obra d’art triada amb atenció. Desconnecta, concentra’t, situa’t, imagina’t. Respira.</string>\r\n    <string name=\"getWorldCloud\">Genera WordCloud</string>\r\n    <string name=\"addtolist\">AFEGEIX A LA LLISTA</string>\r\n    <!-- TODO: Remove or change this placeholder text -->\r\n    <string name=\"hello_blank_fragment\">Hello blank fragment</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision c48571027a3790a3a5e64884f717c650102f2895)
++++ app/src/main/res/values/strings.xml	(date 1610105065303)
+@@ -18,6 +18,7 @@
+     <string name="concentrate_instructions">Concentra\'t en l\'objecte i escriu les emocions o els conceptes que et genera. Quan escriguis una emoció, prem el botó vermell segons la importacia que li donis. Repeteix el procès fins que no se t\'acudeixin més i llavors clica el botó Següent per veure\'n el resultat</string>
+     <string name="concentrate">CONCENTRA\'T</string>
+     <string name="instruction_assosiates">Concentra’t en l’objecte i escriu el títol de les cançons o la música que hi connectaries. Si vols tataraleja-les.</string>
++    <string name="instruction_assosiates_music">Clica sobre el génere musical que més s\'adeqüi a les cançons associades per escoltar una cançó</string>
+     <string name="associate">ASSOCIA</string>
+     <string name="textHint">Escriu aquí</string>
+     <string name="proveURL">Introdueix URL</string>
