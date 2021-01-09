@@ -62,6 +62,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bienvenidos" />
 
+        <Button
+            android:id="@+id/get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="13dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
