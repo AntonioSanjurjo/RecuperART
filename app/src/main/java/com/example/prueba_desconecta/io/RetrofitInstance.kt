@@ -14,4 +14,5 @@ object RetrofitInstance {
     val api: CustomApiService by lazy {
         retrofit.create(CustomApiService::class.java)
     }
+
 }
