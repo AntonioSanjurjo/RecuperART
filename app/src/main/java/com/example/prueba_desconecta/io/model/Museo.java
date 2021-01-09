@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Museo {
     private int id;
     private String nom;
-    private ArrayList<Obra> obras;
-    private String tipus;
+    private ArrayList<PreviewObra> obras;
+    private TipusMuseu tipus;
     private String direccio;
     private String descripcio;
 
@@ -26,19 +26,19 @@ public class Museo {
         this.nom = nom;
     }
 
-    public ArrayList<Obra> getObras() {
+    public ArrayList<PreviewObra> getObras() {
         return obras;
     }
 
-    public void setObras(ArrayList<Obra> obras) {
+    public void setObras(ArrayList<PreviewObra> obras) {
         this.obras = obras;
     }
 
-    public String getTipus() {
+    public TipusMuseu getTipus() {
         return tipus;
     }
 
-    public void setTipus(String tipus) {
+    public void setTipus(TipusMuseu tipus) {
         this.tipus = tipus;
     }
 

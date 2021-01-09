@@ -2,7 +2,7 @@ package com.example.prueba_desconecta.io.model;
 
 public class Obra {
 
-private String tipo;
+private TipusObra tipo;
 private int id;
 private String descripcion;
 private String autor;
@@ -13,11 +13,11 @@ private String nom;
 public Obra(){
 
 }
-    public String getTipo() {
+    public TipusObra getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipusObra tipo) {
         this.tipo = tipo;
     }
 
