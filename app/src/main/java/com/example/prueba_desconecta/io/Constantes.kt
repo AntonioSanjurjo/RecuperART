@@ -8,6 +8,8 @@ class Constantes {
         public var ID = "1" //Changed
         public val BASE_URL_IM = "http://pae-ics.etsetb.upc.edu"
         public var QR_ID= ""
+        public var IMAGE_URL =""
+
 
     }
 }
