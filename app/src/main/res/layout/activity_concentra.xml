@@ -89,7 +89,7 @@
         android:fontFamily="@font/mm"
         android:text="@string/wordcloud"
         android:textAlignment="center"
-        android:textColor="#779BBC"
+        android:textColor="@color/colorSecundary"
         android:textColorHint="#FFFFFF"
         android:textSize="30sp"
         android:visibility="gone"

@@ -18,7 +18,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/mm"
         android:text="ESCRIU"
-        android:textColor="#779BBC"
+        android:textColor="@color/colorSecundary"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -33,7 +33,7 @@
         android:fontFamily="@font/mm"
         android:text="@string/revisit"
         android:textColor="@color/colorSecundary"
-        android:textSize="30sp"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,6 @@
         android:layout_marginRight="20dp"
         android:fontFamily="@font/ml"
         android:text="@string/write_description"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/revisit" />
