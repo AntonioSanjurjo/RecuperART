@@ -1,8 +1,8 @@
 package com.example.prueba_desconecta.io.response
 
-import com.example.prueba_desconecta.ui.Museo
+import com.example.prueba_desconecta.io.model.Museo
 
-data class MuseuByIdContentResponse2(
+data class MuseuByIdContentResponse(
     val err: Boolean,
     val status: Int,
     val version: Int,

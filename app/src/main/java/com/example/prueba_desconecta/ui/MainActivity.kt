@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.myResponse.observe(this, Observer { response ->
             if (response.isSuccessful) {
 
-
                 Log.d("Response", response.body()?.err.toString())
                 Log.d("Response", response.body()?.status.toString())
                 Log.d("Response", response.body()?.version.toString())
@@ -68,16 +67,8 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Response", response.body()?.ans?.id.toString())
                 Log.d("Response", response.body()?.ans?.nom.toString())
                 Log.d("Response", response.body()?.ans?.direccio.toString())
-
-
-
-
-
-
             }else{
                 Log.d("Response", response.errorBody().toString())
-
-
             }
         })
 
@@ -99,13 +90,13 @@ class MainActivity : AppCompatActivity() {
             })
 
 
-            viewModelMediaObra.getMediaObra(Constantes.PRUEBA_ID)
+            viewModelMediaObra.getMediaObra(12)
             viewModelMediaObra.myResponse.observe(this, Observer { response ->
                 if (response.isSuccessful){
                     Log.d("Response", response.body()?.err.toString())
                     Log.d("Response", response.body()?.status.toString())
                     Log.d("Response", response.body()?.version.toString())
-                    Log.d("Response", response.body()?.ans?.get(0)?.filePath)
+                    Log.d("Response", response.body()?.ans.isNullOrEmpty().toString())
 
                     Constantes.IMAGE_URL= response.body()?.ans?.get(0)?.filePath.toString()
 

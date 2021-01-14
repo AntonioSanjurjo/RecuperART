@@ -1,6 +1,7 @@
-package com.example.prueba_desconecta.ui.ui.elije
+package com.example.prueba_desconecta.ui.descubre
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,32 +13,39 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.prueba_desconecta.R
 import com.example.prueba_desconecta.io.Constantes
-import com.example.prueba_desconecta.io.model.PreviewMuseo
-import com.example.prueba_desconecta.viewmodel.AllMuseusViewModel
+import com.example.prueba_desconecta.io.model.Obra
+import com.example.prueba_desconecta.repository.ObrasRepository
+import com.example.prueba_desconecta.viewmodel.*
 
-class PreviewMuseoFragment : Fragment() {
 
-    private lateinit var allMuseusViewModel: AllMuseusViewModel
-    private lateinit var museusAdapter: PreviewMuseoRecyclerViewAdapter
-    private var allMuseus : ArrayList<PreviewMuseo> = ArrayList()
+class ObrasFragment() : Fragment() {
+
+    private  var arrayObras: ArrayList<Obra> = ArrayList()
+
+    private lateinit var obrasAdapter: ObrasRecyclerViewAdapter
     private var columnCount = 1
+
+    private lateinit var viewModelobras: ViewModelObras
+    val repositoryobras =ObrasRepository()
+    val viewModelFactoryobras = ViewModelFactoryObras(repositoryobras)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_item_pm_list, container, false)
-        // Get ViewModel
-        allMuseusViewModel = ViewModelProvider(this).get(AllMuseusViewModel::class.java)
-        museusAdapter = activity?.let { PreviewMuseoRecyclerViewAdapter(it) }!!
+
+
+        val view = inflater.inflate(R.layout.fragment_item_o_list, container, false)
+        obrasAdapter = activity?.let { ObrasRecyclerViewAdapter(it) }!!
+
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {
@@ -45,27 +53,30 @@ class PreviewMuseoFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = museusAdapter
+                adapter = obrasAdapter
             }
         }
-        // Observer of the museums
-        allMuseusViewModel.getAllMuseus().observe(viewLifecycleOwner, Observer {
-            allMuseus = it
-            Constantes.NUM_MUSEO = allMuseus.size
-            museusAdapter.setData(allMuseus)
+
+        viewModelobras = ViewModelProvider(this, viewModelFactoryobras).get(ViewModelObras::class.java)
+        viewModelobras.getObras(Constantes.ID.toInt())
+        viewModelobras.myResponse.observe( viewLifecycleOwner , Observer { response ->
+            if (response.isSuccessful){
+                arrayObras= response.body()?.ans!!
+                obrasAdapter.setData(arrayObras)
+            }else{
+                Log.d("Response", response.errorBody().toString())
+            }
         })
 
         return view
     }
 
-
     companion object {
 
         const val ARG_COLUMN_COUNT = "column-count"
 
-        @JvmStatic
         fun newInstance(columnCount: Int) =
-            PreviewMuseoFragment().apply {
+            ObrasFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }

@@ -4,9 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.prueba_desconecta.io.response.MediaMuseuByMuseuResponse
-import com.example.prueba_desconecta.io.response.MuseuByIdContentResponse2
 import com.example.prueba_desconecta.repository.MediaMuseuRepository
-import com.example.prueba_desconecta.repository.MuseuContentDBRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 

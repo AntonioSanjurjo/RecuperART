@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.nav_view
 lateinit var toggle: ActionBarDrawerToggle
 
 class Elige : AppCompatActivity(){
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_elige)

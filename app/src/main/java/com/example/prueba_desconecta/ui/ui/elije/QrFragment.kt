@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment
 import com.example.prueba_desconecta.R
 import com.example.prueba_desconecta.io.Constantes
 import com.example.prueba_desconecta.ui.Mood
+import com.example.prueba_desconecta.ui.descubre.Descubre
 import com.google.zxing.integration.android.IntentIntegrator
+import java.io.IOException
 
-class QrFragment : Fragment() {
+class  QrFragment : Fragment() {
     private var scanBtn: Button? = null
     private var fragmentView: View? = null
     var resultTextView: TextView? = null
@@ -23,11 +25,6 @@ class QrFragment : Fragment() {
         resultTextView = fragmentView?.findViewById<View>(R.id.result_text) as TextView
         scanBtn = fragmentView?.findViewById<View>(R.id.btn_scan) as Button
         scanBtn!!.setOnClickListener(mOnClickListener)
-        val btn: Button = fragmentView!!.findViewById(R.id.btn_next)
-        btn.setOnClickListener{
-            val r = Intent(activity, Mood::class.java)
-            startActivity(r)
-        }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,9 +39,14 @@ class QrFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) if (result.contents != null) {
-            Constantes.ID= result.contents
-            val r = Intent(activity, Mood::class.java)
-            startActivity(r)
+            val a: Int? = try { result.contents.toInt() } catch (e: NumberFormatException) { null }
+            if(a != null && (a <= Constantes.NUM_MUSEO)) {
+                Constantes.ID = result.contents
+                val r = Intent(activity, Descubre::class.java)
+                startActivity(r)
+            }else {
+                resultTextView!!.text = "QR Incorrecto"
+            }
         } else {
             resultTextView!!.text = "Error al escanear el código de barras"
         }

@@ -2,7 +2,7 @@ package com.example.prueba_desconecta.io
 
 import com.example.prueba_desconecta.io.response.MediaMuseuByMuseuResponse
 import com.example.prueba_desconecta.io.response.MediaObraByObraResponse
-import com.example.prueba_desconecta.io.response.MuseuByIdContentResponse2
+import com.example.prueba_desconecta.io.response.MuseuByIdContentResponse
 import com.example.prueba_desconecta.io.response.ObrasByMuseuResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -14,7 +14,7 @@ interface ApiService2 {
     @GET("api/getMuseuContentById/{postNumber}")
     suspend fun getMuseuContent(
         @Path("postNumber") number: Int
-    ): Response<MuseuByIdContentResponse2>
+    ): Response<MuseuByIdContentResponse>
 
     @GET("api/getMediaMuseuByMuseu/{postNumber}")
     suspend fun getMediaMuseuByMuseu(

@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta.ui
+package com.example.prueba_desconecta.io.model
 
 data class PreviewObra(
     var id: Int,
