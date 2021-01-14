@@ -8,7 +8,6 @@ import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
 import kotlinx.android.synthetic.main.activity_elige.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.nav_view
 
 lateinit var toggle: ActionBarDrawerToggle
@@ -24,8 +23,8 @@ class Elige : AppCompatActivity(){
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
 
-        toggle = ActionBarDrawerToggle(this, drawer2, R.string.open, R.string.close)
-        drawer2.addDrawerListener(toggle)
+        toggle = ActionBarDrawerToggle(this, drawer_elige, R.string.open, R.string.close)
+        drawer_elige.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

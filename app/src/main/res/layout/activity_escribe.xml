@@ -1,37 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_write"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Escribe">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarEscriu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSecundary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:fontFamily="@font/mm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_baseline_drag_handle_24" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/disconnect"
+        android:id="@+id/write"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/mm"
         android:text="ESCRIU"
         android:textColor="#779BBC"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarEscriu" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/writeDescription"
@@ -46,7 +37,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/disconnect" />
+        app:layout_constraintTop_toBottomOf="@+id/write" />
 
     <EditText
         android:id="@+id/writeUser"
@@ -55,7 +46,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/textview_border"
+        android:background="@xml/textview_border"
         android:fontFamily="@font/mm"
         android:gravity="top|left"
         android:hint="@string/textHint"
@@ -84,3 +75,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<com.google.android.material.navigation.NavigationView
+android:id="@+id/nav_view_write"
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+app:headerLayout="@layout/nav_header"
+app:menu="@menu/nav_menu"
+android:layout_gravity="start"
+android:fitsSystemWindows="true"/>
+    </androidx.drawerlayout.widget.DrawerLayout>

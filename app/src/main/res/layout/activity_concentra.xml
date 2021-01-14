@@ -1,39 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/concentrate_activity"
+    android:id="@+id/drawer_concentrate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Concentra_activity.Concentra">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbardescubre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSecundary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:fontFamily="@font/mm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_baseline_drag_handle_24" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/concentrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/mm"
-        android:text="CONCENTRA'T"
+        android:text="@string/concentrate"
         android:textAlignment="center"
-        android:textColor="#779BBC"
+        android:textColor="@color/colorSecundary"
         android:textColorHint="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbardescubre" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/concentrate_instructions"
@@ -52,8 +44,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/clockCreate"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/redbutton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +71,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="#779BBC"
+        android:backgroundTint="@color/colorSecundary"
         android:fontFamily="@font/mm"
         android:text="@string/getWorldCloud"
         android:textColor="#FFF"
@@ -93,17 +85,17 @@
         android:id="@+id/wordcloud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/mm"
-        android:text="WORDCLOUD"
+        android:text="@string/wordcloud"
         android:textAlignment="center"
         android:textColor="#779BBC"
         android:textColorHint="#FFFFFF"
         android:textSize="30sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/toolbardescubre" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/wordcloud_explanation"
@@ -122,7 +114,7 @@
     <ImageView
         android:id="@+id/resultWC"
         android:layout_width="match_parent"
-        android:background="@drawable/textview_border"
+        android:background="@xml/textview_border"
         android:layout_height="wrap_content"
         android:minHeight="200dp"
         android:layout_marginTop="40dp"
@@ -134,10 +126,10 @@
 
     <Button
         android:id="@+id/buttonConcentra"
-        android:layout_width="193dp"
-        android:layout_height="66dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="#779BBC"
+        android:backgroundTint="@color/colorSecundary"
         android:fontFamily="@font/mm"
         android:text="@string/next"
         android:textColor="#FFF"
@@ -146,7 +138,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
         android:visibility="gone" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_concentrate"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"/>
+</androidx.drawerlayout.widget.DrawerLayout>

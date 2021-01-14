@@ -1,39 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_asocia"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
     android:layout_alignParentBottom="true"
     tools:context=".ui.Associa_activity.Asocia">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbardescubre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSecundary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:fontFamily="@font/mm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_baseline_drag_handle_24" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/associates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="ASSOCIA"
-        android:textColor="#779BBC"
-        android:textSize="30sp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/mm"
+        android:text="@string/associate"
+        android:textColor="@color/colorSecundary"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbardescubre" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/associates_description"
@@ -53,11 +45,11 @@
     <ListView
         android:id="@+id/associates_list"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/textview_border"
+        android:background="@xml/textview_border"
         android:fontFamily="@font/mm"
         android:minHeight="100dp"
         android:maxHeight="200dp"
@@ -83,24 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/associates_list" />
 
     <Button
-        android:id="@+id/buttonAddToList"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="166dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="178dp"
-        android:backgroundTint="@color/colorSecundary"
-        android:fontFamily="@font/mm"
-        android:text="@string/addtolist"
-        android:textColor="#FFF"
-        android:textSize="24sp"
-        android:background="@drawable/bgwhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/associates_song" />
-
-    <Button
-        android:id="@+id/buttonAsocia"
+        android:id="@+id/buttonSeguent"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
@@ -114,4 +89,165 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/associates_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/ml"
+        android:text="@string/instruction_assosiates_music"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/associates" />
+
+    <ScrollView
+        android:id="@+id/buttonList"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="gone"
+        android:padding="10dp"
+        android:background="@xml/textview_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/associates_music">
+
+        <LinearLayout
+            android:id="@+id/buttonListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/classical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clàssica"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/blues"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Blues"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/jazz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jazz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/rock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rock"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/soul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Soul"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/metal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Metal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/pop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/disco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Disco"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/ska"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ska"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/reggae"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reggae"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/flamenco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Flamenco"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/hiphop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hiphop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonAsocia"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bgwhite"
+        android:backgroundTint="@color/colorSecundary"
+        android:fontFamily="@font/mm"
+        android:text="@string/next"
+        android:textColor="#FFF"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_asocia"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"/>
+</androidx.drawerlayout.widget.DrawerLayout>

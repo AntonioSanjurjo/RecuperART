@@ -4,13 +4,19 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
+import kotlinx.android.synthetic.main.activity_mood.*
 
 class Mood : AppCompatActivity() {
+
     var SHARED_PREFS = "codeTheme"
+    lateinit var toggle: ActionBarDrawerToggle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mood)
@@ -181,5 +187,25 @@ class Mood : AppCompatActivity() {
                 dynamicbg.setScaleY(0f)
             }, 850)
         })
+        //Drawer Action Bar code
+        toggle = ActionBarDrawerToggle(this, drawer_mood, R.string.open, R.string.close)
+        drawer_mood.addDrawerListener(toggle)
+        toggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        nav_view_mood.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.Experience -> {
+                    //(val a = Intent(this, VisitasPasadas::class.java)
+                    //startActivity(a)
+                }
+            }
+            true
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if(toggle.onOptionsItemSelected(item)){return true}
+        return super.onOptionsItemSelected(item)
     }
 }

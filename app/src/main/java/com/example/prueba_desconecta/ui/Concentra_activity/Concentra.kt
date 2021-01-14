@@ -1,47 +1,48 @@
 package com.example.prueba_desconecta.ui.Concentra_activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.StrictMode
-import android.util.Log
+import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
-import android.view.View.OnTouchListener
 import android.widget.*
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
 import com.example.prueba_desconecta.R
-import com.example.prueba_desconecta.io.response.WordCloud
 import com.example.prueba_desconecta.ui.Associa_activity.Asocia
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.android.synthetic.main.activity_concentra.*
 import java.io.BufferedInputStream
 import java.net.HttpURLConnection
 import java.net.URL
+import kotlin.math.ceil
 
 
 class Concentra : AppCompatActivity() {
 
+    lateinit var toggle: ActionBarDrawerToggle
 
     //Request variables
-    var lastDown : Long = 0
-    var wordCloud = ""
+    private var lastDown : Long = 0
+    private var wordCloud = ""
 
+        @SuppressLint("ClickableViewAccessibility")
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_concentra)
 
             //Visible-->Gone pushing btnWC
-            var word : EditText = findViewById(R.id.emotionWord)
-            var clock : LottieAnimationView = findViewById(R.id.clockCreate)
+            val word : EditText = findViewById(R.id.emotionWord)
+            val clock : LottieAnimationView = findViewById(R.id.clockCreate)
             val instructions : TextView = findViewById(R.id.concentrate_instructions)
             val concentrateTitle : TextView = findViewById(R.id.concentrate)
             val btnWC : Button = findViewById(R.id.createWordCloud)
 
             //Gone-->Visible pushing btnWC
-            var imageView : ImageView = findViewById(R.id.resultWC)
+            val imageView : ImageView = findViewById(R.id.resultWC)
             val wordCloudExplanation : TextView = findViewById(R.id.wordcloud_explanation)
             val buttonNext : Button = findViewById(R.id.buttonConcentra)
             val wordCloudTitle : TextView = findViewById(R.id.wordcloud)
@@ -50,28 +51,32 @@ class Concentra : AppCompatActivity() {
             val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
             StrictMode.setThreadPolicy(policy)
             //Button to create String by pulsating time
-            clock.setOnTouchListener(OnTouchListener { view, event ->
-                if (event.action == MotionEvent.ACTION_DOWN) {
-                    if(word.text.trim().length > 0) {   //Check Request body in order to avoid Exceptions
+            clock.setOnTouchListener { _, event ->
+                if (word.text.trim().isNotEmpty()) {   //Check Request body in order to avoid Exceptions
+                    if (event.action == MotionEvent.ACTION_DOWN) {
                         lastDown = System.currentTimeMillis()
-                        clockAnimation(clock, R.raw.redbuttonanimation)
+                        clockAnimation(clock)
                         clock.loop(true)
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Introdueix una paraula al camp de text", Toast.LENGTH_SHORT).show()
+                    } else if (event.action == MotionEvent.ACTION_UP) {
+                        clock.loop(false)
+                        var lastDuration = ceil(((System.currentTimeMillis() - lastDown)/ 1000).toDouble()).toInt()
+                        if (lastDuration > 10) {
+                            lastDuration = 10
+                        }
+                        for (num in 1..lastDuration) {
+                            wordCloud = wordCloud + word.text + " "
+                        }
+                        word.text = null
                     }
-                } else if (event.action == MotionEvent.ACTION_UP) {
-                    clock.loop(false)
-                    var lastDuration = (System.currentTimeMillis() - lastDown) / 1000
-                    if (lastDuration > 10) {
-                        lastDuration = 10
-                    }
-                    for (num in 1..lastDuration) {
-                        wordCloud = wordCloud + word.text + " "
-                    }
-                    word.setText(null)
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "Introdueix una paraula al camp de text",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
                 true
-            })
+            }
 
             btnWC.setOnClickListener{
                 //Change visibility in layout when Request is sent
@@ -86,17 +91,17 @@ class Concentra : AppCompatActivity() {
                 wordCloudTitle.visibility = View.VISIBLE
                 //Send POST Request to BE and set its response to an ImageView
                 val url = URL("http://pae-ics.etsetb.upc.edu/WordCloud/getWordCloud")
-                if (wordCloud.trim().length > 0) {      //Check Request body in order to avoid Exceptions
+                if (wordCloud.trim().isNotEmpty()) {      //Check Request body in order to avoid Exceptions
                     val con: HttpURLConnection = url.openConnection() as HttpURLConnection
-                    con.setRequestMethod("POST");
+                    con.requestMethod = "POST"
                     con.setRequestProperty("Content-Type", "text/plain")
-                    con.setDoOutput(true)
+                    con.doOutput = true
                     con.outputStream.use { os ->
                         val input: ByteArray = wordCloud.toByteArray()
                         os.write(input, 0, input.size)
                     }
                     BufferedInputStream(con.inputStream).use { bis ->
-                        var bitmap = BitmapFactory.decodeStream(bis)
+                        val bitmap = BitmapFactory.decodeStream(bis)
                         imageView.setImageBitmap(bitmap)
                     }
                 } else {
@@ -105,17 +110,36 @@ class Concentra : AppCompatActivity() {
             }
 
             //Change to Asocia activity
-            val btnNext : Button = findViewById(R.id.buttonConcentra)
-            btnNext.setOnClickListener{
+            buttonNext.setOnClickListener{
                 val r = Intent(this, Asocia::class.java)
                 startActivity(r)
             }
+
+            //Drawer Action Bar code
+            toggle = ActionBarDrawerToggle(this, drawer_concentrate, R.string.open, R.string.close)
+            drawer_concentrate.addDrawerListener(toggle)
+            toggle.syncState()
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+            nav_view_concentrate.setNavigationItemSelectedListener {
+                when (it.itemId) {
+                    R.id.Experience -> {
+                        //(val a = Intent(this, VisitasPasadas::class.java)
+                        //startActivity(a)
+                    }
+                }
+                true
+            }
+        }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if(toggle.onOptionsItemSelected(item)){return true}
+        return super.onOptionsItemSelected(item)
     }
 
     //Starts animation
-    private fun clockAnimation(imageView: LottieAnimationView, animation: Int) : Boolean {
-        imageView.setAnimation(animation)
+    private fun clockAnimation(imageView: LottieAnimationView) {
+        imageView.setAnimation(R.raw.redbuttonanimation)
         imageView.playAnimation()
-        return true
     }
 }

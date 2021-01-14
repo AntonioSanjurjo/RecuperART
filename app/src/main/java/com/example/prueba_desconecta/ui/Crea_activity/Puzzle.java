@@ -1,18 +1,25 @@
 package com.example.prueba_desconecta.ui.Crea_activity;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -20,6 +27,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.prueba_desconecta.R;
 import com.example.prueba_desconecta.ui.Revisita;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -37,11 +46,17 @@ public class Puzzle extends AppCompatActivity {
         final RelativeLayout layout = findViewById(R.id.imagePuzzle);
         final ImageView imageView = findViewById(R.id.puzzle);
 
+        Intent intent = getIntent();
+        final String assetName = intent.getStringExtra("assetName");
+
         // run image related code after the view was laid out
         // to have all dimensions calculated
         imageView.post(new Runnable() {
             @Override
             public void run() {
+                if (assetName != null) {
+                    setPicFromAsset(assetName, imageView);
+                }
                 pieces = splitImage();
                 TouchListener touchListener = new TouchListener(Puzzle.this);
                 // shuffle pieces order
@@ -57,12 +72,44 @@ public class Puzzle extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private void setPicFromAsset(String assetName, ImageView imageView) {
+        // Get the dimensions of the View
+        int targetW = imageView.getWidth();
+        int targetH = imageView.getHeight();
+
+        AssetManager am = getAssets();
+        try {
+            InputStream is = am.open("img/" + assetName);
+            // Get the dimensions of the bitmap
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+            BitmapFactory.decodeStream(is, new Rect(-1, -1, -1, -1), bmOptions);
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
+
+            // Determine how much to scale down the image
+            int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+
+            is.reset();
+
+            // Decode the image file into a Bitmap sized to fill the View
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+
+            Bitmap bitmap = BitmapFactory.decodeStream(is, new Rect(-1, -1, -1, -1), bmOptions);
+            imageView.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private ArrayList<PuzzlePiece> splitImage() {
-        int piecesNumber = 12;
-        int rows = 4;
+        int piecesNumber = 15;
+        int rows = 5;
         int cols = 3;
 
         ImageView imageView = findViewById(R.id.puzzle);
@@ -85,8 +132,8 @@ public class Puzzle extends AppCompatActivity {
         Bitmap croppedBitmap = Bitmap.createBitmap(scaledBitmap, abs(scaledBitmapLeft), abs(scaledBitmapTop), croppedImageWidth, croppedImageHeight);
 
         // Calculate the with and height of the pieces
-        int pieceWidth = croppedImageWidth/cols;
-        int pieceHeight = croppedImageHeight/rows;
+        int pieceWidth = croppedImageWidth / cols;
+        int pieceHeight = croppedImageHeight / rows;
 
         // Create each bitmap piece and add it to the resulting array
         int yCoord = 0;
@@ -113,7 +160,6 @@ public class Puzzle extends AppCompatActivity {
                 piece.pieceHeight = pieceHeight + offsetY;
                 // this bitmap will hold our final puzzle piece image
                 Bitmap puzzlePiece = Bitmap.createBitmap(pieceWidth + offsetX, pieceHeight + offsetY, Bitmap.Config.ARGB_8888);
-
                 // draw path
                 int bumpSize = pieceHeight / 4;
                 Canvas canvas = new Canvas(puzzlePiece);
@@ -128,27 +174,24 @@ public class Puzzle extends AppCompatActivity {
                     path.cubicTo(offsetX + (pieceBitmap.getWidth() - offsetX) / 6, offsetY - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 6 * 5, offsetY - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 3 * 2, offsetY);
                     path.lineTo(pieceBitmap.getWidth(), offsetY);
                 }
-
                 if (col == cols - 1) {
                     // right side piece
                     path.lineTo(pieceBitmap.getWidth(), pieceBitmap.getHeight());
                 } else {
                     // right bump
                     path.lineTo(pieceBitmap.getWidth(), offsetY + (pieceBitmap.getHeight() - offsetY) / 3);
-                    path.cubicTo(pieceBitmap.getWidth() - bumpSize,offsetY + (pieceBitmap.getHeight() - offsetY) / 6, pieceBitmap.getWidth() - bumpSize, offsetY + (pieceBitmap.getHeight() - offsetY) / 6 * 5, pieceBitmap.getWidth(), offsetY + (pieceBitmap.getHeight() - offsetY) / 3 * 2);
+                    path.cubicTo(pieceBitmap.getWidth() - bumpSize, offsetY + (pieceBitmap.getHeight() - offsetY) / 6, pieceBitmap.getWidth() - bumpSize, offsetY + (pieceBitmap.getHeight() - offsetY) / 6 * 5, pieceBitmap.getWidth(), offsetY + (pieceBitmap.getHeight() - offsetY) / 3 * 2);
                     path.lineTo(pieceBitmap.getWidth(), pieceBitmap.getHeight());
                 }
-
                 if (row == rows - 1) {
                     // bottom side piece
                     path.lineTo(offsetX, pieceBitmap.getHeight());
                 } else {
                     // bottom bump
                     path.lineTo(offsetX + (pieceBitmap.getWidth() - offsetX) / 3 * 2, pieceBitmap.getHeight());
-                    path.cubicTo(offsetX + (pieceBitmap.getWidth() - offsetX) / 6 * 5,pieceBitmap.getHeight() - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 6, pieceBitmap.getHeight() - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 3, pieceBitmap.getHeight());
+                    path.cubicTo(offsetX + (pieceBitmap.getWidth() - offsetX) / 6 * 5, pieceBitmap.getHeight() - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 6, pieceBitmap.getHeight() - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 3, pieceBitmap.getHeight());
                     path.lineTo(offsetX, pieceBitmap.getHeight());
                 }
-
                 if (col == 0) {
                     // left side piece
                     path.close();
@@ -162,7 +205,6 @@ public class Puzzle extends AppCompatActivity {
                 Paint paint = new Paint();
                 paint.setColor(0XFF000000);
                 paint.setStyle(Paint.Style.FILL);
-
                 canvas.drawPath(path, paint);
                 paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
                 canvas.drawBitmap(pieceBitmap, 0, 0, paint);
@@ -183,15 +225,16 @@ public class Puzzle extends AppCompatActivity {
 
                 // set the resulting bitmap to the piece
                 piece.setImageBitmap(puzzlePiece);
-
                 pieces.add(piece);
                 xCoord += pieceWidth;
             }
-            yCoord += pieceHeight;
+
+            yCoord +=pieceHeight;
         }
 
         return pieces;
     }
+
 
     private int[] getBitmapPositionInsideImageView(ImageView imageView) {
         int[] ret = new int[4];
@@ -236,7 +279,6 @@ public class Puzzle extends AppCompatActivity {
 
     public void checkGameOver() {
         if (isGameOver()) {
-            //finish();
             Intent r = new Intent(this, Revisita.class);
             startActivity(r);
         }
@@ -249,7 +291,6 @@ public class Puzzle extends AppCompatActivity {
                 return false;
             }
         }
-
         return true;
     }
 

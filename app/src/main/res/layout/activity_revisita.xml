@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_revisit"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Revisita">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <Button
         android:id="@+id/buttonEnd"
@@ -14,37 +19,24 @@
         android:backgroundTint="@color/colorSecundary"
         android:background="@drawable/bgwhite"
         android:textColor="#FFF"
-        android:text="@string/end"
+        android:text="@string/next"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbardescubre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSecundary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_baseline_drag_handle_24" />
-
     <TextView
         android:id="@+id/revisit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/mm"
         android:text="@string/revisit"
         android:textColor="@color/colorSecundary"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbardescubre" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/writeDescription"
@@ -61,25 +53,34 @@
         app:layout_constraintTop_toBottomOf="@+id/revisit" />
 
     <EditText
-        android:id="@+id/writeUser"
+        android:id="@+id/revisit_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:padding="10dp"
-        android:background="@drawable/textview_border"
-        android:hint="Escriu aquí ..."
-        android:gravity="top|left"
+        android:background="@xml/textview_border"
+        android:hint="@string/textHint"
+        android:gravity="top|start"
         android:inputType="textMultiLine"
         android:fontFamily="@font/mm"
-        android:verticalScrollbarPosition="right"
         android:textSize="18sp"
-        android:scrollbars="vertical"
         android:visibility="visible"
         android:minHeight="200dp"
+        android:maxHeight="300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/writeDescription" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_revisit"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"/>
+</androidx.drawerlayout.widget.DrawerLayout>

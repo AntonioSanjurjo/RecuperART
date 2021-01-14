@@ -8,10 +8,13 @@
     android:gravity="center">
 
     <TextView
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:fontFamily="@font/mm"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ml"
+        android:textSize="18sp"
         android:id="@+id/title"
         android:text="Escaneja el codi QR del museu fent click a la següent imatge"
         android:textAlignment="center"
@@ -22,6 +25,8 @@
         android:id="@+id/btn_scan"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/qrscann"
         android:textSize="16sp" />
 

@@ -40,7 +40,7 @@
         android:id="@+id/discoverDesciption"
         android:layout_width="390dp"
         android:layout_height="41dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/ml"
         android:text="@string/discover_description"
         android:textAlignment="center"

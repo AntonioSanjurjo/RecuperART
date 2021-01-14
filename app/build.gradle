@@ -33,7 +33,7 @@ android {
 
  ext{
      androidxVersion = '1.0.2'
-     nav_version = "2.3.1"
+     nav_version = "2.3.2"
  }
 
 dependencies {
@@ -61,15 +61,15 @@ dependencies {
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
-    //RecyclerView
+    // RecyclerView
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
-    //convertidor de JSON a objetos java
+    // Convertidor de JSON a objetos java
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    //adaptador Retrofit para RxJava
+    // Adaptador Retrofit para RxJava
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    //HttpInterceptor
+    // HttpInterceptor
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 
     //Rx
@@ -109,7 +109,6 @@ dependencies {
 
     //Puzzle
     implementation "androidx.appcompat:appcompat:$androidxVersion"
-
 
     implementation("io.coil-kt:coil:1.1.0")
 
