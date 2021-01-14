@@ -11,6 +11,7 @@ import com.example.prueba_desconecta.R
 import com.example.prueba_desconecta.io.Constantes
 import com.example.prueba_desconecta.ui.Mood
 import com.example.prueba_desconecta.io.model.PreviewMuseo
+import com.example.prueba_desconecta.ui.descubre.Descubre
 
 class PreviewMuseoRecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<PreviewMuseoRecyclerViewAdapter.ViewHolder>() {
     
@@ -46,7 +47,7 @@ class PreviewMuseoRecyclerViewAdapter(private val context: Context) : RecyclerVi
                 }
                 val item = museus[adapterPosition]
                 Constantes.ID=item.id.toString()
-                context?.startActivity(Intent(context, Mood::class.java))
+                context?.startActivity(Intent(context, Descubre::class.java))
             }
         }
     }

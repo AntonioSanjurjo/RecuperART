@@ -26,8 +26,8 @@
     <string name="mood">ESTAT D\'ÀNIM</string>
     <string name="mood_description">Quin color identifica el teu estat d\'ànim actual?</string>
     <string name="title_activity_elige">Elige</string>
-    <string name="tab_text_1">Museos</string>
-    <string name="tab_text_2">Código QR</string>
+    <string name="tab_text_1">Museus</string>
+    <string name="tab_text_2">Codi QR</string>
     <string name="title_activity_puzzle">Puzzle</string>
     <string name="wordcloud_instructions">A continuació pots veure reflexades les emocions segons la seva importancia al Núvol de paraules. T\'ha sorprès el resultat?</string>
     <string name="squareBreathe">RESPIRACIÓ DEL QUADRAT</string>

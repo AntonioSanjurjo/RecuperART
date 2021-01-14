@@ -32,8 +32,8 @@
 
         <ImageView
             android:id="@+id/entities"
-            android:layout_width="376dp"
-            android:layout_height="230dp"
+            android:layout_width="385dp"
+            android:layout_height="267dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/buttonMain"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,6 +61,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bienvenidos" />
+
+        <Button
+            android:id="@+id/get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get"
+            app:layout_constraintEnd_toStartOf="@+id/image"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="13dp" />
+
+        <Button
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="image "
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="13dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

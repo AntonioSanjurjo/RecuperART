@@ -29,7 +29,7 @@ class Monsters : AppCompatActivity() {
 
         // give an event to next activity
         btn.setOnClickListener(View.OnClickListener {
-            val a = Intent(this@Monsters, Descubre::class.java)
+            val a = Intent(this@Monsters, Desconecta::class.java)
             startActivity(a)
         })
         changeOurTheme()
