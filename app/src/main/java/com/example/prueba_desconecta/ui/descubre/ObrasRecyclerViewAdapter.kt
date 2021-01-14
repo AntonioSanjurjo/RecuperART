@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.example.prueba_desconecta.R
 import com.example.prueba_desconecta.io.Constantes
 import com.example.prueba_desconecta.io.model.Obra
+import com.example.prueba_desconecta.ui.ImagenObra
 import com.example.prueba_desconecta.ui.Mood
 
 
@@ -52,7 +53,7 @@ class ObrasRecyclerViewAdapter(private val context: Context
                 }
                 val item = obras[adapterPosition]
                 Constantes.ID_OBRA=item.id.toString()
-                context?.startActivity(Intent(context, Mood::class.java))
+                context?.startActivity(Intent(context, ImagenObra::class.java).putExtra("obraNom", item.nom))
             }
         }
     }

@@ -62,24 +62,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bienvenidos" />
 
-        <Button
-            android:id="@+id/get"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="get"
-            app:layout_constraintEnd_toStartOf="@+id/image"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="13dp" />
-
-        <Button
-            android:id="@+id/image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="image "
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="13dp" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

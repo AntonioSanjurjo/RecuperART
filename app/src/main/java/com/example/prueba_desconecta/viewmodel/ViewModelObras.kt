@@ -9,6 +9,7 @@ import com.example.prueba_desconecta.repository.MediaMuseuRepository
 import com.example.prueba_desconecta.repository.ObrasRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import kotlin.properties.Delegates
 
 class ViewModelObras(private val repository: ObrasRepository): ViewModel() {
 
@@ -20,5 +21,11 @@ class ViewModelObras(private val repository: ObrasRepository): ViewModel() {
             var response =repository.getObresByMuseu(number)
             myResponse.value = response
         }
+
+
+    }
+    fun getImages(number: Int){
+
+
     }
 }

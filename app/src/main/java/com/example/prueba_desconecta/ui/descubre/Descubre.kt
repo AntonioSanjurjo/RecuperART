@@ -1,13 +1,12 @@
 package com.example.prueba_desconecta.ui.descubre
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.prueba_desconecta.R
@@ -17,7 +16,6 @@ import com.example.prueba_desconecta.ui.Desconnecta_activity.Desconecta
 import com.example.prueba_desconecta.viewmodel.ViewModelFactory
 import com.example.prueba_desconecta.viewmodel.ViewModelPrueba
 import kotlinx.android.synthetic.main.activity_descubre.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.nav_view
 
 class Descubre : AppCompatActivity() {
@@ -63,6 +61,8 @@ class Descubre : AppCompatActivity() {
             }
             true
         }
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
