@@ -49,4 +49,10 @@
     <string name="close">Tancar</string>
     <string name="horrah">Horrahh!</string>
     <string name="nav_view_title">RecuperART</string>
+    <string name="title_activity_visitas_pasadas">VisitasPasadas</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>

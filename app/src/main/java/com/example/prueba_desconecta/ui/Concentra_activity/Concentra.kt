@@ -45,7 +45,7 @@ class Concentra : AppCompatActivity() {
             val imageView : ImageView = findViewById(R.id.resultWC)
             val wordCloudExplanation : TextView = findViewById(R.id.wordcloud_explanation)
             val buttonNext : Button = findViewById(R.id.buttonConcentra)
-            val wordCloudTitle : TextView = findViewById(R.id.wordcloud)
+            val wordCloudTitle : TextView = findViewById(R.id.wordcloud_e)
 
             //Evitar error NetworkOnMainThreadException
             val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prueba_desconecta">
-    <!-- Permisos necesarios (NO TOCAR) -->
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" /> <!-- Permisos necesarios (NO TOCAR) -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -12,8 +15,6 @@
 
     <uses-feature android:name="android.hardware.location.gps" />
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <application
         android:name=".common.MyApp"
         android:allowBackup="true"
@@ -23,12 +24,26 @@
         android:roundIcon="@drawable/recuperart_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.ImagenObra"></activity>
+        <activity android:name=".VisitasPasadas"></activity>
 
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" />
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/network_security_config" />
 
+        <activity
+            android:name=".ui.ImagenObra"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.Avalua_activity.Avalua"
             android:screenOrientation="portrait"

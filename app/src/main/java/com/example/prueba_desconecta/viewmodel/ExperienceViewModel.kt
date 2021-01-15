@@ -12,8 +12,9 @@ import kotlinx.coroutines.launch
 
 class ExperienceViewModel(application: Application): AndroidViewModel(application) {
 
-    private val readAllData: LiveData<List<Experience>>
-    private val repository: ExperienceRepository
+     val readAllData: LiveData<List<Experience>>
+     val repository: ExperienceRepository
+    
     init{
         val experienceDao = ExperienceDatabase.getDatabase(application).experienceDao()
         repository = ExperienceRepository(experienceDao)

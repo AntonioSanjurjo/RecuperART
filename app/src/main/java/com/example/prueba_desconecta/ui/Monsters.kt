@@ -64,19 +64,19 @@ class Monsters : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
         getThemeku = sharedPreferences.getString(themeku, "")
         if (getThemeku == "blue") {
-            icontheme!!.setImageResource(R.drawable.icmob)
+            icontheme!!.setImageResource(R.drawable.angry)
             btncontinue!!.setBackgroundResource(R.drawable.bgblue)
             subtitlepage!!.text = "L’aigua és preciosa de color blau"
         } else if (getThemeku == "green") {
-            icontheme!!.setImageResource(R.drawable.icmog)
+            icontheme!!.setImageResource(R.drawable.sad)
             btncontinue!!.setBackgroundResource(R.drawable.bggreen)
             subtitlepage!!.text = "La Natura i el color Verd són amics"
         } else if (getThemeku == "purple") {
-            icontheme!!.setImageResource(R.drawable.icmop)
+            icontheme!!.setImageResource(R.drawable.fear)
             btncontinue!!.setBackgroundResource(R.drawable.bgpurple)
             subtitlepage!!.text = "Brillant fins i tot a les fosques"
         } else if (getThemeku == "orange") {
-            icontheme!!.setImageResource(R.drawable.icmoc)
+            icontheme!!.setImageResource(R.drawable.happy)
             btncontinue!!.setBackgroundResource(R.drawable.bgorange)
             subtitlepage!!.text = "El taronja és com un groc"
         }

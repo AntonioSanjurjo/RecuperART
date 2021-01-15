@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/wordcloud"
+        android:id="@+id/wordcloud_e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -109,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/wordcloud" />
+        app:layout_constraintTop_toBottomOf="@+id/wordcloud_e" />
 
     <ImageView
         android:id="@+id/resultWC"

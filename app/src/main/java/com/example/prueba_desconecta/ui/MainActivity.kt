@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.VisitasPasadas
 import com.example.prueba_desconecta.ui.ui.elije.Elige
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -38,8 +39,7 @@ class MainActivity : AppCompatActivity() {
         nav_view.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true
