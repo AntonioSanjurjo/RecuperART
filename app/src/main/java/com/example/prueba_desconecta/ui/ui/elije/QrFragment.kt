@@ -55,8 +55,10 @@ class  QrFragment : Fragment() {
     private val mOnClickListener =
         View.OnClickListener { v ->
             when (v.id) {
-                R.id.btn_scan ->
-                    IntentIntegrator.forSupportFragment(this).initiateScan(IntentIntegrator.QR_CODE_TYPES)
+                R.id.btn_scan -> {
+                    IntentIntegrator.forSupportFragment(this)
+                        .initiateScan(IntentIntegrator.QR_CODE_TYPES)
+                }
             }
         }
 }

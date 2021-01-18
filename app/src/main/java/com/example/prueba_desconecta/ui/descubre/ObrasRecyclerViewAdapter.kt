@@ -8,10 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.data.ExperienceData
 import com.example.prueba_desconecta.io.Constantes
 import com.example.prueba_desconecta.io.model.Obra
-import com.example.prueba_desconecta.ui.ImagenObra
-import com.example.prueba_desconecta.ui.Mood
 
 
 class ObrasRecyclerViewAdapter(private val context: Context
@@ -28,7 +27,7 @@ class ObrasRecyclerViewAdapter(private val context: Context
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = obras[position]
         holder.titulo.text = item.nom
-        holder.autor.text = item.autor
+        holder.autor.text = "Autor: " + item.autor
         holder.tipo.text = item.tipus
         holder.descripcio.text = item.descrpcio
     }
@@ -53,6 +52,7 @@ class ObrasRecyclerViewAdapter(private val context: Context
                 }
                 val item = obras[adapterPosition]
                 Constantes.ID_OBRA=item.id.toString()
+                ExperienceData.nom_obra = item.nom + ", " + item.autor
                 context?.startActivity(Intent(context, ImagenObra::class.java).putExtra("obraNom", item.nom))
             }
         }

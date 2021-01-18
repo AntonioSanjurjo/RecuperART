@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
 import com.example.prueba_desconecta.ui.MainActivity
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import com.example.prueba_desconecta.ui.ui.elije.Elige
 import kotlinx.android.synthetic.main.activity_avalua.*
 
@@ -66,8 +67,7 @@ class Avalua : AppCompatActivity() {
         nav_view_evaluate.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true

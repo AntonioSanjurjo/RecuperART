@@ -87,13 +87,13 @@
         app:layout_constraintTop_toBottomOf="@+id/mood_description" />
 
     <Button
-        android:id="@+id/btnblue"
+        android:id="@+id/btnyellow"
         android:elevation="7dp"
         android:layout_width="73dp"
         android:layout_height="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/btnblue"
+        android:background="@drawable/btnyellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btngreen" />
@@ -104,19 +104,19 @@
         android:layout_height="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/btnred"
+        android:background="@drawable/btnpurple"
         android:elevation="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnblue" />
+        app:layout_constraintTop_toBottomOf="@+id/btnyellow" />
 
     <Button
-        android:id="@+id/btnorange"
+        android:id="@+id/btnred"
         android:layout_width="73dp"
         android:layout_height="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/btnorange"
+        android:background="@drawable/btnred"
         android:elevation="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

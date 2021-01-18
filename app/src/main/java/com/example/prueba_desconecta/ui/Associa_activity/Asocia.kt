@@ -12,7 +12,9 @@ import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.data.ExperienceData
 import com.example.prueba_desconecta.ui.Dibuja
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import kotlinx.android.synthetic.main.activity_asocia.*
 
 
@@ -60,6 +62,7 @@ class Asocia : AppCompatActivity(), View.OnClickListener {
         //Local variables
         val songslist: ArrayList<String> = ArrayList()
         var adaptador: ArrayAdapter<String>
+        var musicdata : String = ""
         /*val btnPlay: Button = findViewById(R.id.buttonSpotify)
         btnPlay.setOnClickListener {
             val r = Intent(this, BackgroundSoundService::class.java)
@@ -74,6 +77,7 @@ class Asocia : AppCompatActivity(), View.OnClickListener {
                 val text = song.text.toString()
                 if (text.isNotEmpty()) {   //Check Request body in order to avoid Exceptions
                     songslist.add(text)
+                    musicdata = musicdata + "\n" + text
                     adaptador = ArrayAdapter(
                         this,
                         android.R.layout.simple_list_item_activated_1,
@@ -103,6 +107,8 @@ class Asocia : AppCompatActivity(), View.OnClickListener {
             musDescrip.visibility = View.VISIBLE
             musicButtons.visibility = View.VISIBLE
             btnNext.visibility = View.VISIBLE
+
+            ExperienceData.cancion = "Llista de cançons:\n" + musicdata
         }
 
         //Drawer Action Bar code
@@ -114,8 +120,7 @@ class Asocia : AppCompatActivity(), View.OnClickListener {
         nav_view_asocia.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true

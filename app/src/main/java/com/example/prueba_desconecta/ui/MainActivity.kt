@@ -5,10 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.prueba_desconecta.R
-import com.example.prueba_desconecta.VisitasPasadas
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import com.example.prueba_desconecta.ui.ui.elije.Elige
 import kotlinx.android.synthetic.main.activity_main.*
 

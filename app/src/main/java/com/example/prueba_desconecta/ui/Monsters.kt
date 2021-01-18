@@ -10,8 +10,10 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.data.ExperienceData
 import com.example.prueba_desconecta.ui.Desconnecta_activity.Desconecta
 import com.example.prueba_desconecta.ui.descubre.Descubre
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import kotlinx.android.synthetic.main.activity_mood_monster.*
 
 class Monsters : AppCompatActivity() {
@@ -47,8 +49,7 @@ class Monsters : AppCompatActivity() {
         nav_view_monsters.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true
@@ -63,22 +64,26 @@ class Monsters : AppCompatActivity() {
     fun changeOurTheme() {
         val sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
         getThemeku = sharedPreferences.getString(themeku, "")
-        if (getThemeku == "blue") {
-            icontheme!!.setImageResource(R.drawable.angry)
-            btncontinue!!.setBackgroundResource(R.drawable.bgblue)
-            subtitlepage!!.text = "L’aigua és preciosa de color blau"
+        if (getThemeku == "yellow") {
+            ExperienceData.colorstart= "#FDE34A"
+            icontheme!!.setImageResource(R.drawable.happy)
+            btncontinue!!.setBackgroundResource(R.drawable.bgyellow)
+            subtitlepage!!.text = "Irradies vibracions positives. La llum està amb tu"
         } else if (getThemeku == "green") {
+            ExperienceData.colorstart= "#1ABC9C"
             icontheme!!.setImageResource(R.drawable.sad)
             btncontinue!!.setBackgroundResource(R.drawable.bggreen)
             subtitlepage!!.text = "La Natura i el color Verd són amics"
         } else if (getThemeku == "purple") {
+            ExperienceData.colorstart= "#E03FA2"
             icontheme!!.setImageResource(R.drawable.fear)
             btncontinue!!.setBackgroundResource(R.drawable.bgpurple)
             subtitlepage!!.text = "Brillant fins i tot a les fosques"
-        } else if (getThemeku == "orange") {
-            icontheme!!.setImageResource(R.drawable.happy)
-            btncontinue!!.setBackgroundResource(R.drawable.bgorange)
-            subtitlepage!!.text = "El taronja és com un groc"
+        } else if (getThemeku == "red") {
+            ExperienceData.colorstart= "#B23B3F"
+            icontheme!!.setImageResource(R.drawable.angry)
+            btncontinue!!.setBackgroundResource(R.drawable.bgred)
+            subtitlepage!!.text = "Inspires calidesa i temperament fort"
         }
     }
 }

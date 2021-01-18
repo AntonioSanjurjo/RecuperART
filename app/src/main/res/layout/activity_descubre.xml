@@ -30,7 +30,7 @@
         android:fontFamily="@font/mm"
         android:text="@string/discover"
         android:textColor="@color/colorSecundary"
-        android:textSize="26sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,7 +10,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.data.Experience
+import com.example.prueba_desconecta.data.ExperienceData
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
+import com.example.prueba_desconecta.viewmodel.ExperienceViewModel
 import kotlinx.android.synthetic.main.activity_final_monsters.*
 import kotlinx.android.synthetic.main.activity_mood_monster.*
 import kotlinx.android.synthetic.main.activity_revisita.*
@@ -23,6 +28,8 @@ class FinalMonsters : AppCompatActivity() {
     var subtitlepage: TextView? = null
     var btncontinue: Button? = null
     var icontheme: ImageView? = null
+
+    private lateinit var experienceViewModel : ExperienceViewModel
 
     @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +46,11 @@ class FinalMonsters : AppCompatActivity() {
         })
         changeOurTheme()
 
+        //Set Experience Data to Database
+        experienceViewModel = ViewModelProvider(this).get(ExperienceViewModel::class.java)
+        var experience = Experience(ExperienceData.nom_museo, ExperienceData.nom_obra, ExperienceData.colorstart, ExperienceData.workcloud, ExperienceData.cancion, ExperienceData.dibujo, ExperienceData.escribe, ExperienceData.revisita, ExperienceData.colorend)
+        experienceViewModel.addExperience(experience)
+
         //Drawer Action Bar code
         toggle = ActionBarDrawerToggle(this, drawer_final_monsters, R.string.open, R.string.close)
         drawer_final_monsters.addDrawerListener(toggle)
@@ -48,8 +60,7 @@ class FinalMonsters : AppCompatActivity() {
         nav_view_final_monsters.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true
@@ -64,20 +75,24 @@ class FinalMonsters : AppCompatActivity() {
     fun changeOurTheme() {
         val sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
         getThemeku = sharedPreferences.getString(themeku, "")
-        if (getThemeku == "blue") {
-            icontheme!!.setImageResource(R.drawable.icmob)
+        if (getThemeku == "yellow") {
+            ExperienceData.colorend= "#FDE34A"
+            icontheme!!.setImageResource(R.drawable.happy)
             btncontinue!!.setBackgroundResource(R.drawable.bgblue)
-            subtitlepage!!.text = "L’aigua és preciosa de color blau"
+            subtitlepage!!.text = "Irradies vibracions positives. La llum està amb tu"
         } else if (getThemeku == "green") {
-            icontheme!!.setImageResource(R.drawable.icmog)
+            ExperienceData.colorend= "#1ABC9C"
+            icontheme!!.setImageResource(R.drawable.sad)
             btncontinue!!.setBackgroundResource(R.drawable.bggreen)
             subtitlepage!!.text = "La Natura i el color Verd són amics"
         } else if (getThemeku == "purple") {
-            icontheme!!.setImageResource(R.drawable.icmop)
+            ExperienceData.colorend= "#E03FA2"
+            icontheme!!.setImageResource(R.drawable.fear)
             btncontinue!!.setBackgroundResource(R.drawable.bgpurple)
             subtitlepage!!.text = "Brillant fins i tot a les fosques"
-        } else if (getThemeku == "orange") {
-            icontheme!!.setImageResource(R.drawable.icmoc)
+        } else if (getThemeku == "red") {
+            ExperienceData.colorend= "#B23B3F"
+            icontheme!!.setImageResource(R.drawable.angry)
             btncontinue!!.setBackgroundResource(R.drawable.bgorange)
             subtitlepage!!.text = "El taronja és com un groc"
         }

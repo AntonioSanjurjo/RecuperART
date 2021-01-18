@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -16,23 +17,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieAnimationView
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.data.ExperienceData
+import com.example.prueba_desconecta.io.Constantes
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
+import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_dibuja.*
 
 
 class Dibuja : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
-    val REQUEST_IMAGE_CAPTURE = 1
+    private val REQUEST_IMAGE_CAPTURE = 1
+    private var dibuja = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dibuja)
-
-        val btn: Button = findViewById(R.id.buttonDibuixa)
-        btn.setOnClickListener{
-            val r = Intent(this, Escribe::class.java)
-            startActivity(r)
-        }
 
         val lottieCam : LottieAnimationView = findViewById(R.id.openCamera)
         cameraAnimation(lottieCam, R.raw.camerai)
@@ -40,6 +40,17 @@ class Dibuja : AppCompatActivity() {
         lottieCam.setOnClickListener{
             dispatchTakePictureIntent()
             lottieCam.loop(false)
+        }
+
+        val btn: Button = findViewById(R.id.buttonDibuixa)
+        btn.setOnClickListener{
+            if(!dibuja) {
+                lottieCam.setImageResource(R.drawable.wcerror)
+                val drawable = lottieCam.drawable as BitmapDrawable
+                ExperienceData.dibujo = drawable.bitmap
+            }
+            val r = Intent(this, Escribe::class.java)
+            startActivity(r)
         }
 
         //Drawer Action Bar code
@@ -51,8 +62,7 @@ class Dibuja : AppCompatActivity() {
         nav_view_draw.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true
@@ -65,30 +75,13 @@ class Dibuja : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        when(requestCode) {
-            100 ->
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(applicationContext, "Permission Granted", Toast.LENGTH_SHORT)
-                        .show();
-
-                    // main logic
-                } else {
-                    Toast.makeText(getApplicationContext(), "Permission Denied", Toast.LENGTH_SHORT)
-                        .show();
-                }
-        }
-    }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            dibuja = true
             val imageBitmap = data?.extras?.get("data") as Bitmap
+            ExperienceData.dibujo = imageBitmap
             val imageView : ImageView = findViewById(R.id.openCamera)
             imageView.setImageBitmap(imageBitmap)
         }

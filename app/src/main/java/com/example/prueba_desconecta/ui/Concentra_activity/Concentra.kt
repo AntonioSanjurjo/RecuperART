@@ -3,6 +3,7 @@ package com.example.prueba_desconecta.ui.Concentra_activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.MenuItem
@@ -13,7 +14,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.data.ExperienceData
 import com.example.prueba_desconecta.ui.Associa_activity.Asocia
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import kotlinx.android.synthetic.main.activity_concentra.*
 import java.io.BufferedInputStream
 import java.net.HttpURLConnection
@@ -59,7 +62,7 @@ class Concentra : AppCompatActivity() {
                         clock.loop(true)
                     } else if (event.action == MotionEvent.ACTION_UP) {
                         clock.loop(false)
-                        var lastDuration = ceil(((System.currentTimeMillis() - lastDown)/ 1000).toDouble()).toInt()
+                        var lastDuration = ceil(((System.currentTimeMillis() - lastDown) / 1000).toDouble()).toInt()
                         if (lastDuration > 10) {
                             lastDuration = 10
                         }
@@ -102,10 +105,13 @@ class Concentra : AppCompatActivity() {
                     }
                     BufferedInputStream(con.inputStream).use { bis ->
                         val bitmap = BitmapFactory.decodeStream(bis)
+                        ExperienceData.workcloud = bitmap
                         imageView.setImageBitmap(bitmap)
                     }
                 } else {
                     imageView.setImageResource(R.drawable.wcerror)
+                    val drawable = imageView.drawable as BitmapDrawable
+                    ExperienceData.workcloud = drawable.bitmap
                 }
             }
 
@@ -124,8 +130,7 @@ class Concentra : AppCompatActivity() {
             nav_view_concentrate.setNavigationItemSelectedListener {
                 when (it.itemId) {
                     R.id.Experience -> {
-                        //(val a = Intent(this, VisitasPasadas::class.java)
-                        //startActivity(a)
+                        startActivity(Intent(this, VisitasPasadas::class.java))
                     }
                 }
                 true

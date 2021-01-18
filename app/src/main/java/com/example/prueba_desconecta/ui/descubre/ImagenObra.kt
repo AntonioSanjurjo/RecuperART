@@ -1,4 +1,4 @@
-package com.example.prueba_desconecta.ui
+package com.example.prueba_desconecta.ui.descubre
 
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -12,15 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.prueba_desconecta.R
 import com.example.prueba_desconecta.io.Constantes
 import com.example.prueba_desconecta.repository.MediaObraRepository
-import com.example.prueba_desconecta.repository.ObrasRepository
-import com.example.prueba_desconecta.ui.ui.elije.Elige
-import com.example.prueba_desconecta.viewmodel.ViewModelFactoryObras
+import com.example.prueba_desconecta.ui.Mood
 import com.example.prueba_desconecta.viewmodel.ViewModelMedIaObraFactory
 import com.example.prueba_desconecta.viewmodel.ViewModelMediaObra
-import com.example.prueba_desconecta.viewmodel.ViewModelObras
 import kotlinx.android.synthetic.main.activity_imagen_obra.*
 import java.net.URL
-import kotlin.properties.Delegates
 
 class ImagenObra : AppCompatActivity() {
 

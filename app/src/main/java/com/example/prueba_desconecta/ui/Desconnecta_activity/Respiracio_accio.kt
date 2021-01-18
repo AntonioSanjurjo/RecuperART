@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
 import com.example.prueba_desconecta.R
 import com.example.prueba_desconecta.ui.Concentra_activity.Concentra
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import kotlinx.android.synthetic.main.activity_respiracio_accio.*
 
 
@@ -41,8 +42,7 @@ class Respiracio_accio : AppCompatActivity() {
         nav_view_breath_action.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true

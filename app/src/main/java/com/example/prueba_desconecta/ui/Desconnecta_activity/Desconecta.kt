@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import kotlinx.android.synthetic.main.activity_desconecta.*
 import com.airbnb.lottie.LottieAnimationView
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 
 class Desconecta : AppCompatActivity() {
 
@@ -32,8 +33,7 @@ class Desconecta : AppCompatActivity() {
         nav_view_disconnect.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true

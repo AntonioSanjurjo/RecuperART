@@ -1,5 +1,6 @@
 package com.example.prueba_desconecta.ui.ui.elije
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -7,6 +8,7 @@ import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import kotlinx.android.synthetic.main.activity_elige.*
 import kotlinx.android.synthetic.main.activity_main.nav_view
 
@@ -31,8 +33,7 @@ class Elige : AppCompatActivity(){
         nav_view.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true

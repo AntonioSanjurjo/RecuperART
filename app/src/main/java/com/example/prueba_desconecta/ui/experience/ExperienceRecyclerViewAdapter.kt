@@ -1,11 +1,13 @@
 package com.example.prueba_desconecta.ui.experience
 
 import android.content.Context
+import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import com.example.prueba_desconecta.R
@@ -24,10 +26,13 @@ class ExperienceRecyclerViewAdapter(private val context: Context) : RecyclerView
         val item = allExperiences[position]
         holder.museo.text = item.nom_museo
         holder.obra.text = item.nom_obra
+        holder.animoinicial.setBackgroundColor(Color.parseColor(item.colorstart))
         holder.cancion.text = item.cancion
         holder.escribe.text = item.escribe
         holder.wordcloud.setImageBitmap(item.workcloud)
         holder.dibuja.setImageBitmap(item.dibujo)
+        holder.revisita.text = item.revisita
+        holder.animofinal.setBackgroundColor(Color.parseColor(item.colorend))
     }
 
     override fun getItemCount(): Int = allExperiences.size
@@ -44,6 +49,8 @@ class ExperienceRecyclerViewAdapter(private val context: Context) : RecyclerView
         val escribe: TextView = view.findViewById(R.id.escribe_e)
         val wordcloud: ImageView = view.findViewById(R.id.wordcloud_e)
         val dibuja: ImageView = view.findViewById(R.id.dibuja_e)
-
+        val revisita : TextView = view.findViewById(R.id.revisita_e)
+        val animoinicial : LinearLayout = view.findViewById(R.id.mood)
+        val animofinal : LinearLayout = view.findViewById(R.id.moodfinal)
     }
 }

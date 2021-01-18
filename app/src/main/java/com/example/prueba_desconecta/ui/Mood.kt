@@ -10,6 +10,7 @@ import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import kotlinx.android.synthetic.main.activity_mood.*
 
 class Mood : AppCompatActivity() {
@@ -21,9 +22,9 @@ class Mood : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mood)
         val btngreen: Button = findViewById(R.id.btngreen)
-        val btnblue : Button = findViewById(R.id.btnblue)
+        val btnyellow : Button = findViewById(R.id.btnyellow)
         val btnpurple : Button = findViewById(R.id.btnpurple)
-        val btnorange : Button = findViewById(R.id.btnorange)
+        val btnred : Button = findViewById(R.id.btnred)
         val holderbg : View = findViewById(R.id.holderbg)
         val dynamicbg : View = findViewById(R.id.dynamicbg)
         // get the id
@@ -53,26 +54,26 @@ class Mood : AppCompatActivity() {
         editor.apply()
 
         // set function of changing theme
-        btnblue.setOnClickListener(View.OnClickListener { // scale animation
-            btnblue.animate().translationY(20f).scaleX(1.5f).scaleY(1.5f).setDuration(350).start()
+        btnyellow.setOnClickListener(View.OnClickListener { // scale animation
+            btnyellow.animate().translationY(20f).scaleX(1.5f).scaleY(1.5f).setDuration(350).start()
 
             // default the scale buttons
             btngreen.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
             btnpurple.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
-            btnorange.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
+            btnred.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
 
             // change the background
-            dynamicbg.setBackgroundResource(R.drawable.bgblue)
+            dynamicbg.setBackgroundResource(R.drawable.bgyellow)
             dynamicbg.animate().scaleX(3f).scaleY(3f).setDuration(800).start()
 
             // change color of button
-            btnsave.setTextColor(Color.parseColor("#3498db"))
+            btnsave.setTextColor(Color.parseColor("#FDE34A"))
 
             // save to local storage
             val themeku = ""
             val sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
             val editor = sharedPreferences.edit()
-            editor.putString(themeku, "blue")
+            editor.putString(themeku, "yellow")
             editor.apply()
 
             // timer for change the holderbg
@@ -80,7 +81,7 @@ class Mood : AppCompatActivity() {
             handler.postDelayed({
                 holderbg.setScaleX(3f)
                 holderbg.setScaleY(3f)
-                holderbg.setBackgroundResource(R.drawable.bgblue)
+                holderbg.setBackgroundResource(R.drawable.bgyellow)
                 dynamicbg.setScaleX(0f)
                 dynamicbg.setScaleY(0f)
             }, 850)
@@ -91,9 +92,9 @@ class Mood : AppCompatActivity() {
             btngreen.animate().scaleX(1.5f).scaleY(1.5f).setDuration(350).start()
 
             // default the scale buttons
-            btnblue.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
+            btnyellow.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
             btnpurple.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
-            btnorange.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
+            btnred.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
 
             // change the background
             dynamicbg.setBackgroundResource(R.drawable.bggreen)
@@ -125,9 +126,9 @@ class Mood : AppCompatActivity() {
             btnpurple.animate().translationY(20f).scaleX(1.5f).scaleY(1.5f).setDuration(350).start()
 
             // default the scale buttons
-            btnblue.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
+            btnyellow.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
             btngreen.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
-            btnorange.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
+            btnred.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
 
             // change the background
             dynamicbg.setBackgroundResource(R.drawable.bgpurple)
@@ -155,26 +156,26 @@ class Mood : AppCompatActivity() {
         })
 
         // set function of changing theme
-        btnorange.setOnClickListener(View.OnClickListener { // scale animation
-            btnorange.animate().translationY(20f).scaleX(1.5f).scaleY(1.5f).setDuration(350).start()
+        btnred.setOnClickListener(View.OnClickListener { // scale animation
+            btnred.animate().translationY(20f).scaleX(1.5f).scaleY(1.5f).setDuration(350).start()
 
             // default the scale buttons
             btngreen.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
-            btnblue.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
+            btnyellow.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
             btnpurple.animate().translationY(0f).scaleX(1f).scaleY(1f).setDuration(350).start()
 
             // change the background
-            dynamicbg.setBackgroundResource(R.drawable.bgorange)
+            dynamicbg.setBackgroundResource(R.drawable.bgred)
             dynamicbg.animate().scaleX(3f).scaleY(3f).setDuration(800).start()
 
             // change color of button
-            btnsave.setTextColor(Color.parseColor("#FF8D7E"))
+            btnsave.setTextColor(Color.parseColor("#B23B3F"))
 
             // save to local storage
             val themeku = ""
             val sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
             val editor = sharedPreferences.edit()
-            editor.putString(themeku, "orange")
+            editor.putString(themeku, "red")
             editor.apply()
 
             // timer for change the holderbg
@@ -182,7 +183,7 @@ class Mood : AppCompatActivity() {
             handler.postDelayed({
                 holderbg.setScaleX(3f)
                 holderbg.setScaleY(3f)
-                holderbg.setBackgroundResource(R.drawable.bgorange)
+                holderbg.setBackgroundResource(R.drawable.bgred)
                 dynamicbg.setScaleX(0f)
                 dynamicbg.setScaleY(0f)
             }, 850)
@@ -196,8 +197,7 @@ class Mood : AppCompatActivity() {
         nav_view_mood.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true

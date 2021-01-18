@@ -22,7 +22,7 @@
         android:fontFamily="@font/mm"
         android:text="@string/associate"
         android:textColor="@color/colorSecundary"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,6 @@
         android:fontFamily="@font/ml"
         android:text="@string/instruction_assosiates"
         android:textAlignment="center"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/associates" />

@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.data.ExperienceData
 import com.example.prueba_desconecta.ui.Avalua_activity.FinalMood
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import kotlinx.android.synthetic.main.activity_revisita.*
 
 class Revisita : AppCompatActivity() {
@@ -18,14 +21,12 @@ class Revisita : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_revisita)
 
+        val revisita : EditText = findViewById(R.id.revisit_user)
         val btn: Button = findViewById(R.id.buttonEnd)
         btn.setOnClickListener{
+            ExperienceData.revisita = revisita.text.toString()
             val r = Intent(this, FinalMood::class.java)
-            //val r = Intent(this, Avalua::class.java)
             startActivity(r)
-            //Toast.makeText(this,"Heu acabat",Toast.LENGTH_SHORT).show()
-            //this.finish()
-            //exitProcess(0)
         }
         //Drawer Action Bar code
         toggle = ActionBarDrawerToggle(this, drawer_revisit, R.string.open, R.string.close)
@@ -36,8 +37,7 @@ class Revisita : AppCompatActivity() {
         nav_view_revisit.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true

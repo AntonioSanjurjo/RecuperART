@@ -10,9 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.prueba_desconecta.R
+import com.example.prueba_desconecta.data.ExperienceData
 import com.example.prueba_desconecta.io.Constantes
 import com.example.prueba_desconecta.repository.MuseuContentDBRepository
 import com.example.prueba_desconecta.ui.Desconnecta_activity.Desconecta
+import com.example.prueba_desconecta.ui.Mood
+import com.example.prueba_desconecta.ui.experience.VisitasPasadas
 import com.example.prueba_desconecta.viewmodel.ViewModelFactory
 import com.example.prueba_desconecta.viewmodel.ViewModelPrueba
 import kotlinx.android.synthetic.main.activity_descubre.*
@@ -31,18 +34,19 @@ class Descubre : AppCompatActivity() {
         val viewModelFactory = ViewModelFactory(repository)
         viewModel= ViewModelProvider(this, viewModelFactory).get(ViewModelPrueba:: class.java)
 
-        viewModel.getMuseuContentById(Constantes.PRUEBA_ID)
+        viewModel.getMuseuContentById(Constantes.ID.toInt())
         viewModel.myResponse.observe(this, Observer { response ->
             if (response.isSuccessful) {
                 val museo_nom: TextView = findViewById(R.id.museo_descubreix)
                 museo_nom.setText(response.body()?.ans?.nom.toString())
+                ExperienceData.nom_museo = response.body()?.ans?.nom.toString()
             }else{
                 Log.d("Response", response.errorBody().toString())
             }
         })
 
         if(Constantes.ID == "0"){
-            val a = Intent(this, Desconecta::class.java)
+            val a = Intent(this, Mood::class.java)
             startActivity(a)
         }
 
@@ -55,8 +59,7 @@ class Descubre : AppCompatActivity() {
         nav_view.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.Experience -> {
-                    //(val a = Intent(this, VisitasPasadas::class.java)
-                    //startActivity(a)
+                    startActivity(Intent(this, VisitasPasadas::class.java))
                 }
             }
             true

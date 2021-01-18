@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ImagenObra">
+    tools:context=".ui.descubre.ImagenObra">
 
     <Button
         android:id="@+id/botonimagen"
@@ -25,27 +25,27 @@
         android:id="@+id/obraElegida"
         android:layout_width="307dp"
         android:layout_height="435dp"
+        android:layout_marginTop="101dp"
         android:layout_marginBottom="52dp"
         app:layout_constraintBottom_toTopOf="@+id/botonimagen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/texto"
         app:srcCompat="?attr/selectableItemBackground" />
 
     <TextView
         android:id="@+id/texto"
-        android:layout_width="181dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="68dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center"
+        android:fontFamily="@font/mm"
+        android:textColor="@color/colorSecundary"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/obraElegida"
+        android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629"
-        tools:textColor="@color/colorPrimaryDark" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
