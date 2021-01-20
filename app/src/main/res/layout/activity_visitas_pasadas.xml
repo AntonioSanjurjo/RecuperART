@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment2"
-        android:name="com.example.prueba_desconecta.ui.experience.ExperienceFragment"
+        android:name="com.example.recuperart.ui.experience.ExperienceFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="188dp"
