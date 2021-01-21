@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/mm"
-            android:gravity="center"
+            android:textAlignment="center"
             android:text="@string/squareBreathe"
             android:textColor="@color/colorSecundary"
             android:textSize="24sp"

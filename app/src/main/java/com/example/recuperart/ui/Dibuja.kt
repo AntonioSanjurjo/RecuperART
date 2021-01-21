@@ -1,8 +1,12 @@
 package com.example.recuperart.ui
 
+import android.Manifest
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.MenuItem
@@ -10,11 +14,14 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieAnimationView
 import com.example.recuperart.R
 import com.example.recuperart.data.ExperienceData
 import com.example.recuperart.ui.experience.VisitasPasadas
 import kotlinx.android.synthetic.main.activity_dibuja.*
+import java.security.AccessController.getContext
 
 
 class Dibuja : AppCompatActivity() {
@@ -22,17 +29,17 @@ class Dibuja : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     private val REQUEST_IMAGE_CAPTURE = 1
     private var dibuja = false
+    private val TAKE_PHOTO = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dibuja)
 
         val lottieCam : LottieAnimationView = findViewById(R.id.openCamera)
-        cameraAnimation(lottieCam, R.raw.camerai)
+        cameraAnimation(lottieCam)
         lottieCam.loop(true)
         lottieCam.setOnClickListener{
             dispatchTakePictureIntent()
-            lottieCam.loop(false)
         }
 
         val btn: Button = findViewById(R.id.buttonDibuixa)
@@ -83,14 +90,23 @@ class Dibuja : AppCompatActivity() {
     private fun dispatchTakePictureIntent() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                // check for camera permission
+                val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                } else {
+                    ActivityCompat.requestPermissions(
+                        (this)!!, arrayOf(Manifest.permission.CAMERA),
+                        TAKE_PHOTO
+                    )
+                }
             }
         }
     }
 
 
-    private fun cameraAnimation(imageView: LottieAnimationView, animation: Int) : Boolean {
-        imageView.setAnimation(animation)
+    private fun cameraAnimation(imageView: LottieAnimationView) : Boolean {
+        imageView.setAnimation(R.raw.camerai)
         imageView.playAnimation()
         return true
     }

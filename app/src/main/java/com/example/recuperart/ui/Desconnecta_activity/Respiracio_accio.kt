@@ -20,11 +20,11 @@ class Respiracio_accio : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_respiracio_accio)
-        var respira: LottieAnimationView = findViewById(R.id.respiracioImageView)
+        val respira: LottieAnimationView = findViewById(R.id.respiracioImageView)
         respira.frame
         respira.pauseAnimation()
         respira.setOnClickListener {
-            respiraAnimation(respira, R.raw.breathi)
+            respiraAnimation(respira)
         }
 
         val btn: Button = findViewById(R.id.buttonRespiracioAccio)
@@ -33,6 +33,7 @@ class Respiracio_accio : AppCompatActivity() {
             val r = Intent(this, Concentra::class.java)
             startActivity(r)
         }
+
         //Drawer Action Bar code
         toggle = ActionBarDrawerToggle(this, drawer_breath_action, R.string.open, R.string.close)
         drawer_breath_action.addDrawerListener(toggle)
@@ -54,8 +55,8 @@ class Respiracio_accio : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun respiraAnimation(imageView: LottieAnimationView, animation: Int) : Boolean {
-        imageView.setAnimation(animation)
+    private fun respiraAnimation(imageView: LottieAnimationView) : Boolean {
+        imageView.setAnimation(R.raw.breathi)
         imageView.playAnimation()
         return true
     }

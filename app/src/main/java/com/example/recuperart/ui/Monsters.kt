@@ -18,26 +18,24 @@ import kotlinx.android.synthetic.main.activity_mood_monster.*
 class Monsters : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
-    var getThemeku: String? = null
-    var themeku = ""
+    private var getThemeku: String? = null
+    private var themeku = ""
     var SHARED_PREFS = "codeTheme"
-    var subtitlepage: TextView? = null
-    var btncontinue: Button? = null
-    var icontheme: ImageView? = null
+    private var subtitlepage: TextView? = null
+    private var icontheme: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mood_monster)
         subtitlepage = findViewById(R.id.subtitlepage)
-        btncontinue = findViewById(R.id.btncontinue)
         val btn : Button = findViewById(R.id.btncontinue)
         icontheme = findViewById(R.id.icontheme)
 
         // give an event to next activity
-        btn.setOnClickListener(View.OnClickListener {
+        btn.setOnClickListener {
             val a = Intent(this@Monsters, Desconecta::class.java)
             startActivity(a)
-        })
+        }
         changeOurTheme()
         //Drawer Action Bar code
         toggle = ActionBarDrawerToggle(this, drawer_monsters, R.string.open, R.string.close)
@@ -60,29 +58,34 @@ class Monsters : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun changeOurTheme() {
+    private fun changeOurTheme() {
         val sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
         getThemeku = sharedPreferences.getString(themeku, "")
-        if (getThemeku == "yellow") {
-            ExperienceData.colorstart= "#FDE34A"
-            icontheme!!.setImageResource(R.drawable.happy)
-            btncontinue!!.setBackgroundResource(R.drawable.bgyellow)
-            subtitlepage!!.text = "Irradies vibracions positives. La llum està amb tu"
-        } else if (getThemeku == "green") {
-            ExperienceData.colorstart= "#1ABC9C"
-            icontheme!!.setImageResource(R.drawable.sad)
-            btncontinue!!.setBackgroundResource(R.drawable.bggreen)
-            subtitlepage!!.text = "La Natura i el color Verd són amics"
-        } else if (getThemeku == "purple") {
-            ExperienceData.colorstart= "#E03FA2"
-            icontheme!!.setImageResource(R.drawable.fear)
-            btncontinue!!.setBackgroundResource(R.drawable.bgpurple)
-            subtitlepage!!.text = "Brillant fins i tot a les fosques"
-        } else if (getThemeku == "red") {
-            ExperienceData.colorstart= "#B23B3F"
-            icontheme!!.setImageResource(R.drawable.angry)
-            btncontinue!!.setBackgroundResource(R.drawable.bgred)
-            subtitlepage!!.text = "Inspires calidesa i temperament fort"
+        when (getThemeku) {
+            "yellow" -> {
+                ExperienceData.colorstart= "#FDE34A"
+                icontheme!!.setImageResource(R.drawable.happy)
+                btncontinue!!.setBackgroundResource(R.drawable.bgyellow)
+                subtitlepage!!.text = "Irradies vibracions positives. La llum està amb tu"
+            }
+            "green" -> {
+                ExperienceData.colorstart= "#1ABC9C"
+                icontheme!!.setImageResource(R.drawable.sad)
+                btncontinue!!.setBackgroundResource(R.drawable.bggreen)
+                subtitlepage!!.text = "La Natura i el color Verd són amics"
+            }
+            "purple" -> {
+                ExperienceData.colorstart= "#E03FA2"
+                icontheme!!.setImageResource(R.drawable.fear)
+                btncontinue!!.setBackgroundResource(R.drawable.bgpurple)
+                subtitlepage!!.text = "Brillant fins i tot a les fosques"
+            }
+            "red" -> {
+                ExperienceData.colorstart= "#B23B3F"
+                icontheme!!.setImageResource(R.drawable.angry)
+                btncontinue!!.setBackgroundResource(R.drawable.bgred)
+                subtitlepage!!.text = "Inspires calidesa i temperament fort"
+            }
         }
     }
 }

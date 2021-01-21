@@ -34,10 +34,10 @@ class Descubre : AppCompatActivity() {
         viewModel= ViewModelProvider(this, viewModelFactory).get(ViewModelPrueba:: class.java)
 
         viewModel.getMuseuContentById(Constantes.ID.toInt())
-        viewModel.myResponse.observe(this, Observer { response ->
+        viewModel.myResponse.observe(this, { response ->
             if (response.isSuccessful) {
                 val museo_nom: TextView = findViewById(R.id.museo_descubreix)
-                museo_nom.setText(response.body()?.ans?.nom.toString())
+                museo_nom.text = response.body()?.ans?.nom.toString()
                 ExperienceData.nom_museo = response.body()?.ans?.nom.toString()
             }else{
                 Log.d("Response", response.errorBody().toString())

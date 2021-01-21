@@ -22,12 +22,12 @@ import kotlinx.android.synthetic.main.activity_revisita.*
 
 class FinalMonsters : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
-    var getThemeku: String? = null
-    var themeku = ""
+    private var getThemeku: String? = null
+    private var themeku = ""
     var SHARED_PREFS = "codeTheme"
-    var subtitlepage: TextView? = null
-    var btncontinue: Button? = null
-    var icontheme: ImageView? = null
+    private var subtitlepage: TextView? = null
+    private var btncontinue: Button? = null
+    private var icontheme: ImageView? = null
 
     private lateinit var experienceViewModel : ExperienceViewModel
 
@@ -40,15 +40,15 @@ class FinalMonsters : AppCompatActivity() {
         btncontinue = findViewById(R.id.btncontinue)
 
         // give an event to next activity
-        btncontinue?.setOnClickListener(View.OnClickListener {
+        btncontinue?.setOnClickListener {
             val a = Intent(this@FinalMonsters, Avalua::class.java)
             startActivity(a)
-        })
+        }
         changeOurTheme()
 
         //Set Experience Data to Database
         experienceViewModel = ViewModelProvider(this).get(ExperienceViewModel::class.java)
-        var experience = Experience(ExperienceData.nom_museo, ExperienceData.nom_obra, ExperienceData.colorstart, ExperienceData.workcloud, ExperienceData.cancion, ExperienceData.dibujo, ExperienceData.escribe, ExperienceData.revisita, ExperienceData.colorend)
+        val experience = Experience(ExperienceData.nom_museo, ExperienceData.nom_obra, ExperienceData.colorstart, ExperienceData.workcloud, ExperienceData.cancion, ExperienceData.dibujo, ExperienceData.escribe, ExperienceData.revisita, ExperienceData.colorend)
         experienceViewModel.addExperience(experience)
 
         //Drawer Action Bar code
@@ -75,26 +75,31 @@ class FinalMonsters : AppCompatActivity() {
     fun changeOurTheme() {
         val sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
         getThemeku = sharedPreferences.getString(themeku, "")
-        if (getThemeku == "yellow") {
-            ExperienceData.colorend= "#FDE34A"
-            icontheme!!.setImageResource(R.drawable.happy)
-            btncontinue!!.setBackgroundResource(R.drawable.bgblue)
-            subtitlepage!!.text = "Irradies vibracions positives. La llum està amb tu"
-        } else if (getThemeku == "green") {
-            ExperienceData.colorend= "#1ABC9C"
-            icontheme!!.setImageResource(R.drawable.sad)
-            btncontinue!!.setBackgroundResource(R.drawable.bggreen)
-            subtitlepage!!.text = "La Natura i el color Verd són amics"
-        } else if (getThemeku == "purple") {
-            ExperienceData.colorend= "#E03FA2"
-            icontheme!!.setImageResource(R.drawable.fear)
-            btncontinue!!.setBackgroundResource(R.drawable.bgpurple)
-            subtitlepage!!.text = "Brillant fins i tot a les fosques"
-        } else if (getThemeku == "red") {
-            ExperienceData.colorend= "#B23B3F"
-            icontheme!!.setImageResource(R.drawable.angry)
-            btncontinue!!.setBackgroundResource(R.drawable.bgorange)
-            subtitlepage!!.text = "El taronja és com un groc"
+        when (getThemeku) {
+            "yellow" -> {
+                ExperienceData.colorend= "#FDE34A"
+                icontheme!!.setImageResource(R.drawable.happy)
+                btncontinue!!.setBackgroundResource(R.drawable.bgblue)
+                subtitlepage!!.text = "Irradies vibracions positives. La llum està amb tu"
+            }
+            "green" -> {
+                ExperienceData.colorend= "#1ABC9C"
+                icontheme!!.setImageResource(R.drawable.sad)
+                btncontinue!!.setBackgroundResource(R.drawable.bggreen)
+                subtitlepage!!.text = "La Natura i el color Verd són amics"
+            }
+            "purple" -> {
+                ExperienceData.colorend= "#E03FA2"
+                icontheme!!.setImageResource(R.drawable.fear)
+                btncontinue!!.setBackgroundResource(R.drawable.bgpurple)
+                subtitlepage!!.text = "Brillant fins i tot a les fosques"
+            }
+            "red" -> {
+                ExperienceData.colorend= "#B23B3F"
+                icontheme!!.setImageResource(R.drawable.angry)
+                btncontinue!!.setBackgroundResource(R.drawable.bgorange)
+                subtitlepage!!.text = "El taronja és com un groc"
+            }
         }
     }
 }

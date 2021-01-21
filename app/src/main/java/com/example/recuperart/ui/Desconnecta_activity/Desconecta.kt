@@ -23,6 +23,7 @@ class Desconecta : AppCompatActivity() {
             val r = Intent(this, Respiracio::class.java)
             startActivity(r)
         }
+
         //Drawer Action Bar code
         toggle = ActionBarDrawerToggle(this, drawer_disconnect, R.string.open, R.string.close)
         drawer_disconnect.addDrawerListener(toggle)

@@ -11,6 +11,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import com.airbnb.lottie.LottieAnimationView
 import com.example.recuperart.R
 import com.example.recuperart.common.MyApp
 import com.example.recuperart.data.ExperienceData
@@ -22,7 +23,6 @@ import kotlinx.android.synthetic.main.activity_asocia.*
 class Asocia : AppCompatActivity(), View.OnClickListener {
 
     //Local variables used in functions
-    //private var musicPlayer : ArrayList<MediaPlayer> = ArrayList(12)
     lateinit var toggle: ActionBarDrawerToggle
     private var musicplayer : MediaPlayer? = null
 
@@ -30,25 +30,29 @@ class Asocia : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_asocia)
 
-        Toast.makeText(MyApp.instance,
-            "Fes servir cascos per no interrompre a altres persones", Toast.LENGTH_LONG ).show()
-
         //Evitar solapamiento
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 
-        //Visible --> Gone
+        //Initial message (headphones)
+        val headphones : LottieAnimationView = findViewById(R.id.headphones_animation)
+        headphones.setAnimation(R.raw.headphones)
+        headphones.playAnimation()
+        headphones.loop(true)
+        val hpmessage: TextView = findViewById(R.id.headphones_remember)
+        val start : Button = findViewById(R.id.initial_button)
+
+        // Visible --> Gone
         val assDescrip : TextView = findViewById(R.id.associates_description)
         val listView: ListView = findViewById(R.id.associates_list)
         val song: EditText = findViewById(R.id.associates_song)
         val btnBSS : Button = findViewById(R.id.buttonSeguent)
 
-        //Gone --> Visible
+        // Gone --> Visible
         val musDescrip : TextView = findViewById(R.id.associates_music)
         val musicButtons : ScrollView = findViewById(R.id.buttonList)
         val btnNext: Button = findViewById(R.id.buttonAsocia)
 
         //Music buttons onClickListener
-        //val classic : Button = findViewById(R.id.classical)
         classical.setOnClickListener(this)
         blues.setOnClickListener(this)
         jazz.setOnClickListener(this)
@@ -67,12 +71,21 @@ class Asocia : AppCompatActivity(), View.OnClickListener {
         //Local variables
         val songslist: ArrayList<String> = ArrayList()
         var adaptador: ArrayAdapter<String>
-        var musicdata : String = ""
-        /*val btnPlay: Button = findViewById(R.id.buttonSpotify)
-        btnPlay.setOnClickListener {
-            val r = Intent(this, BackgroundSoundService::class.java)
-            startService(r)
-        }*/
+        var musicdata = ""
+
+        //Change initial visibility
+        start.setOnClickListener {
+            headphones.loop(false)
+            //Visible-->Gone
+            headphones.visibility = View.GONE
+            hpmessage.visibility = View.GONE
+            start.visibility = View.GONE
+            //Gone--> Visible
+            assDescrip.visibility = View.VISIBLE
+            listView.visibility = View.VISIBLE
+            song.visibility = View.VISIBLE
+            btnBSS.visibility = View.VISIBLE
+        }
 
         //Add to list with ENTER/SEND button in Android Keyboard
         song.imeOptions = EditorInfo.IME_ACTION_SEND
@@ -112,8 +125,8 @@ class Asocia : AppCompatActivity(), View.OnClickListener {
             musDescrip.visibility = View.VISIBLE
             musicButtons.visibility = View.VISIBLE
             btnNext.visibility = View.VISIBLE
-
-            ExperienceData.cancion = "Llista de cançons:\n" + musicdata
+            //Add songs array to Data Base
+            ExperienceData.cancion = "Llista de cançons:\n$musicdata"
         }
 
         //Drawer Action Bar code
@@ -153,13 +166,12 @@ class Asocia : AppCompatActivity(), View.OnClickListener {
             R.id.reggae -> musicplayer = MediaPlayer.create(this, R.raw.reggae)
             R.id.flamenco -> musicplayer = MediaPlayer.create(this, R.raw.flamenco)
             R.id.hiphop -> musicplayer = MediaPlayer.create(this, R.raw.hiphop)
-            R.id.buttonAsocia -> { //Change to Dibuja activity
+            //Change to Dibuja activity
+            R.id.buttonAsocia -> {
                 val r = Intent(this, Dibuja::class.java)
                 startActivity(r)
             }
         }
-        Toast.makeText(MyApp.instance,
-            "Fes servir cascos per no interrompre a altres persones", Toast.LENGTH_LONG ).show()
         musicplayer?.setVolume(100F, 100F)
         musicplayer?.start()
     }

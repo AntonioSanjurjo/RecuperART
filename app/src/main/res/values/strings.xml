@@ -7,7 +7,7 @@
     <string name="discover_description">"Passeja pel museu fins que t’hi sentis còmode.  Busca les diferents peces que et proposem i tria’n una.  "</string>
     <string name="chosen">Obra escollida:</string>
     <string name="draw">DIBUIXA</string>
-    <string name="draw_description">Intenta dibuixar l’objecte que tens al davant, no et preocupar per la qualitat final, intenta-ho. Quan acabis, clica sobre la següent animació per fer-li una fotografia</string>
+    <string name="draw_description">Intenta dibuixar l’objecte que tens al davant, no et preocupis per la qualitat final, intenta-ho. Quan acabis, clica sobre la següent animació per fer-li una fotografia</string>
     <string name="write">ESCRIU</string>
     <string name="write_description">Ara que coneixes l’objecte deixa anar la creativitat. Quines històries hi imagines?</string>
     <string name="create">CREA</string>
@@ -55,4 +55,6 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+    <string name="headphones_message">Si disposes d\'auriculars, és el moment d\'utilitzar-los. Sinó, baixa el volum del mòbil per no molestar a la resta d\'usuaris del museo</string>
+    <string name="qr_explain">Escaneja el codi QR del museu fent click a la següent imatge</string>
 </resources>

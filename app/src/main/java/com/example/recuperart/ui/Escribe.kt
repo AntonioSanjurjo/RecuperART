@@ -28,6 +28,7 @@ class Escribe : AppCompatActivity() {
             val r = Intent(this, Crea::class.java)
             startActivity(r)
         }
+
         //Drawer Action Bar code
         toggle = ActionBarDrawerToggle(this, drawer_write, R.string.open, R.string.close)
         drawer_write.addDrawerListener(toggle)

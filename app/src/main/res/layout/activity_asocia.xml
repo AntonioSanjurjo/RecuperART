@@ -14,240 +14,274 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/associates"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/mm"
-        android:text="@string/associate"
-        android:textColor="@color/colorSecundary"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/associates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/mm"
+            android:text="@string/associate"
+            android:textColor="@color/colorSecundary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/associates_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:fontFamily="@font/ml"
-        android:text="@string/instruction_assosiates"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/associates" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/headphones_animation"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/associates" />
 
-    <ListView
-        android:id="@+id/associates_list"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@xml/textview_border"
-        android:fontFamily="@font/mm"
-        android:minHeight="100dp"
-        android:maxHeight="200dp"
-        android:padding="10dp"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/associates_description" />
-
-    <EditText
-        android:id="@+id/associates_song"
-        android:layout_width="372dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:fontFamily="@font/mm"
-        android:hint="@string/textHint"
-        android:imeOptions="actionSend"
-        android:inputType="textCapSentences|textAutoCorrect"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/associates_list" />
-
-    <Button
-        android:id="@+id/buttonSeguent"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/colorSecundary"
-        android:fontFamily="@font/mm"
-        android:text="@string/next"
-        android:textColor="#FFF"
-        android:textSize="24sp"
-        android:background="@drawable/bgwhite"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/associates_music"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:fontFamily="@font/ml"
-        android:text="@string/instruction_assosiates_music"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/associates" />
-
-    <ScrollView
-        android:id="@+id/buttonList"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:visibility="gone"
-        android:padding="10dp"
-        android:background="@xml/textview_border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/associates_music">
-
-        <LinearLayout
-            android:id="@+id/buttonListLayout"
+        <TextView
+            android:id="@+id/headphones_remember"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/classical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Clàssica"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/blues"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Blues"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/jazz"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jazz"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/rock"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Rock"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/soul"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Soul"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/metal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Metal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/pop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/disco"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Disco"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/ska"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ska"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/reggae"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Reggae"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/flamenco"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Flamenco"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/hiphop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hiphop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <Button
-        android:id="@+id/buttonAsocia"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/bgwhite"
-        android:backgroundTint="@color/colorSecundary"
-        android:fontFamily="@font/mm"
-        android:text="@string/next"
-        android:textColor="#FFF"
-        android:textSize="24sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="61dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/ml"
+            android:text="@string/headphones_message"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/headphones_icon" />
+            app:layout_constraintTop_toBottomOf="@+id/headphones_animation" />
+
+        <Button
+            android:id="@+id/initial_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="@color/colorSecundary"
+            android:fontFamily="@font/mm"
+            android:text="@string/next"
+            android:textColor="#FFF"
+            android:textSize="24sp"
+            android:background="@drawable/bgwhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/associates_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/ml"
+            android:text="@string/instruction_assosiates"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/associates" />
+
+        <ListView
+            android:id="@+id/associates_list"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@xml/textview_border"
+            android:fontFamily="@font/mm"
+            android:minHeight="100dp"
+            android:maxHeight="200dp"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/associates_description" />
+
+        <EditText
+            android:id="@+id/associates_song"
+            android:layout_width="372dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/mm"
+            android:hint="@string/textHint"
+            android:imeOptions="actionSend"
+            android:visibility="gone"
+            android:inputType="textCapSentences|textAutoCorrect"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/associates_list" />
+
+        <Button
+            android:id="@+id/buttonSeguent"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="@color/colorSecundary"
+            android:fontFamily="@font/mm"
+            android:text="@string/next"
+            android:textColor="#FFF"
+            android:textSize="24sp"
+            android:visibility="gone"
+            android:background="@drawable/bgwhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/associates_music"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/ml"
+            android:text="@string/instruction_assosiates_music"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/associates" />
+
+        <ScrollView
+            android:id="@+id/buttonList"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:visibility="gone"
+            android:padding="10dp"
+            android:background="@xml/textview_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/associates_music">
+
+            <LinearLayout
+                android:id="@+id/buttonListLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/classical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Clàssica"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/blues"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Blues"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/jazz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jazz"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/rock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rock"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/soul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Soul"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/metal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Metal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/pop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/disco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Disco"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/ska"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ska"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/reggae"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reggae"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/flamenco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Flamenco"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/hiphop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hiphop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/buttonAsocia"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/bgwhite"
+            android:backgroundTint="@color/colorSecundary"
+            android:fontFamily="@font/mm"
+            android:text="@string/next"
+            android:textColor="#FFF"
+            android:textSize="24sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
