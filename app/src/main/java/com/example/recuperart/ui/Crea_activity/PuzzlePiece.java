@@ -5,8 +5,6 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 
 public class PuzzlePiece extends AppCompatImageView {
-    //android.support.v7.widget.AppCompatImageView
-    //androidx.appcompat.widget.AppCompatImageView
     public int xCoord;
     public int yCoord;
     public int pieceWidth;

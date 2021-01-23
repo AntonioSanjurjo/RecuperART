@@ -21,6 +21,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.recuperart.R;
+import com.example.recuperart.io.Constantes;
 import com.example.recuperart.ui.Revisita;
 
 import java.io.IOException;
@@ -52,6 +53,14 @@ public class Puzzle extends AppCompatActivity {
             public void run() {
                 if (assetName != null) {
                     setPicFromAsset(assetName, imageView);
+                } else if (Constantes.IMAGEN_OBRA.getWidth() < Constantes.IMAGEN_OBRA.getHeight()) {
+                    imageView.setImageBitmap(Constantes.IMAGEN_OBRA);
+                } else {
+                    Matrix matrix = new Matrix();
+                    matrix.postRotate(90);
+                    Bitmap scaledBitmap = Bitmap.createScaledBitmap(Constantes.IMAGEN_OBRA, Constantes.IMAGEN_OBRA.getWidth(), Constantes.IMAGEN_OBRA.getHeight(), true);
+                    Bitmap rotatedBitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(), scaledBitmap.getHeight(), matrix, true);
+                    imageView.setImageBitmap(rotatedBitmap);
                 }
                 pieces = splitImage();
                 TouchListener touchListener = new TouchListener(Puzzle.this);

@@ -1,5 +1,6 @@
 package com.example.recuperart.ui.Crea_activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -13,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.example.recuperart.R;
+import com.example.recuperart.io.Constantes;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,11 +56,14 @@ public class ImageAdapter extends BaseAdapter {
         final ImageView imageView = convertView.findViewById(R.id.gridImageview);
         imageView.setImageBitmap(null);
         // run image related code after the view was laid out
+
         imageView.post(new Runnable() {
+            @SuppressLint("StaticFieldLeak")
             @Override
             public void run() {
                 new AsyncTask<Void, Void, Void>() {
                     private Bitmap bitmap;
+                    @SuppressLint("StaticFieldLeak")
                     @Override
                     protected Void doInBackground(Void... voids) {
                         bitmap = getPicFromAsset(imageView, files[position]);
@@ -68,12 +73,12 @@ public class ImageAdapter extends BaseAdapter {
                     @Override
                     protected void onPostExecute(Void aVoid) {
                         super.onPostExecute(aVoid);
-                        imageView.setImageBitmap(bitmap);
+                            imageView.setImageBitmap(bitmap);
+
                     }
                 }.execute();
             }
         });
-
         return convertView;
     }
 
@@ -98,7 +103,6 @@ public class ImageAdapter extends BaseAdapter {
 
             // Determine how much to scale down the image
             int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
-
             is.reset();
 
             // Decode the image file into a Bitmap sized to fill the View
@@ -109,7 +113,6 @@ public class ImageAdapter extends BaseAdapter {
             return BitmapFactory.decodeStream(is, new Rect(-1, -1, -1, -1), bmOptions);
         } catch (IOException e) {
             e.printStackTrace();
-
             return null;
         }
     }

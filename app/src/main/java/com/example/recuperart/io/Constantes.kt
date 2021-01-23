@@ -1,5 +1,8 @@
 package com.example.recuperart.io
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+
 class Constantes {
 
     companion object {
@@ -8,5 +11,6 @@ class Constantes {
         var ID_OBRA = "1"
         var IMAGE_URL =""
         var NUM_MUSEO = 0
+        lateinit var IMAGEN_OBRA : Bitmap
     }
 }

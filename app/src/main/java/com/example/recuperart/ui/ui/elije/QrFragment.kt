@@ -38,7 +38,7 @@ class  QrFragment : Fragment() {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) if (result.contents != null) {
             val a: Int? = try { result.contents.toInt() } catch (e: NumberFormatException) { null }
-            if(a != null && (a >= Constantes.NUM_MUSEO)) {
+            if(a != null && a >= 0 && a <= Constantes.NUM_MUSEO) {
                 Constantes.ID = result.contents
                 val r = Intent(activity, Descubre::class.java)
                 startActivity(r)

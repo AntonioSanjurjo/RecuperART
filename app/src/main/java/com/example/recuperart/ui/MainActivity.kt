@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.recuperart.R
 import com.example.recuperart.ui.experience.VisitasPasadas
 import com.example.recuperart.ui.ui.elije.Elige
